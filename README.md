@@ -5,6 +5,11 @@ Personal collection of SlackBuild scripts by danix, following
 
 Primarily targeting **Slackware64-current**.
 
+This repository serves two purposes:
+
+- **New packages** — SlackBuilds for programs not yet available on SBo
+- **Updated packages** — SlackBuilds for programs already on SBo but whose official build lags behind the latest upstream release
+
 ---
 
 ## Repository Structure
