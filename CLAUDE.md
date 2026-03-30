@@ -20,6 +20,12 @@ Each package lives in its own top-level directory named after the package:
 
 No category subdirectories — all packages are at the repo root.
 
+Version tracking is handled by a single repo-level file:
+
+```
+nvchecker.toml   # nvchecker config listing all packages
+```
+
 ---
 
 ## SlackBuild Scripting Guidelines
@@ -48,6 +54,31 @@ PRGNAM, VERSION, HOMEPAGE, DOWNLOAD, MD5SUM (or SHA256SUM), REQUIRES, MAINTAINER
 - First line: `package-name: package-name (short one-liner)`
 - Lines 2–11: description, leave blank lines as `package-name:`
 - Handy ruler line must be included (but not shipped)
+
+---
+
+## Version Tracking: nvchecker
+
+A single `nvchecker.toml` at the repo root tracks upstream versions for all packages. Each package defines its own source type (GitHub releases, PyPI, etc.).
+
+Example entry for a GitHub-hosted package:
+
+```toml
+[package-name]
+source = "github"
+github = "owner/repo"
+use_max_tag = true
+```
+
+To check for new upstream versions:
+
+```bash
+nvchecker -c nvchecker.toml
+```
+
+When a new version is detected, update `VERSION` in both `.SlackBuild` and `.info`, then run `sbofixinfo` to refresh checksums.
+
+**Every new package added to this repo must have a corresponding entry in `nvchecker.toml`.**
 
 ---
 
@@ -97,8 +128,10 @@ cd <package-name> && sudo bash <package-name>.SlackBuild
 # 5. Lint the built package
 sbopkglint /tmp/<package-name>-*.t?z
 
-# 6. Commit (pre-commit hook runs sbolint automatically)
-git add <package-name>/
+# 6. Add an entry for the package in the repo-level nvchecker.toml
+
+# 7. Commit (pre-commit hook runs sbolint automatically)
+git add <package-name>/ nvchecker.toml
 git commit -m'<package-name>: add version X.Y.Z'
 ```
 
