@@ -98,14 +98,20 @@ Source: https://slackware.uk/~urchlay/repos/sbo-maintainer-tools
 
 ### Git hook setup
 
-Install the pre-commit hook into this repo:
+Both hooks are tracked in the `hooks/` directory. Install them after cloning:
 
 ```bash
-cp /usr/doc/sbo-maintainer-tools-0.9.3/pre-commit-sbolint .git/hooks/pre-commit
-chmod +x .git/hooks/pre-commit
+cp hooks/pre-commit .git/hooks/pre-commit
+cp hooks/post-commit .git/hooks/post-commit
+chmod +x .git/hooks/pre-commit .git/hooks/post-commit
 ```
 
-To bypass it in exceptional cases:
+| Hook | Trigger | Purpose |
+|------|---------|---------|
+| `pre-commit` | Before every commit | Runs `sbolint` on staged packages; blocks commit on errors |
+| `post-commit` | After every commit | Offers to create a `SBo/<pkg>.tar.gz` archive for submission |
+
+To bypass the pre-commit lint check in exceptional cases:
 ```bash
 SBOLINT=no git commit -m'Message here'
 ```

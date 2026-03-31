@@ -1,0 +1,51 @@
+#!/bin/bash
+# post-commit hook: create SBo submission archive for added/updated packages
+set -u
+
+REPO_ROOT=$(git rev-parse --show-toplevel)
+SBO_DIR="$REPO_ROOT/SBo"
+
+# Find packages whose .SlackBuild was added (A) or modified (M) in this commit.
+# git diff-tree output format: <status>\t<file>
+# We only want files exactly one directory deep, e.g. hugo/hugo.SlackBuild.
+PACKAGES=()
+while IFS=$'\t' read -r status file; do
+    [[ "$status" != "A" && "$status" != "M" ]] && continue
+    dir=$(dirname "$file")
+    base=$(basename "$file")
+    [[ "$dir" == "." ]] && continue       # skip root-level files
+    [[ "$dir" == *"/"* ]] && continue     # skip files deeper than one level
+    [[ "$base" == *.SlackBuild ]] || continue
+    PACKAGES+=("$dir")
+done < <(git diff-tree --no-commit-id -r --name-status HEAD)
+
+[[ ${#PACKAGES[@]} -eq 0 ]] && exit 0
+
+for pkg in "${PACKAGES[@]}"; do
+    echo ""
+    echo "==> Package: $pkg"
+    echo ""
+    echo "Files to be archived:"
+    echo "---------------------"
+    while IFS= read -r f; do
+        printf '%s\n' "${f#"$REPO_ROOT/"}"
+    done < <(find "$REPO_ROOT/$pkg" -type f | sort)
+    echo ""
+    printf "Create SBo archive for '%s'? [y/N] " "$pkg"
+    read -r answer </dev/tty
+    case "$answer" in
+        [yY]|[yY][eE][sS])
+            mkdir -p "$SBO_DIR"
+            if tar -czf "$SBO_DIR/$pkg.tar.gz" -C "$REPO_ROOT" "$pkg"; then
+                echo "  -> Archive created: SBo/$pkg.tar.gz"
+            else
+                echo "  -> Archive FAILED." >&2
+            fi
+            ;;
+        *)
+            echo "  -> Skipped."
+            ;;
+    esac
+done
+
+exit 0

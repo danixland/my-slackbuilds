@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# 20220315 bkw: SBo pre-commit hook, wrapper for sbolint.
+
+# Installation:
+
+# Copy this to <gitdir>/.git/hooks, mode 0755 (or anyway, make it
+# executable). Also get sbolint and install it somewhere on $PATH,
+# like /usr/local/bin. sbolint comes from:
+
+# https://slackware.uk/~urchlay/repos/sbostuff/plain/sbolint
+
+# That's a wgettable URL. You can also clone the sbostuff
+# repo from https://slackware.uk/~urchlay/repos/sbostuff if you want.
+
+# Usage:
+
+# Just do your usual "git commit". When you do, sbolint will run on
+# the build you're updating. If it finds any issues, it will cause the
+# commit to abort, so you can fix whatever's wrong and try the commit
+# again.
+
+# Since sbolint isn't perfect, you can skip the check for any commit
+# by running e.g:
+
+#  SBOLINT=no git commit <arguments>
+
+# You can also run sbolint by itself, and read its documentation with
+# "sbolint --docs".
+
+set -e
+exec 1>&2
+
+# There should normally only be one changed build per commit, but this
+# rule may get broken when the repo's frozen pending a new Slackware
+# release. So use a loop.
+
+# The weird-looking "< <(command)" syntax is why this script must
+# have a #!/bin/bash at the top: it won't work with #!/bin/sh, even if
+# /bin/sh is a symlink to bash.
+
+if [ "${SBOLINT:-yes}" = "yes" ]; then
+	sbolintfailed=""
+	if ! which sbolint &>/dev/null; then
+		echo "WARNING: can't find sbolint in PATH, no linting will be done"
+	else
+		while read build; do
+			# if there's no slack-desc or README, assume the build has been removed.
+			# the directory still might exist after a "git rm -rf" because it
+			# might contain untracked files (e.g. the source tarball).
+			if [ -e "$build/slack-desc" -o -e "$build/README" ]; then
+				sbolint "$build" || sbolintfailed=1
+			fi
+		done < <(git diff --cached --name-only | cut -d/ -f1,2 | sort -u)
+	fi
+	if [ -n "$sbolintfailed" ]; then
+		echo "*** sbolint failed, fix the errors or set SBOLINT=no"
+		echo "*** in the environment to commit anyway."
+		exit 1
+	fi
+fi
+
+exit 0

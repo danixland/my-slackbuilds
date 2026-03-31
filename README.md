@@ -57,6 +57,23 @@ Check each package's `README` for dependencies and any special build instruction
 
 ---
 
+## Git Hooks
+
+Two hooks are included in `hooks/`. Install them after cloning:
+
+```bash
+cp hooks/pre-commit .git/hooks/pre-commit
+cp hooks/post-commit .git/hooks/post-commit
+chmod +x .git/hooks/pre-commit .git/hooks/post-commit
+```
+
+| Hook | Purpose |
+|------|---------|
+| `pre-commit` | Runs [`sbolint`](https://slackware.uk/~urchlay/repos/sbo-maintainer-tools) on staged packages before each commit |
+| `post-commit` | After each commit, offers to create a `SBo/<pkg>.tar.gz` archive ready for submission to SlackBuilds.org |
+
+---
+
 ## License
 
 GPL-2.0 — see [LICENSE](LICENSE).
