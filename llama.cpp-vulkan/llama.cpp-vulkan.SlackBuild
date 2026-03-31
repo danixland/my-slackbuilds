@@ -26,8 +26,8 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=llama.cpp-vulkan
 SRCNAM=llama.cpp
-VERSION=${VERSION:-b8581}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-b8589}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
 
