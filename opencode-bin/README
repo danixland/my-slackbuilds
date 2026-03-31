@@ -16,4 +16,6 @@ Homepage: https://github.com/opencode-ai/opencode
 NOTE FOR aarch64 USERS: The aarch64 tarball is not listed in the
 .info file (not a standard SBo field). Download it manually before
 building:
-  wget https://github.com/opencode-ai/opencode/releases/download/v0.0.55/opencode-linux-arm64.tar.gz
+
+wget https://github.com/opencode-ai/opencode/ \
+    releases/download/v0.0.55/opencode-linux-arm64.tar.gz
