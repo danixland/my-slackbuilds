@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                |-----handy-ruler------------------------------------------------------|
+llama.cpp-vulkan: llama.cpp-vulkan (LLM inference in C/C++)
+llama.cpp-vulkan:
+llama.cpp-vulkan: Port of Facebook's LLaMA model in C/C++ with Vulkan GPU optimizations
+llama.cpp-vulkan:
+llama.cpp-vulkan: The main goal of llama.cpp is to enable LLM inference with minimal 
+llama.cpp-vulkan: setup and state-of-the-art performance on a wide range of hardware
+llama.cpp-vulkan: locally and in the cloud.
+llama.cpp-vulkan:
+llama.cpp-vulkan: Home: https://github.com/ggml-org/llama.cpp
+llama.cpp-vulkan:
+llama.cpp-vulkan:
