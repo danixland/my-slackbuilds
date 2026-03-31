@@ -45,6 +45,7 @@ prefix = "v"
 
 [opencode-bin]
 source = "github"
-github = "opencode-ai/opencode"
+github = "anomalyco/opencode"
 use_latest_release = true
+prefix = "v"
 

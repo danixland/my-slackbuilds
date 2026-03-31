@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for opencode-bin
+# Slackware build script for opencode
 
 # Copyright 2026 danix <danix@danix.xyz>
 # All rights reserved.
@@ -25,45 +25,37 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=opencode-bin
-VERSION=${VERSION:-0.0.55}
+SRCNAM=opencode
+VERSION=${VERSION:-1.3.9}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
 
-if [ -z "$ARCH" ]; then
-  case "$( uname -m )" in
-    arm*) ARCH=arm ;;
-       *) ARCH=$( uname -m ) ;;
-  esac
+ARCH=${ARCH:-x86_64}
+
+# Only x86_64 is supported (pre-built binary)
+if [ "$ARCH" != "x86_64" ]; then
+  echo "ERROR: $PRGNAM is only available for x86_64."
+  exit 1
 fi
 
-if [ -n "${PRINT_PACKAGE_NAME}" ]; then
+if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
   echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
   exit 0
 fi
-
-set -e
 
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-if [ "$ARCH" = "x86_64" ]; then
-  SRCARCH="x86_64"
-elif [ "$ARCH" = "aarch64" ]; then
-  SRCARCH="arm64"
-else
-  echo "$ARCH is not supported."
-  exit 1
-fi
+set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
-mkdir -p $PRGNAM-$VERSION
-tar xvf $CWD/opencode-linux-$SRCARCH.tar.gz -C $PRGNAM-$VERSION
-cd $PRGNAM-$VERSION
+
+tar xvf $CWD/$SRCNAM-linux-x64.tar.gz
+
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -72,14 +64,15 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 mkdir -p $PKG/usr/bin
-install -m 0755 opencode $PKG/usr/bin/opencode
+install -D -m 0755 opencode $PKG/usr/bin/opencode
 
+# Install man page
+install -D -m 0644 $CWD/opencode.1 $PKG/usr/man/man1/opencode.1
+gzip -9 $PKG/usr/man/man1/opencode.1
+
+# Install docs
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a LICENSE README.md $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
-
-find $PKG -print0 | xargs -0 file | grep -a " ELF " | grep -v '\.o:' | \
-  cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc

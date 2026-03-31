@@ -1,21 +1,15 @@
-opencode-bin is a pre-built binary repackage of opencode, a
-powerful AI coding agent built for the terminal. It supports
-multiple LLM providers including OpenAI, Anthropic, Google Gemini,
-and others.
+OpenCode is an open source agent that helps you write code in your
+terminal, IDE, or desktop.
 
-No compilation is required; the official upstream binary is
-statically linked and has no runtime library dependencies.
+ - LSP enabled Automatically loads the right LSPs for the LLM
+ - Multi-session Start multiple agents in parallel on the same project
+ - Share links Share a link to any session for reference or to debug
+ - GitHub Copilot Log in with GitHub to use your Copilot account
+ - ChatGPT Plus/Pro Log in with OpenAI to use your ChatGPT Plus or Pro
+   account
+ - Any model 75+ LLM providers through Models.dev, including local
+   models
+ - Any editor Available as a terminal interface, desktop app, and
+   IDE extension
 
-To use opencode, you need an API key for at least one supported
-LLM provider. Set the appropriate environment variable (e.g.
-OPENAI_API_KEY, ANTHROPIC_API_KEY) or configure it via opencode's
-interactive setup.
-
-Homepage: https://github.com/opencode-ai/opencode
-
-NOTE FOR aarch64 USERS: The aarch64 tarball is not listed in the
-.info file (not a standard SBo field). Download it manually before
-building:
-
-wget https://github.com/opencode-ai/opencode/ \
-    releases/download/v0.0.55/opencode-linux-arm64.tar.gz
+This Package delivers the binary released from mainstream
