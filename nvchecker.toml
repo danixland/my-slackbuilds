@@ -3,3 +3,43 @@ source = "github"
 github = "luebking/qarma"
 use_max_tag = true
 prefix = "v"
+
+[discord]
+source = "httpheader"
+url = "https://discord.com/api/download?platform=linux&format=tar.gz"
+regex = "discord-(.*)\\.tar.*"
+
+[hstr]
+source = "github"
+github = "dvorka/hstr"
+use_max_tag = true
+prefix = "v"
+
+[hugo]
+source = "github"
+github = "gohugoio/hugo"
+use_latest_release = true
+prefix = "v"
+
+[kitty-bin]
+source = "github"
+github = "kovidgoyal/kitty"
+use_latest_release = true
+prefix = "v"
+
+[llama.cpp-vulkan]
+source = "github"
+github = "ggml-org/llama.cpp"
+
+[obsidian]
+source = "github"
+github = "obsidianmd/obsidian-releases"
+use_latest_release = true
+prefix = "v"
+
+[syncthing]
+source = "github"
+github = "syncthing/syncthing"
+use_latest_release = true
+prefix = "v"
+
