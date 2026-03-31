@@ -43,6 +43,7 @@ SPLIT_MODE=none
 NO_CONTEXT_SHIFT='--no-context-shift'
 LOG_FILE=/var/log/llama-server/server.log
 LLAMA_ARGS="--ctx-size $CONTEXT \
+            --jinja \
             --temp $TEMP \
             --top-k $TOP_K \
             --top-p $TOP_P \
@@ -73,14 +74,22 @@ case "$1" in
                     chown -R ${RUNAS_USER}:${RUNAS_GROUP} $(dirname $LOG_FILE)
                 fi
                 su $RUNAS_USER -c "$LLSRV $LLAMA_ARGS --log-file $LOG_FILE -lv 3 --log-timestamps" 1>/dev/null 2>&1 &
+                $0 status
                 ;;
         restart)
                 $0 stop
                 sleep 1
                 $0 start
                 ;;
+        status)
+                if /usr/bin/pgrep -f "$LLSRV" >/dev/null; then
+                        echo "llama-server is running"
+                        echo "Browser interface is at:"
+                        echo "http://${HOST}:${PORT}"
+                fi
+                ;;
         *)
-                echo "usage: $0 { start | stop | restart }" >&2
+                echo "usage: $0 { start | stop | status | restart }" >&2
                 exit 1
                 ;;
 esac
