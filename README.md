@@ -40,7 +40,7 @@ Each package lives in its own top-level directory:
 | llama.cpp-vulkan | ✅ | not tested | ❌ | b8611 | b8611 |
 | obsidian | ✅ | not tested | [obsidian](https://slackbuilds.org/repository/15.0/development/obsidian/) | 1.12.7 | 1.12.7 |
 | qarma | ✅ | not tested | ❌ | 1.1.0 | 1.1.0 |
-| opencode-bin| ✅ | not tested | ❌ | 1.3.9 | 1.3.9 |
+| opencode-bin| ✅ | not tested | ❌ | 1.3.13 | 1.3.13 |
 | syncthing | ✅ | not tested | [syncthing](https://slackbuilds.org/repository/15.0/network/syncthing/) | 2.0.15 | 2.0.15 |
 
 ---
