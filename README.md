@@ -14,15 +14,16 @@ This repository serves two purposes:
 
 ## Repository Structure
 
-Each package lives in its own top-level directory:
+All packages live under the `SlackBuilds/` subfolder:
 
 ```
-<package-name>/
-├── <package-name>.SlackBuild   # Main build script
-├── <package-name>.info         # Metadata (version, checksums, URLs)
-├── README                      # Description and usage notes
-├── slack-desc                  # Package description (11-line format)
-└── <package-name>.desktop      # (optional) Desktop entry for GUI apps
+SlackBuilds/
+└── <package-name>/
+    ├── <package-name>.SlackBuild   # Main build script
+    ├── <package-name>.info         # Metadata (version, checksums, URLs)
+    ├── README                      # Description and usage notes
+    ├── slack-desc                  # Package description (11-line format)
+    └── <package-name>.desktop      # (optional) Desktop entry for GUI apps
 ```
 
 ---
@@ -61,10 +62,10 @@ git clone https://github.com/danix/my-slackbuilds.git
 cd my-slackbuilds
 
 # Download the source and verify checksums
-sbodl <package-name>/
+sbodl SlackBuilds/<package-name>/
 
 # Log in as root, then build the package
-cd <package-name>
+cd SlackBuilds/<package-name>
 bash <package-name>.SlackBuild
 
 # Install the resulting package

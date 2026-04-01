@@ -13,8 +13,8 @@ while IFS=$'\t' read -r status file; do
     [[ "$status" != "A" && "$status" != "M" ]] && continue
     dir=$(dirname "$file")
     base=$(basename "$file")
-    [[ "$dir" == "." ]] && continue       # skip root-level files
-    [[ "$dir" == *"/"* ]] && continue     # skip files deeper than one level
+    # Only process packages at SlackBuilds/<pkg> depth
+    [[ "$dir" =~ ^SlackBuilds/[^/]+$ ]] || continue
     [[ "$base" == *.SlackBuild ]] || continue
     PACKAGES+=("$dir")
 done < <(git diff-tree --no-commit-id -r --name-status HEAD)
