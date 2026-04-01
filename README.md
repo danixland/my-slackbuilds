@@ -34,6 +34,7 @@ Each package lives in its own top-level directory:
 | discord | ✅ | not tested | [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 0.0.131 | 0.0.131 |
 | hstr | ✅ | not tested | [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.1 | 3.2 |
 | hugo | ✅ | not tested | [hugo](https://slackbuilds.org/repository/15.0/development/hugo/) | 0.159.1 | 0.159.1 |
+| uv-bin | ✅ | not tested | [uv-bin](https://slackbuilds.org/repository/15.0/python/uv-bin/) | 0.11.2 | 0.11.2 |
 | kitty-bin | ✅ | not tested | ❌ | 0.46.2 | 0.46.2 |
 | llama.cpp-vulkan | ✅ | not tested | ❌ | b8589 | b8590 |
 | obsidian | ✅ | not tested | [obsidian](https://slackbuilds.org/repository/15.0/development/obsidian/) | 1.12.7 | 1.12.7 |

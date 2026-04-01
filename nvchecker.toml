@@ -15,6 +15,12 @@ github = "dvorka/hstr"
 use_max_tag = true
 prefix = "v"
 
+[uv-bin]
+source = "github"
+github = "astral-sh/uv"
+use_latest_release = true
+prefix = "v"
+
 [hugo]
 source = "github"
 github = "gohugoio/hugo"
