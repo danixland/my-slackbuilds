@@ -1,3 +1,9 @@
+[claude-code]
+source = "github"
+github = "anthropics/claude-code"
+use_latest_release = true
+prefix = "v"
+
 [qarma]
 source = "github"
 github = "luebking/qarma"

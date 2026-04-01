@@ -31,6 +31,7 @@ Each package lives in its own top-level directory:
 
 | Package | -current | 15.0 | SBo | Version | Latest |
 |---------|----------|------|-----|---------|--------|
+| claude-code | ✅ | not tested | ❌ | 2.1.81 | 2.1.81 |
 | discord | ✅ | not tested | [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 0.0.131 | 0.0.131 |
 | hstr | ✅ | not tested | [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.1 | 3.2 |
 | hugo | ✅ | not tested | [hugo](https://slackbuilds.org/repository/15.0/development/hugo/) | 0.159.2 | 0.159.2 |
