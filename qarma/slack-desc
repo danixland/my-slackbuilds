@@ -5,15 +5,15 @@
 # You must make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-     |-----handy-ruler----------------------------------------------------|
-qarma: Qarma, a near perfect zenity clone
+     |-----handy-ruler------------------------------------------------------|
+qarma: qarma (near perfect zenity clone for Qt)
 qarma:
-qarma: Qarma is a near perfect zenity clone, written in Qt, 
+qarma: Qarma is a near perfect zenity clone, written in Qt,
 qarma: could be compiled against Qt6, Qt5 and Qt4, and supports styling
 qarma: with qt5ct and qt6ct.
-qarma: 
+qarma:
 qarma: Q: Why do you waste time cloning a perfectly fine tool?
 qarma: A: "The answer is that GTK+ is primarily intended to be used on
-qarma:     the GNOME desktop. GTK+ must focus on being the toolkit of 
+qarma:     the GNOME desktop. GTK+ must focus on being the toolkit of
 qarma:     the GNOME platform first, and tackle integration second."
 qarma: Website: https://github.com/luebking/qarma
