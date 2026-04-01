@@ -33,9 +33,10 @@ github = "kovidgoyal/kitty"
 use_latest_release = true
 prefix = "v"
 
-[llama.cpp-vulkan]
+["llama.cpp-vulkan"]
 source = "github"
 github = "ggml-org/llama.cpp"
+use_latest_release = true
 
 [obsidian]
 source = "github"
