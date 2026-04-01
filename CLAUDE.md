@@ -120,19 +120,19 @@ SBOLINT=no git commit -m'Message here'
 
 ```bash
 # 1. Fix any .info issues automatically
-sbofixinfo <package-name>/
+cd <package-name> && sbofixinfo
 
 # 2. Download sources and verify checksums
-sbodl <package-name>/
+cd <package-name> && sbodl
 
 # 3. Lint the script and metadata
-sbolint <package-name>/
+cd <package-name> && sbolint
 
 # 4. Build the package
 cd <package-name> && sudo bash <package-name>.SlackBuild
 
 # 5. Lint the built package
-sbopkglint /tmp/<package-name>-*.t?z
+cd <package-name> && sbopkglint
 
 # 6. Add an entry for the package in the repo-level nvchecker.toml
 
