@@ -3,7 +3,7 @@
 set -u
 
 REPO_ROOT=$(git rev-parse --show-toplevel)
-SBO_DIR="$REPO_ROOT/SBo"
+SBO_DIR="$REPO_ROOT/.extras/SBo"
 
 # Find packages whose .SlackBuild was added (A) or modified (M) in this commit.
 # git diff-tree output format: <status>\t<file>
