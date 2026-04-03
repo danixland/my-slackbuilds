@@ -1,4 +1,0 @@
-To print latest versions use this command:
-curl -s https://registry.npmjs.org/@anthropic-ai/claude-code | grep -o '"dist-tags":{[^}]*}'
-
-Then modify .info file and .SlackBuild, download and build.

@@ -1,36 +1,13 @@
-[claude-code]
-source = "github"
-github = "anthropics/claude-code"
-use_latest_release = true
-prefix = "v"
-
 [qarma]
 source = "github"
 github = "luebking/qarma"
 use_max_tag = true
 prefix = "v"
 
-[discord]
-source = "httpheader"
-url = "https://discord.com/api/download?platform=linux&format=tar.gz"
-regex = "discord-(.*)\\.tar.*"
-
 [hstr]
 source = "github"
 github = "dvorka/hstr"
 use_max_tag = true
-prefix = "v"
-
-[uv-bin]
-source = "github"
-github = "astral-sh/uv"
-use_latest_release = true
-prefix = "v"
-
-[hugo]
-source = "github"
-github = "gohugoio/hugo"
-use_latest_release = true
 prefix = "v"
 
 [kitty-bin]
@@ -44,21 +21,8 @@ source = "github"
 github = "ggml-org/llama.cpp"
 use_latest_release = true
 
-[obsidian]
-source = "github"
-github = "obsidianmd/obsidian-releases"
-use_latest_release = true
-prefix = "v"
-
-[syncthing]
-source = "github"
-github = "syncthing/syncthing"
-use_latest_release = true
-prefix = "v"
-
 [opencode-bin]
 source = "github"
 github = "anomalyco/opencode"
 use_latest_release = true
 prefix = "v"
-

@@ -31,17 +31,11 @@ Each package lives in its own top-level subfolder:
 
 | Package | -current | 15.0 | SBo | Version | Latest |
 |---------|----------|------|-----|---------|--------|
-| claude-code | ✅ | not tested | ❌ | 2.1.81 | 2.1.81 |
-| discord | ✅ | not tested | [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 0.0.131 | 0.0.131 |
 | hstr | ✅ | not tested | [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.1 | 3.2 |
-| hugo | ✅ | not tested | [hugo](https://slackbuilds.org/repository/15.0/development/hugo/) | 0.159.2 | 0.159.2 |
-| uv-bin | ✅ | not tested | [uv-bin](https://slackbuilds.org/repository/15.0/python/uv-bin/) | 0.11.2 | 0.11.2 |
 | kitty-bin | ✅ | not tested | ❌ | 0.46.2 | 0.46.2 |
 | llama.cpp-vulkan | ✅ | not tested | ❌ | b8611 | b8611 |
-| obsidian | ✅ | not tested | [obsidian](https://slackbuilds.org/repository/15.0/development/obsidian/) | 1.12.7 | 1.12.7 |
 | qarma | ✅ | not tested | ❌ | 1.1.0 | 1.1.0 |
-| opencode-bin| ✅ | not tested | ❌ | 1.3.13 | 1.3.13 |
-| syncthing | ✅ | not tested | [syncthing](https://slackbuilds.org/repository/15.0/network/syncthing/) | 2.0.15 | 2.0.15 |
+| opencode-bin | ✅ | not tested | ❌ | 1.3.13 | 1.3.13 |
 
 ---
 
