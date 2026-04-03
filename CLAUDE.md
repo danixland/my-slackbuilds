@@ -140,7 +140,12 @@ cd <package-name> && sbopkglint
 
 # 6. Add an entry for the package in the repo-level nvchecker.toml
 
-# 7. Commit (pre-commit hook runs sbolint automatically)
+# 7. Remove symlinks created by sbodl before staging
+# sbodl creates symlinks in the package directory pointing to downloaded sources.
+# These must never be committed to git.
+find . -type l -delete
+
+# 8. Commit (pre-commit hook runs sbolint automatically)
 git add <package-name>/ nvchecker.toml
 git commit -m'<package-name>: add version X.Y.Z'
 ```

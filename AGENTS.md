@@ -174,6 +174,14 @@ When adding or updating a package, verify the entry exists and is correct.
 
 **Use the commit skill for all commits.** Do not run `git commit` manually.
 
+**Remove symlinks before staging.** `sbodl` creates symlinks in the package
+directory pointing to downloaded source archives. These must never be committed
+to git. Before any `git add`, run from the repo root:
+
+```bash
+find . -type l -delete
+```
+
 Commit conventions:
 - One commit per package add or update.
 - Message format:
