@@ -7,16 +7,16 @@ Personal collection of SlackBuild scripts maintained by Danilo, compatible with
 
 ## Repo Structure
 
-All packages live under the `SlackBuilds/` subfolder:
+Each package lives in its own top-level subfolder:
 
 ```
-SlackBuilds/
-└── <package-name>/
-    ├── <package-name>.SlackBuild   # Main build script
-    ├── <package-name>.info         # Metadata (version, checksums, URLs)
-    ├── README                      # Description and usage notes
-    ├── slack-desc                  # Package description (11-line format)
-    └── <package-name>.desktop      # (optional) Desktop entry for GUI apps
+<package-name>/
+├── <package-name>.SlackBuild   # Main build script
+├── <package-name>.info         # Metadata (version, checksums, URLs)
+├── README                      # Description and usage notes
+├── slack-desc                  # Package description (11-line format)
+├── <package-name>.desktop      # (optional) Desktop entry for GUI apps
+└── [...]                       # other optional files
 ```
 
 Version tracking is handled by a single repo-level file:
@@ -119,24 +119,24 @@ SBOLINT=no git commit -m'Message here'
 
 ```bash
 # 1. Fix any .info issues automatically
-cd SlackBuilds/<package-name> && sbofixinfo
+cd <package-name> && sbofixinfo
 
 # 2. Download sources and verify checksums
-cd SlackBuilds/<package-name> && sbodl
+cd <package-name> && sbodl
 
 # 3. Lint the script and metadata
-cd SlackBuilds/<package-name> && sbolint
+cd <package-name> && sbolint
 
 # 4. Build the package
-cd SlackBuilds/<package-name> && sudo bash <package-name>.SlackBuild
+cd <package-name> && sudo bash <package-name>.SlackBuild
 
 # 5. Lint the built package
-cd SlackBuilds/<package-name> && sbopkglint
+cd <package-name> && sbopkglint
 
 # 6. Add an entry for the package in the repo-level nvchecker.toml
 
 # 7. Commit (pre-commit hook runs sbolint automatically)
-git add SlackBuilds/<package-name>/ nvchecker.toml
+git add <package-name>/ nvchecker.toml
 git commit -m'<package-name>: add version X.Y.Z'
 ```
 
