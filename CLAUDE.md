@@ -122,6 +122,11 @@ SBOLINT=no git commit -m'Message here'
 cd <package-name> && sbofixinfo
 
 # 2. Download sources and verify checksums
+# NOTE: when updating to a new version, sbodl will download the source but fail
+# because the .info file still has the old (or placeholder) MD5SUM. In that case:
+#   a) compute the checksum manually: md5sum <source-file>
+#   b) update MD5SUM in the .info file
+#   c) run sbodl again — it should now report "md5sum matches OK"
 cd <package-name> && sbodl
 
 # 3. Lint the script and metadata
