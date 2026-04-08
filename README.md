@@ -33,7 +33,7 @@ Each package lives in its own top-level subfolder:
 |---------|----------|------|-----|---------|--------|
 | hstr | ✅ | not tested | [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.1 | 3.2 |
 | kitty-bin | ✅ | not tested | ❌ | 0.46.2 | 0.46.2 |
-| llama.cpp-vulkan | ✅ | not tested | ❌ | b8661 | b8661 |
+| llama.cpp-vulkan | ✅ | not tested | ❌ | b8705 | b8705 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
 | opencode-bin | ✅ | not tested | ❌ | 1.4.0 | 1.4.0 |
 
