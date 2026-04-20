@@ -1,0 +1,52 @@
+Claude Code is an agentic coding assistant CLI from Anthropic. It can read
+your codebase, edit files, run shell commands, manage git, and use Claude AI
+to help you write and debug code directly from the terminal.
+
+This package installs /usr/bin/claude. The binary is a self-contained
+executable downloaded at build time from Anthropic's distribution CDN.
+
+ABOUT THIS PACKAGE
+
+This claude-code-bin package provides a workaround for the upstream
+claude-code package in the SBo development category, which fails to build on
+version 2.1.114+. Rather than rebuilding from source, this package downloads
+the pre-built binary directly from Anthropic's CDN.
+
+BUILDING WITH A SPECIFIC VERSION
+
+By default this SlackBuild downloads the latest released version at build
+time. To build a specific version, set VERSION before running the script:
+
+  VERSION=2.1.114 bash claude-code-bin.SlackBuild
+
+DEPENDENCIES
+
+Required (standard Slackware):
+  curl (preferred) or wget — used to download the binary at build time
+
+Optional:
+  jq — used to parse manifest.json for the SHA-256 checksum
+       if not present, a built-in bash fallback is used instead
+
+NETWORK ACCESS
+
+This SlackBuild requires outbound HTTPS access to:
+  https://downloads.claude.ai/claude-code-releases/
+
+If you are building in an offline or air-gapped environment this package
+cannot be built without modifications.
+
+SHELL INTEGRATION
+
+After installing the package, each user who wants shell completions and
+the claude startup wrapper should run once (as themselves, not root):
+
+  claude install
+
+This modifies the user's shell configuration files (~/.bashrc, ~/.zshrc,
+etc.) and sets up completions. It does not affect system-wide files.
+
+AUTHENTICATION
+
+Claude Code requires an Anthropic API key or a Claude Pro/Max subscription.
+Run `claude` after installation to start the authentication flow.

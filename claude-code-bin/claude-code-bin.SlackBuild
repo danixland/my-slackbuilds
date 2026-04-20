@@ -1,0 +1,214 @@
+#!/bin/bash
+
+# Slackware build script for claude-code-bin
+
+# Copyright 2026 danix <danix@danix.xyz>
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+cd $(dirname $0) ; CWD=$(pwd)
+
+PRGNAM=claude-code-bin
+SRCNAM=claude
+VERSION=${VERSION:-2.1.114}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+PKGTYPE=${PKGTYPE:-tgz}
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i586 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$( uname -m ) ;;
+  esac
+fi
+
+if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
+  echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
+  exit 0
+fi
+
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+if [ "$ARCH" = "i586" ]; then
+  SLKCFLAGS="-O2 -march=i586 -mtune=i686"
+  LIBDIRSUFFIX=""
+  echo "ERROR: claude-code-bin is not supported on 32-bit x86" >&2
+  exit 1
+elif [ "$ARCH" = "i686" ]; then
+  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+  LIBDIRSUFFIX=""
+  echo "ERROR: claude-code-bin is not supported on 32-bit x86" >&2
+  exit 1
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+  ARCH_LABEL="x86_64"
+  PLATFORM="linux-x64"
+elif [ "$ARCH" = "aarch64" ]; then
+  SLKCFLAGS="-O2"
+  LIBDIRSUFFIX="64"
+  ARCH_LABEL="aarch64"
+  PLATFORM="linux-arm64"
+else
+  echo "ERROR: Unsupported architecture: $ARCH" >&2
+  exit 1
+fi
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+
+# Check for required downloader
+DOWNLOADER=""
+if command -v curl >/dev/null 2>&1; then
+  DOWNLOADER="curl"
+elif command -v wget >/dev/null 2>&1; then
+  DOWNLOADER="wget"
+else
+  echo "ERROR: curl or wget is required but neither is installed" >&2
+  exit 1
+fi
+
+# Check if jq is available (optional)
+HAS_JQ=false
+if command -v jq >/dev/null 2>&1; then
+  HAS_JQ=true
+fi
+
+# Download function that works with both curl and wget
+download_file() {
+  local url="$1"
+  local output="$2"
+
+  if [ "$DOWNLOADER" = "curl" ]; then
+    if [ -n "$output" ]; then
+      curl -fsSL -o "$output" "$url"
+    else
+      curl -fsSL "$url"
+    fi
+  elif [ "$DOWNLOADER" = "wget" ]; then
+    if [ -n "$output" ]; then
+      wget -q -O "$output" "$url"
+    else
+      wget -q -O - "$url"
+    fi
+  else
+    return 1
+  fi
+}
+
+# Simple JSON parser for extracting checksum when jq is not available
+get_checksum_from_manifest() {
+  local json="$1"
+  local platform="$2"
+
+  # Normalize JSON to single line and extract checksum
+  json=$(echo "$json" | tr -d '\n\r\t' | sed 's/ \+/ /g')
+
+  # Extract checksum for platform using bash regex
+  if [[ $json =~ \"$platform\"[^}]*\"checksum\"[[:space:]]*:[[:space:]]*\"([a-f0-9]{64})\" ]]; then
+    echo "${BASH_REMATCH[1]}"
+    return 0
+  fi
+
+  return 1
+}
+
+DOWNLOAD_BASE_URL="https://downloads.claude.ai/claude-code-releases"
+
+# Resolve version if set to 'latest'
+if [ "$VERSION" = "latest" ]; then
+  echo "Fetching latest version tag..."
+  RESOLVED_VERSION=$(download_file "$DOWNLOAD_BASE_URL/latest")
+  if [ -z "$RESOLVED_VERSION" ]; then
+    echo "ERROR: Could not resolve latest version" >&2
+    exit 1
+  fi
+else
+  RESOLVED_VERSION="$VERSION"
+fi
+
+echo "Building claude-code-bin version: $RESOLVED_VERSION"
+
+# Download manifest and extract checksum
+echo "Fetching manifest..."
+MANIFEST_JSON=$(download_file "$DOWNLOAD_BASE_URL/$RESOLVED_VERSION/manifest.json")
+
+# Use jq if available, otherwise fall back to pure bash parsing
+if [ "$HAS_JQ" = "true" ]; then
+  CHECKSUM=$(echo "$MANIFEST_JSON" | jq -r ".platforms[\"$PLATFORM\"].checksum // empty")
+else
+  CHECKSUM=$(get_checksum_from_manifest "$MANIFEST_JSON" "$PLATFORM")
+fi
+
+if [ -z "$CHECKSUM" ] || [[ ! "$CHECKSUM" =~ ^[a-f0-9]{64}$ ]]; then
+  echo "ERROR: Could not get checksum for platform $PLATFORM from manifest" >&2
+  exit 1
+fi
+
+echo "SHA-256 checksum for $PLATFORM: $CHECKSUM"
+
+# Download and verify binary
+BINARY_PATH="$TMP/claude-$RESOLVED_VERSION-$PLATFORM"
+
+echo "Downloading claude binary..."
+if ! download_file "$DOWNLOAD_BASE_URL/$RESOLVED_VERSION/$PLATFORM/claude" "$BINARY_PATH"; then
+  echo "ERROR: Download failed" >&2
+  rm -f "$BINARY_PATH"
+  exit 1
+fi
+
+echo "Verifying SHA-256 checksum..."
+ACTUAL_CHECKSUM=$(sha256sum "$BINARY_PATH" | cut -d' ' -f1)
+if [ "$ACTUAL_CHECKSUM" != "$CHECKSUM" ]; then
+  echo "ERROR: SHA-256 checksum mismatch" >&2
+  echo "  Expected: $CHECKSUM" >&2
+  echo "  Got:      $ACTUAL_CHECKSUM" >&2
+  rm -f "$BINARY_PATH"
+  exit 1
+fi
+
+echo "Checksum verified successfully"
+
+chmod +x "$BINARY_PATH"
+
+# Install binary to /usr/bin
+mkdir -p $PKG/usr/bin
+install -D -m 0755 "$BINARY_PATH" $PKG/usr/bin/claude
+
+# Copy documentation
+mkdir -p $PKG/usr/doc/$PRGNAM-$RESOLVED_VERSION
+cat $CWD/README > $PKG/usr/doc/$PRGNAM-$RESOLVED_VERSION/README
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$RESOLVED_VERSION/$PRGNAM.SlackBuild
+
+# Install slack-desc (doinst.sh is not needed for this package)
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+# Remove downloaded binary
+rm -f "$BINARY_PATH"
+
+# Create the package
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH_LABEL-$BUILD$TAG.$PKGTYPE
