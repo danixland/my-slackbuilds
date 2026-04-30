@@ -36,6 +36,7 @@ Each package lives in its own top-level subfolder:
 | llama.cpp-vulkan | ✅ | not tested | ❌ | b8705 | b8705 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
 | opencode-bin | ✅ | not tested | ❌ | 1.4.0 | 1.4.0 |
+| r8125 | ✅ | not tested | ❌ | 9.016.01 | 9.016.01 |
 
 ---
 
