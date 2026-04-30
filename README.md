@@ -35,7 +35,7 @@ Each package lives in its own top-level subfolder:
 | kitty-bin | ✅ | not tested | ❌ | 0.46.2 | 0.46.2 |
 | llama.cpp-vulkan | ✅ | not tested | ❌ | b8705 | b8705 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
-| opencode-bin | ✅ | not tested | ❌ | 1.4.0 | 1.4.0 |
+| opencode-bin | ✅ | not tested | ❌ | 1.14.30 | 1.14.30 |
 | r8125 | ✅ | ✅ | ❌ | 9.016.01 | 9.016.01 |
 
 ---
