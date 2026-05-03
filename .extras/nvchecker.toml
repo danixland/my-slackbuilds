@@ -31,3 +31,8 @@ prefix = "v"
 source = "jq"
 url = "https://www.realtek.com/Download/ListAllDownloadItem?cate_id=584"
 filter = '.Data.DownloadItems["Unix (Linux)"][] | select(.Name | startswith("r8125")) | .Version'
+
+[Kvantum]
+source = "github"
+github = "tsujan/Kvantum"
+use_latest_release = true

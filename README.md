@@ -38,6 +38,7 @@ Each package lives in its own top-level subfolder:
 | opencode-bin | ✅ | not tested | ❌ | 1.14.30 | 1.14.30 |
 | claude-code-bin | ✅ | not tested | ❌ | 2.1.123 | 2.1.123 |
 | r8125 | ✅ | ✅ | ❌ | 9.016.01 | 9.016.01 |
+| kvantum-qt6 | ✅ | ❌ | ❌ | 1.1.6 | 1.1.6 |
 
 ---
 
