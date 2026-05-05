@@ -1,0 +1,19 @@
+gitleaks (detect secrets in git repositories)
+
+Gitleaks is a fast, lightweight tool for detecting hardcoded secrets
+such as API keys, passwords, and tokens in git repositories. It uses
+a combination of regex pattern matching and entropy analysis to scan
+commit history, staged files, and the working directory.
+
+It is commonly used as a pre-commit or pre-push git hook to prevent
+accidental exposure of credentials before they reach a remote
+repository. Over 150 secret types are supported out of the box,
+and custom rules can be defined via a TOML configuration file.
+
+Gitleaks is distributed as a statically linked Go binary. No
+runtime dependencies are required.
+
+Optional: A custom rules file can be passed at runtime:
+  gitleaks detect --config /path/to/config.toml
+
+Homepage: https://github.com/gitleaks/gitleaks
