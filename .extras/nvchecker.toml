@@ -36,3 +36,8 @@ filter = '.Data.DownloadItems["Unix (Linux)"][] | select(.Name | startswith("r81
 source = "github"
 github = "tsujan/Kvantum"
 use_latest_release = true
+
+[gitleaks]
+source = "github"
+github = "gitleaks/gitleaks"
+use_latest_release = true
