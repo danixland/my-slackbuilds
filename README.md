@@ -31,7 +31,7 @@ Each package lives in its own top-level subfolder:
 
 | Package | -current | 15.0 | SBo | Version | Latest |
 |---------|----------|------|-----|---------|--------|
-| hstr | ✅ | not tested | [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.1 | 3.2 |
+| hstr | ✅ | not tested | [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.2 | 3.2 |
 | kitty-bin | ✅ | not tested | ❌ | 0.46.2 | 0.46.2 |
 | llama.cpp-vulkan | ✅ | not tested | ❌ | b8989 | b8989 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
