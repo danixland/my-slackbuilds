@@ -39,6 +39,7 @@ Each package lives in its own top-level subfolder:
 | claude-code-bin | ✅ | not tested | ❌ | 2.1.123 | 2.1.123 |
 | kvantum-qt6 | ✅ | not tested | ❌ | 1.1.6 | 1.1.6 |
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
+| mutagen | ✅ | not tested | ✅ | 1.47.0 | 1.47.0 |
 
 ---
 
