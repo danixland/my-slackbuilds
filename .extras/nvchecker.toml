@@ -41,3 +41,8 @@ use_latest_release = true
 source = "github"
 github = "gitleaks/gitleaks"
 use_latest_release = true
+
+[discord]
+source = "httpheader"
+url = "https://discord.com/api/download?platform=linux&format=tar.gz"
+regex = "discord-(.*)\\.tar.*"
