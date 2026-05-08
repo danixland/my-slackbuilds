@@ -46,3 +46,9 @@ use_latest_release = true
 source = "httpheader"
 url = "https://discord.com/api/download?platform=linux&format=tar.gz"
 regex = "discord-(.*)\\.tar.*"
+
+[Signal]
+source = "github"
+github = "signalapp/Signal-Desktop"
+use_latest_release = true
+

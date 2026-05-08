@@ -33,6 +33,7 @@ Each package lives in its own top-level subfolder:
 |---------|----------|------|-----|---------|--------|
 | hstr | ✅ | not tested | [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.2 | 3.2 |
 | discord | ✅ | not tested | [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.137 | 0.0.135 |
+| signal-desktop | ✅ | not tested | [signal-desktop](https://slackbuilds.org/repository/15.0/network/signal-desktop/) | 8.9.0 | 8.9.0 |
 | kitty-bin | ✅ | not tested | ❌ | 0.46.2 | 0.46.2 |
 | llama.cpp-vulkan | ✅ | not tested | ❌ | b8989 | b8989 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
