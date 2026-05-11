@@ -1,3 +1,5 @@
+![](.extras/assets/tiles-03-1024x819.jpg)
+
 # my-slackbuilds
 
 Personal collection of SlackBuild scripts by danix, following
