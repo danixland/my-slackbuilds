@@ -47,3 +47,8 @@ source = "httpheader"
 url = "https://discord.com/api/download?platform=linux&format=tar.gz"
 regex = "discord-(.*)\\.tar.*"
 
+[solvespace]
+source = "github"
+github = "solvespace/solvespace"
+use_latest_release = true
+prefix = "v"
