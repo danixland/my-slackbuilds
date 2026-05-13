@@ -39,7 +39,7 @@ Each package lives in its own top-level subfolder:
 | llama.cpp-vulkan | ✅ | not tested | ❌ | b8989 | b8989 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
 | opencode-bin | ✅ | not tested | ❌ | 1.14.30 | 1.14.30 |
-| claude-code-bin | ✅ | not tested | ❌ | 2.1.123 | 2.1.123 |
+| claude-code-bin | ✅ | not tested | ❌ | 2.1.140 | 2.1.140 |
 | kvantum-qt6 | ✅ | not tested | ❌ | 1.1.6 | 1.1.6 |
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
 | mutagen | ✅ | not tested | ✅ | 1.47.0 | 1.47.0 |
