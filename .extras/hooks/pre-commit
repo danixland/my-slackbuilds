@@ -31,6 +31,27 @@
 set -e
 exec 1>&2
 
+# Check for staged source archives (.tar.gz, .tar.xz, .tar.bz2, .zip, etc.)
+# Symlinks: auto-removed. Regular files: blocked (must not be committed).
+source_pattern='\.\(tar\.gz\|tar\.xz\|tar\.bz2\|tar\.zst\|tgz\|zip\|7z\|rpm\|deb\)$'
+source_blocked=""
+while IFS= read -r f; do
+	mode=$(git ls-files --stage -- "$f" | awk '{print $1}')
+	if [ "$mode" = "120000" ]; then
+		echo "Removing staged symlink to source archive: $f"
+		git rm --cached -q -- "$f"
+		rm -f "$f"
+	else
+		source_blocked="$source_blocked $f"
+	fi
+done < <(git diff --cached --name-only | grep -i "$source_pattern")
+if [ -n "$source_blocked" ]; then
+	echo "*** ERROR: source archives staged for commit:"
+	for f in $source_blocked; do echo "***   $f"; done
+	echo "*** Remove them with: git rm --cached -- $source_blocked"
+	exit 1
+fi
+
 # There should normally only be one changed build per commit, but this
 # rule may get broken when the repo's frozen pending a new Slackware
 # release. So use a loop.
