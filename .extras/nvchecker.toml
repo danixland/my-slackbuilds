@@ -52,3 +52,8 @@ source = "github"
 github = "solvespace/solvespace"
 use_latest_release = true
 prefix = "v"
+
+[gamescope]
+source = "github"
+github = "ValveSoftware/gamescope"
+use_max_tag = true

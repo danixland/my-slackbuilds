@@ -1,0 +1,38 @@
+gamescope is a micro-compositor from Valve that allows running games in
+an isolated Wayland compositor session. It supports nested mode (runs
+inside an existing desktop) and embedded/kiosk mode (SteamOS-style full
+session).
+
+Features include:
+ - Resolution scaling and upscaling (AMD FSR, NIS)
+ - HDR support
+ - Frame limiting and VRR/FreeSync support
+ - Vulkan-based compositing
+ - Screen capture via PipeWire
+
+This build clones the source repository and initializes submodules at
+build time, as the upstream bundled dependencies (wlroots, libliftoff,
+vkroots) must be built from specific pinned commits.
+
+Requirements:
+ - git (to clone and initialize submodules at build time)
+ - meson >= 0.58.0
+ - ninja
+ - Vulkan SDK / vulkan-headers / vulkan-loader
+ - wayland (in Slackware base)
+ - libX11 (in Slackware base)
+ - SDL2 (in Slackware base)
+ - pipewire (in Slackware base)
+ - libei (in Slackware base)
+
+SBo dependencies:
+ - libavif (for AVIF screenshot support)
+
+Optional: OpenVR support is auto-detected if the openvr library is
+present.
+
+Graphics support:
+ - AMD: Mesa 20.3+ (GFX9+); for GFX8 and older set R600_DEBUG=nodcc
+ - Intel: Mesa 21.2+
+ - NVIDIA: proprietary 515.43.04+ with nvidia-drm.modeset=1 kernel
+   parameter

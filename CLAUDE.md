@@ -19,10 +19,10 @@ Each package lives in its own top-level subfolder:
 └── [...]                       # other optional files
 ```
 
-Version tracking is handled by a single repo-level file:
+Version tracking is handled by a single file:
 
 ```
-nvchecker.toml   # nvchecker config listing all packages
+.extras/nvchecker.toml   # nvchecker config listing all packages
 ```
 
 ---
@@ -72,12 +72,12 @@ use_max_tag = true
 To check for new upstream versions:
 
 ```bash
-nvchecker -c nvchecker.toml
+nvchecker -c .extras/nvchecker.toml
 ```
 
 When a new version is detected, update `VERSION` in both `.SlackBuild` and `.info`, then run `sbofixinfo` to refresh checksums.
 
-**Every new package added to this repo must have a corresponding entry in `nvchecker.toml`.**
+**Every new package added to this repo must have a corresponding entry in `.extras/nvchecker.toml`.**
 
 ---
 
@@ -146,7 +146,7 @@ cd <package-name> && sbopkglint
 find . -type l -delete
 
 # 8. Commit (pre-commit hook runs sbolint automatically)
-git add <package-name>/ nvchecker.toml
+git add <package-name>/ .extras/nvchecker.toml
 git commit -m'<package-name>: add version X.Y.Z'
 ```
 

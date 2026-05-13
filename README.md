@@ -44,6 +44,7 @@ Each package lives in its own top-level subfolder:
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
 | mutagen | ✅ | not tested | ✅ | 1.47.0 | 1.47.0 |
 | solvespace | ✅ | not tested | ❌ | 3.2 | 3.2 |
+| gamescope | ✅ | not tested | ❌ | 3.16.23 | 3.16.23 |
 
 ---
 
