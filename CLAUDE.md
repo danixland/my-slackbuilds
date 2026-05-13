@@ -97,17 +97,17 @@ Source: https://slackware.uk/~urchlay/repos/sbo-maintainer-tools
 
 ### Git hook setup
 
-Both hooks are tracked in the `hooks/` directory. Install them after cloning:
+Both hooks are tracked in the `.extras/hooks/` directory. Install them after cloning:
 
 ```bash
-cp hooks/pre-commit .git/hooks/pre-commit
-cp hooks/post-commit .git/hooks/post-commit
+cp .extras/hooks/pre-commit .git/hooks/pre-commit
+cp .extras/hooks/post-commit .git/hooks/post-commit
 chmod +x .git/hooks/pre-commit .git/hooks/post-commit
 ```
 
 | Hook | Trigger | Purpose |
 |------|---------|---------|
-| `pre-commit` | Before every commit | Runs `sbolint` on staged packages; blocks commit on errors |
+| `pre-commit` | Before every commit | Runs `sbolint` on staged packages; blocks commit on errors. Also checks for staged source archives: symlinks are auto-removed, real files block the commit. |
 | `post-commit` | After every commit | Offers to create a `SBo/<pkg>.tar.gz` archive for submission |
 
 To bypass the pre-commit lint check in exceptional cases:
