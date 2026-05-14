@@ -63,3 +63,15 @@ source = "github"
 github = "lilydjwg/nvchecker"
 use_max_tag = true
 prefix = "v"
+
+[python3-structlog]
+source = "pypi"
+pypi = "structlog"
+
+[python3-platformdirs]
+source = "pypi"
+pypi = "platformdirs"
+
+[python3-awesomeversion]
+source = "pypi"
+pypi = "awesomeversion"

@@ -1,0 +1,5 @@
+platformdirs is a small Python module for determining appropriate
+platform-specific directories, e.g. a "user data dir". It abstracts
+differences across Linux/Unix, macOS, Windows, and Android.
+
+Homepage: https://platformdirs.readthedocs.io/en/latest/

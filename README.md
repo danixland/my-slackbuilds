@@ -46,6 +46,9 @@ Each package lives in its own top-level subfolder:
 | solvespace | ✅ | not tested | ❌ | 3.2 | 3.2 |
 | gamescope | ✅ | not tested | ❌ | 3.16.23 | 3.16.23 |
 | nvchecker | ✅ | not tested | ❌ | 2.20 | 2.20 |
+| python3-structlog | ✅ | not tested | ❌ | 25.5.0 | 25.5.0 |
+| python3-platformdirs | ✅ | not tested | ❌ | 4.9.6 | 4.9.6 |
+| python3-awesomeversion | ✅ | not tested | ❌ | 25.8.0 | 25.8.0 |
 
 ---
 

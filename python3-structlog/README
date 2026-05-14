@@ -1,0 +1,5 @@
+structlog makes logging in Python less painful and more powerful by
+adding structure to your log entries. It supports JSON, logfmt, and
+console output formats with a flexible processor pipeline.
+
+Homepage: https://www.structlog.org/

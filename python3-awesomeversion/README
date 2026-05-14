@@ -1,0 +1,4 @@
+awesomeversion is a Python package that makes anything a version object
+and allows comparison against a vast selection of version formats.
+
+Homepage: https://github.com/ludeeus/awesomeversion
