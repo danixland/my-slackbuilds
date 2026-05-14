@@ -57,3 +57,9 @@ prefix = "v"
 source = "github"
 github = "ValveSoftware/gamescope"
 use_max_tag = true
+
+[nvchecker]
+source = "github"
+github = "lilydjwg/nvchecker"
+use_max_tag = true
+prefix = "v"
