@@ -85,10 +85,11 @@ find -L . \
 SETUPTOOLS_SCM_PRETEND_VERSION=$VERSION python3 -m build --wheel --no-isolation
 python3 -m installer --destdir "$PKG" dist/*.whl
 
-# Fix version.py: setuptools-scm leaves it empty without git; prepend the version vars
+# Fix version.py: setuptools-scm leaves vars unset without git tags; insert after from __future__
 VERFILE=$(find "$PKG" -name "version.py" -path "*/platformdirs/*")
 if [ -n "$VERFILE" ]; then
-  sed -i "1i __version__ = \"$VERSION\"\n__version_tuple__ = ($(echo $VERSION | tr '.' ','))" "$VERFILE"
+  VERTUPLE="($(echo $VERSION | tr '.' ','))"
+  sed -i "/^from __future__/a __version__ = \"$VERSION\"\n__version_tuple__ = $VERTUPLE" "$VERFILE"
 fi
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
