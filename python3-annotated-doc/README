@@ -2,3 +2,6 @@ annotated-doc allows documenting parameters, class attributes, return
 types, and variables inline using Python's Annotated type hint.
 
 Homepage: https://github.com/fastapi/annotated-doc
+
+Build requirements (not needed at runtime):
+  python3-pdm-backend (available on SBo)
