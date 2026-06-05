@@ -97,3 +97,8 @@ pypi = "typer"
 [python3-huggingface_hub]
 source = "pypi"
 pypi = "huggingface_hub"
+
+[click]
+source = "github"
+github = "mitsuhiko/click"
+use_max_tag = true
