@@ -85,3 +85,7 @@ use_max_tag = true
 source = "github"
 github = "pypa/packaging"
 use_max_tag = true
+
+[python3-annotated-doc]
+source = "pypi"
+pypi = "annotated-doc"
