@@ -93,3 +93,7 @@ pypi = "annotated-doc"
 [python3-typer]
 source = "pypi"
 pypi = "typer"
+
+[python3-huggingface_hub]
+source = "pypi"
+pypi = "huggingface_hub"

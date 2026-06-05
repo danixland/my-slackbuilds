@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                       |-----handy-ruler------------------------------------------------------|
+python3-huggingface_hub: python3-huggingface_hub (Hugging Face Hub client library)
+python3-huggingface_hub:
+python3-huggingface_hub: huggingface_hub is the official Python client for the Hugging Face
+python3-huggingface_hub: Hub. It allows downloading and publishing models, datasets, and
+python3-huggingface_hub: other repos on huggingface.co.
+python3-huggingface_hub:
+python3-huggingface_hub: Homepage: https://github.com/huggingface/huggingface_hub
+python3-huggingface_hub:
+python3-huggingface_hub:
+python3-huggingface_hub:
+python3-huggingface_hub:
