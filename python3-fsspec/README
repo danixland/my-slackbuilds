@@ -1,0 +1,6 @@
+fsspec (filesystem_spec) is a project to unify various interfaces for
+different filesystem types into a single Pythonic interface. It provides
+an abstract base class and implementations for local, in-memory, HTTP,
+FTP, and other remote filesystems.
+
+Homepage: https://github.com/fsspec/filesystem_spec

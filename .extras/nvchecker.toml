@@ -75,3 +75,8 @@ pypi = "platformdirs"
 [python3-awesomeversion]
 source = "pypi"
 pypi = "awesomeversion"
+
+[python3-fsspec]
+source = "github"
+github = "fsspec/filesystem_spec"
+use_max_tag = true

@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+              |-----handy-ruler------------------------------------------------------|
+python3-fsspec: python3-fsspec (filesystem interfaces for Python)
+python3-fsspec:
+python3-fsspec: fsspec unifies various interfaces for different filesystem types into
+python3-fsspec: a single Pythonic interface. It provides an abstract base class and
+python3-fsspec: class and implementations for local, in-memory, HTTP, FTP, and other
+python3-fsspec: remote filesystems.
+python3-fsspec:
+python3-fsspec: Homepage: https://github.com/fsspec/filesystem_spec
+python3-fsspec:
+python3-fsspec:
+python3-fsspec:

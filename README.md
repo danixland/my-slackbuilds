@@ -49,6 +49,7 @@ Each package lives in its own top-level subfolder:
 | python3-structlog | ✅ | not tested | ❌ | 25.5.0 | 25.5.0 |
 | python3-platformdirs | ✅ | not tested | ❌ | 4.9.6 | 4.9.6 |
 | python3-awesomeversion | ✅ | not tested | ❌ | 25.8.0 | 25.8.0 |
+| python3-fsspec | ✅ | not tested | ❌ | 2026.4.0 | 2026.4.0 |
 
 ---
 
