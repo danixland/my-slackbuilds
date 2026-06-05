@@ -80,3 +80,8 @@ pypi = "awesomeversion"
 source = "github"
 github = "fsspec/filesystem_spec"
 use_max_tag = true
+
+[python3-packaging]
+source = "github"
+github = "pypa/packaging"
+use_max_tag = true

@@ -1,0 +1,6 @@
+packaging provides core utilities for Python package metadata handling,
+including version parsing and comparison, dependency specifiers, wheel
+tags, and PEP 425/508/517/660 support.
+
+Homepage: https://github.com/pypa/packaging
+Documentation: https://packaging.pypa.io/
