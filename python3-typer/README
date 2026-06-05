@@ -1,0 +1,6 @@
+Typer is a library for building CLI applications based on Python type
+hints. It is designed to be easy to use and produce great CLIs with
+minimal code.
+
+Homepage: https://github.com/fastapi/typer
+Documentation: https://typer.tiangolo.com

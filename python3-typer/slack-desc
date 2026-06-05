@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+             |-----handy-ruler------------------------------------------------------|
+python3-typer: python3-typer (CLI builder based on Python type hints)
+python3-typer:
+python3-typer: Typer is a library for building CLI applications based on Python type
+python3-typer: hints. It is designed to be easy to use and produce great CLIs with
+python3-typer: minimal code.
+python3-typer:
+python3-typer: Homepage: https://github.com/fastapi/typer
+python3-typer:
+python3-typer:
+python3-typer:
+python3-typer:

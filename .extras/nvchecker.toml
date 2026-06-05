@@ -89,3 +89,7 @@ use_max_tag = true
 [python3-annotated-doc]
 source = "pypi"
 pypi = "annotated-doc"
+
+[python3-typer]
+source = "pypi"
+pypi = "typer"

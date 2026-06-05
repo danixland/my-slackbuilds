@@ -52,6 +52,7 @@ Each package lives in its own top-level subfolder:
 | python3-fsspec | ✅ | not tested | ❌ | 2026.4.0 | 2026.4.0 |
 | python3-packaging | ✅ | not tested | ❌ | 26.2 | 26.2 |
 | python3-annotated-doc | ✅ | not tested | ❌ | 0.0.4 | 0.0.4 |
+| python3-typer | ✅ | not tested | ❌ | 0.25.1 | 0.25.1 |
 
 ---
 
