@@ -102,3 +102,9 @@ pypi = "huggingface_hub"
 source = "github"
 github = "mitsuhiko/click"
 use_max_tag = true
+
+[btop]
+source = "github"
+github = "aristocratos/btop"
+use_latest_release = true
+
