@@ -3,7 +3,7 @@
 set -u
 
 REPO_ROOT=$(git rev-parse --show-toplevel)
-SBO_DIR="$REPO_ROOT/.extras/SBo"
+SBO_DIR="$REPO_ROOT/SBo"
 
 # Find packages whose .SlackBuild was added (A) or modified (M) in this commit.
 # git diff-tree output format: <status>\t<file>
@@ -13,8 +13,8 @@ while IFS=$'\t' read -r status file; do
     [[ "$status" != "A" && "$status" != "M" ]] && continue
     dir=$(dirname "$file")
     base=$(basename "$file")
-    # Only process packages at SlackBuilds/<pkg> depth
-    [[ "$dir" =~ ^SlackBuilds/[^/]+$ ]] || continue
+    [[ "$dir" == "." ]] && continue       # skip root-level files
+    [[ "$dir" == *"/"* ]] && continue     # skip files deeper than one level
     [[ "$base" == *.SlackBuild ]] || continue
     PACKAGES+=("$dir")
 done < <(git diff-tree --no-commit-id -r --name-status HEAD)
