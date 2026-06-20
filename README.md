@@ -55,7 +55,7 @@ Each package lives in its own top-level subfolder:
 | python3-typer | ✅ | not tested | ❌ | 0.25.1 | 0.25.1 |
 | python3-huggingface_hub | ✅ | not tested | ❌ | 1.18.0 | 1.18.0 |
 | click | ✅ | not tested | ✅ | 8.4.1 | 8.4.1 |
-| playwright-cli | not tested | not tested | ❌ | 0.1.14 | 0.1.14 |
+| playwright-cli | ✅ | not tested | ❌ | 0.1.14 | 0.1.14 |
 
 ---
 
