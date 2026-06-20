@@ -31,8 +31,14 @@ for pkg in "${PACKAGES[@]}"; do
         printf '%s\n' "${f#"$REPO_ROOT/"}"
     done < <(find "$REPO_ROOT/$pkg" -type f | sort)
     echo ""
+    # Need an interactive terminal to prompt; skip cleanly if none.
+    if [ ! -r /dev/tty ]; then
+        echo "  -> No terminal, skipped (run hook interactively to archive)."
+        continue
+    fi
     printf "Create SBo archive for '%s'? [y/N] " "$pkg"
-    read -r answer </dev/tty
+    answer=""
+    read -r answer </dev/tty || answer=""
     case "$answer" in
         [yY]|[yY][eE][sS])
             mkdir -p "$SBO_DIR"
