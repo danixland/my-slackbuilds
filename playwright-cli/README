@@ -1,0 +1,25 @@
+playwright-cli (CLI for common Playwright actions)
+
+playwright-cli is a command-line interface for Playwright. It can drive
+a browser, record and generate Playwright code, inspect selectors and
+take screenshots. It is meant to be token-efficient for coding agents
+(Claude Code, GitHub Copilot, etc.) exposed as CLI skills, but works
+fine manually too.
+
+This is a Node.js tool. nodejs (>= 18) must be installed; it is part of
+a standard Slackware installation, so it is not listed in REQUIRES.
+
+Build-time network: like other npm command-line tools, this SlackBuild
+runs "npm install" to fetch the playwright / playwright-core
+dependencies from the npm registry at build time. Nothing is fetched at
+run time.
+
+Browsers are NOT packaged. Playwright downloads its browser binaries
+(Chromium, Firefox, WebKit) at run time into ~/.cache/ms-playwright.
+After installing this package, download them once with:
+
+    playwright-cli install
+
+To install the agent skills into the current project:
+
+    playwright-cli install --skills

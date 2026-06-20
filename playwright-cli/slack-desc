@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+              |-----handy-ruler------------------------------------------------------|
+playwright-cli: playwright-cli (CLI for common Playwright actions)
+playwright-cli:
+playwright-cli: playwright-cli is a command-line interface for Playwright. It can
+playwright-cli: drive a browser, record and generate Playwright code, inspect
+playwright-cli: selectors and take screenshots. It is designed to be token
+playwright-cli: efficient for use by coding agents via CLI skills.
+playwright-cli:
+playwright-cli: Browser binaries are not bundled; run "playwright-cli install"
+playwright-cli: to download them into ~/.cache/ms-playwright on first use.
+playwright-cli:
+playwright-cli: Homepage: https://github.com/microsoft/playwright-cli

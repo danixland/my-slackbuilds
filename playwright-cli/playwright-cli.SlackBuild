@@ -1,0 +1,115 @@
+#!/bin/bash
+
+# Slackware build script for playwright-cli
+
+# Copyright 2026 Danilo M. <danix@danix.xyz>
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+# OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+# NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+# EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+cd $(dirname $0) ; CWD=$(pwd)
+
+PRGNAM=playwright-cli
+VERSION=${VERSION:-0.1.14}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+PKGTYPE=${PKGTYPE:-tgz}
+
+# playwright-cli and its dependencies (playwright, playwright-core) are pure
+# JavaScript: no compiled objects, no native node addons, no per-arch
+# prebuilds. The package is therefore noarch. Playwright's only native parts
+# are the browser binaries, which are NOT packaged here (see below).
+ARCH=noarch
+
+# Functionality lives in the "playwright" / "playwright-core" dependencies,
+# pulled from the npm registry at build time. This is the accepted convention
+# for npm command-line tools: the network is used at build time only, never
+# at run time.
+
+# The Playwright browser binaries (Chromium, Firefox, WebKit) are NOT packaged.
+# They are runtime data the user downloads on first use into
+# ~/.cache/ms-playwright via "playwright-cli install". The environment variable
+# below makes sure the npm postinstall step does not download them into the
+# package.
+export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+
+if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
+  echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
+  exit 0
+fi
+
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+
+# The npm registry tarball is named cli-$VERSION.tgz; accept that as well as
+# the SBo-conventional $PRGNAM-$VERSION.tgz name.
+SRCTGZ=$CWD/$PRGNAM-$VERSION.tgz
+[ -f "$SRCTGZ" ] || SRCTGZ=$CWD/cli-$VERSION.tgz
+
+# Install the npm tarball and its dependencies into the package, globally,
+# under /usr. npm reads the source tarball directly; no extraction needed.
+# noarch: modules go to /usr/lib/node_modules regardless of $ARCH.
+mkdir -p $PKG/usr/lib
+DESTDIR=$PKG npm install \
+  --user root \
+  --location=global \
+  --prefix $PKG/usr \
+  --omit=dev \
+  --no-audit \
+  --no-fund \
+  $SRCTGZ
+
+NODE_MODULES=$PKG/usr/lib/node_modules
+
+# Remove the stray "root" module npm sometimes creates from --user root
+rm -rf $NODE_MODULES/root
+
+# Remove VCS / CI leftovers
+find $PKG/usr \( -name '.git*' -o -name '.travis.yml' \) -exec rm -f {} \;
+
+# Scrub absolute build-time paths from package.json files
+find $PKG -name "package.json" \
+  -exec sed -e "s|$CWD||g" -e "s|$TMP||g" -i '{}' \; 2>/dev/null || true
+
+chown -R root:root $PKG
+find -L $PKG \
+  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+   -o -perm 511 \) -exec chmod 755 {} \+ -o \
+  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \+
+
+# Make sure the launcher and any bin shims are executable
+[ -d "$PKG/usr/bin" ] && chmod 0755 $PKG/usr/bin/* 2>/dev/null || true
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+DOCDIR=$NODE_MODULES/@playwright/cli
+cp -a \
+  $DOCDIR/LICENSE $DOCDIR/README.md \
+  $PKG/usr/doc/$PRGNAM-$VERSION 2>/dev/null || true
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

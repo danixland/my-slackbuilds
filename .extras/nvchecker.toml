@@ -102,3 +102,7 @@ pypi = "huggingface_hub"
 source = "github"
 github = "mitsuhiko/click"
 use_max_tag = true
+
+[playwright-cli]
+source = "npm"
+npm = "@playwright/cli"
