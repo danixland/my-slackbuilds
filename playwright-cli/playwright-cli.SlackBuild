@@ -68,8 +68,6 @@ SRCTGZ=$CWD/$PRGNAM-$VERSION.tgz
 
 # Install the npm tarball and its dependencies into the package, globally,
 # under /usr. npm reads the source tarball directly; no extraction needed.
-# noarch: modules go to /usr/lib/node_modules regardless of $ARCH.
-mkdir -p $PKG/usr/lib
 DESTDIR=$PKG npm install \
   --user root \
   --location=global \
@@ -79,10 +77,26 @@ DESTDIR=$PKG npm install \
   --no-fund \
   $SRCTGZ
 
+# noarch: pure-JS modules must live in /usr/lib, never the arch-specific
+# /usr/lib64. node's default prefix may land them in lib64, so normalise.
+if [ -d "$PKG/usr/lib64/node_modules" ]; then
+  mkdir -p $PKG/usr/lib
+  mv $PKG/usr/lib64/node_modules $PKG/usr/lib/node_modules
+  rmdir $PKG/usr/lib64 2>/dev/null || true
+fi
+
 NODE_MODULES=$PKG/usr/lib/node_modules
 
 # Remove the stray "root" module npm sometimes creates from --user root
 rm -rf $NODE_MODULES/root
+
+# Create the launcher symlink. npm's --prefix/global bin-linking is
+# unreliable under DESTDIR staging, so make it explicitly. The bin name and
+# target come from the package's own "bin" field (playwright-cli.js).
+mkdir -p $PKG/usr/bin
+ln -sf ../lib/node_modules/@playwright/cli/playwright-cli.js \
+  $PKG/usr/bin/playwright-cli
+chmod 0755 $NODE_MODULES/@playwright/cli/playwright-cli.js
 
 # Remove VCS / CI leftovers
 find $PKG/usr \( -name '.git*' -o -name '.travis.yml' \) -exec rm -f {} \;
