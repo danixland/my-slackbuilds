@@ -106,9 +106,3 @@ use_max_tag = true
 [playwright-cli]
 source = "npm"
 npm = "@playwright/cli"
-
-[cargo-vendor-filterer]
-source = "github"
-github = "coreos/cargo-vendor-filterer"
-use_max_tag = true
-prefix = "v"
