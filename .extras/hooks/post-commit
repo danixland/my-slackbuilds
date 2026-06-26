@@ -31,14 +31,23 @@ for pkg in "${PACKAGES[@]}"; do
         printf '%s\n' "${f#"$REPO_ROOT/"}"
     done < <(find "$REPO_ROOT/$pkg" -type f | sort)
     echo ""
-    # Need an interactive terminal to prompt; skip cleanly if none.
-    if [ ! -r /dev/tty ]; then
-        echo "  -> No terminal, skipped (run hook interactively to archive)."
-        continue
-    fi
-    printf "Create SBo archive for '%s'? [y/N] " "$pkg"
-    answer=""
-    read -r answer </dev/tty || answer=""
+    # Non-interactive override: set SBO_ARCHIVE=yes|no to skip the prompt.
+    # Lets agents and scripts answer without a terminal.
+    case "${SBO_ARCHIVE:-}" in
+        [yY]|[yY][eE][sS]) answer=yes ;;
+        [nN]|[nN][oO])     echo "  -> Skipped (SBO_ARCHIVE=no)."; continue ;;
+        "")
+            # No override: need an interactive terminal to prompt.
+            if [ ! -r /dev/tty ]; then
+                echo "  -> No terminal, skipped (set SBO_ARCHIVE=yes to archive)."
+                continue
+            fi
+            printf "Create SBo archive for '%s'? [y/N] " "$pkg"
+            answer=""
+            read -r answer </dev/tty || answer=""
+            ;;
+        *)  echo "  -> Skipped (SBO_ARCHIVE='$SBO_ARCHIVE' unrecognized)."; continue ;;
+    esac
     case "$answer" in
         [yY]|[yY][eE][sS])
             mkdir -p "$SBO_DIR"
