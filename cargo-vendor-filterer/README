@@ -8,3 +8,7 @@ NOTE:
 I've included a "cargo-mkvendored.sh" script to generate filtered
 vendored sources for a rust or python/rust slackbuild.  It needs to be
 run from within a slackbuild directory.
+
+This is the SlackBuilds.org package; it builds and runs on Slackware
+-current with the system Rust toolchain (rust-opt is only required on
+-stable, whose system Rust is too old).
