@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=firefly-cli
-VERSION=${VERSION:-0.1.0}
+VERSION=${VERSION:-0.2.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -68,6 +68,9 @@ find -L . \
 python3 -m build --wheel --no-isolation
 python3 -m installer --destdir "$PKG" dist/*.whl
 
+mkdir -p $PKG/etc/bash_completion.d
+cat completions/firefly.bash > $PKG/etc/bash_completion.d/firefly.new
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
   LICENSE README.md SKILL.md \
@@ -76,6 +79,7 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
