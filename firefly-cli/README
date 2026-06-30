@@ -1,0 +1,15 @@
+firefly-cli is a command-line tool that lets an LLM agent (and you)
+interact with a self-hosted Firefly III instance over its REST API. It
+exposes the 'firefly' command, emits JSON by default (pass --human for
+tables), and resolves account, category, and tag names to IDs.
+
+Pure Python, standard library only. No third-party runtime dependencies.
+Requires Python 3.11 or newer.
+
+Configuration: provide your Firefly III URL and a personal access token
+either by running 'firefly auth set' (stored in a local TOML file) or by
+setting the FIREFLY_URL and FIREFLY_TOKEN environment variables, which
+take precedence over the config file.
+
+A Firefly III instance and a valid personal access token are required at
+runtime; they are not build-time dependencies.

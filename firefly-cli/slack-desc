@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+           |-----handy-ruler------------------------------------------------------|
+firefly-cli: firefly-cli (CLI for agent interaction with Firefly III)
+firefly-cli:
+firefly-cli: A command-line tool that lets an LLM agent (and you) interact with
+firefly-cli: a Firefly III instance over its REST API. It exposes the 'firefly'
+firefly-cli: command, emits JSON by default, and resolves account, category, and
+firefly-cli: tag names to IDs. Pure Python, standard library only, no third-party
+firefly-cli: runtime dependencies.
+firefly-cli:
+firefly-cli: Homepage: https://git.danix.xyz/firefly-cli/
+firefly-cli:
+firefly-cli:
