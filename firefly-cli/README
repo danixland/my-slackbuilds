@@ -13,3 +13,5 @@ take precedence over the config file.
 
 A Firefly III instance and a valid personal access token are required at
 runtime; they are not build-time dependencies.
+
+This package was built and tested on Slackware -current.
