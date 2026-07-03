@@ -33,8 +33,8 @@ Each package lives in its own top-level subfolder:
 
 | Package | -current | 15.0 | SBo | Version | Latest |
 |---------|----------|------|-----|---------|--------|
-| hstr | ✅ | not tested | [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.2 | 3.2 |
-| discord | ✅ | not tested | [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.137 | 0.0.135 |
+| hstr | ✅ | not tested | ✅ [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.2 | 3.2 |
+| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.137 | 0.0.135 |
 | kitty-bin | ✅ | not tested | ❌ | 0.46.2 | 0.46.2 |
 | llama.cpp-vulkan | ✅ | not tested | ❌ | b8989 | b8989 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
@@ -42,7 +42,7 @@ Each package lives in its own top-level subfolder:
 | claude-code-bin | ✅ | not tested | ❌ | 2.1.140 | 2.1.140 |
 | kvantum-qt6 | ✅ | not tested | ❌ | 1.1.6 | 1.1.6 |
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
-| mutagen | ✅ | not tested | ✅ | 1.47.0 | 1.47.0 |
+| mutagen | ✅ | not tested | ✅ [mutagen](https://slackbuilds.org/repository/15.0/development/mutagen/) | 1.47.0 | 1.47.0 |
 | solvespace | ✅ | not tested | ❌ | 3.2 | 3.2 |
 | gamescope | ✅ | not tested | ❌ | 3.16.23 | 3.16.23 |
 | nvchecker | ✅ | not tested | ❌ | 2.20 | 2.20 |
@@ -54,7 +54,7 @@ Each package lives in its own top-level subfolder:
 | python3-annotated-doc | ✅ | not tested | ❌ | 0.0.4 | 0.0.4 |
 | python3-typer | ✅ | not tested | ❌ | 0.25.1 | 0.25.1 |
 | python3-huggingface_hub | ✅ | not tested | ❌ | 1.18.0 | 1.18.0 |
-| click | ✅ | not tested | ✅ | 8.4.1 | 8.4.1 |
+| click | ✅ | not tested | ✅ [click](https://slackbuilds.org/repository/15.0/python/click/) | 8.4.1 | 8.4.1 |
 | playwright-cli | ✅ | not tested | ❌ | 0.1.14 | 0.1.14 |
 
 ---
@@ -114,3 +114,11 @@ chmod +x .git/hooks/pre-commit .git/hooks/post-commit
 ## License
 
 GPL-2.0 — see [LICENSE](LICENSE).
+
+## Development Approach
+
+This project is developed using AI-assisted tools. Code is generated with the help of AI based on human-provided specifications, design decisions, and iterative feedback.
+
+All contributions are reviewed, tested, and curated by the maintainer before being included in the codebase. AI is used as a productivity and exploration tool, while human oversight remains central to all decisions.
+
+The goal is to combine the flexibility of AI-assisted development with standard open-source practices such as transparency, review, and accountability.
