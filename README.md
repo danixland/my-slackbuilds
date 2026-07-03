@@ -44,10 +44,10 @@ Each package lives in its own top-level subfolder:
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
 | mutagen | ✅ | not tested | ✅ [mutagen](https://slackbuilds.org/repository/15.0/development/mutagen/) | 1.47.0 | 1.47.0 |
 | solvespace | ✅ | not tested | ❌ | 3.2 | 3.2 |
-| gamescope | ✅ | not tested | ❌ | 3.16.23 | 3.16.23 |
+| gamescope | ✅ | not tested | ✅ [gamescope](https://slackbuilds.org/repository/15.0/system/gamescope/) | 3.16.23 | 3.16.23 |
 | nvchecker | ✅ | not tested | ❌ | 2.20 | 2.20 |
 | python3-structlog | ✅ | not tested | ❌ | 25.5.0 | 25.5.0 |
-| python3-platformdirs | ✅ | not tested | ❌ | 4.9.6 | 4.9.6 |
+| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.9.6 | 4.9.6 |
 | python3-awesomeversion | ✅ | not tested | ❌ | 25.8.0 | 25.8.0 |
 | python3-fsspec | ✅ | not tested | ❌ | 2026.4.0 | 2026.4.0 |
 | python3-packaging | ✅ | not tested | ❌ | 26.2 | 26.2 |
