@@ -6,7 +6,7 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
          |-----handy-ruler------------------------------------------------------|
-kitty-bin: kitty (fast, featureful, GPU-based terminal emulator)
+kitty-bin: kitty-bin (fast, featureful, GPU-based terminal emulator)
 kitty-bin:
 kitty-bin: kitty is a terminal emulator for X11 and Wayland, which offloads the
 kitty-bin: rendering to the GPU and supports modern terminal features. It also
