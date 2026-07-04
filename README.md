@@ -34,31 +34,31 @@ Each package lives in its own top-level subfolder:
 | Package | -current | 15.0 | SBo | Version | Latest |
 |---------|----------|------|-----|---------|--------|
 | hstr | ✅ | not tested | ✅ [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.2 | 3.2 |
-| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.137 | 0.0.135 |
-| kitty-bin | ✅ | not tested | ❌ | 0.46.2 | 0.46.2 |
-| llama.cpp-vulkan | ✅ | not tested | ❌ | b8989 | b8989 |
+| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.145 | 1.0.145 |
+| kitty-bin | ✅ | not tested | ❌ | 0.47.4 | 0.47.4 |
+| llama.cpp-vulkan | ✅ | not tested | ❌ | b9871 | b9871 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
-| opencode-bin | ✅ | not tested | ❌ | 1.14.30 | 1.14.30 |
+| opencode-bin | ✅ | not tested | ❌ | 1.17.13 | 1.17.13 |
 | claude-code-bin | ✅ | not tested | ❌ | 2.1.140 | 2.1.140 |
-| kvantum-qt6 | ✅ | not tested | ❌ | 1.1.6 | 1.1.6 |
+| kvantum-qt6 | ✅ | not tested | ❌ | 1.1.8 | 1.1.8 |
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
 | mutagen | ✅ | not tested | ✅ [mutagen](https://slackbuilds.org/repository/15.0/development/mutagen/) | 1.47.0 | 1.47.0 |
 | solvespace | ✅ | not tested | ❌ | 3.2 | 3.2 |
-| gamescope | ✅ | not tested | ✅ [gamescope](https://slackbuilds.org/repository/15.0/system/gamescope/) | 3.16.23 | 3.16.23 |
+| gamescope | ✅ | not tested | ✅ [gamescope](https://slackbuilds.org/repository/15.0/system/gamescope/) | 3.16.24 | 3.16.24 |
 | nvchecker | ✅ | not tested | ❌ | 2.20 | 2.20 |
-| python3-structlog | ✅ | not tested | ❌ | 25.5.0 | 25.5.0 |
-| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.9.6 | 4.9.6 |
+| python3-structlog | ✅ | not tested | ❌ | 26.1.0 | 26.1.0 |
+| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.10.0 | 4.10.0 |
 | python3-awesomeversion | ✅ | not tested | ❌ | 25.8.0 | 25.8.0 |
-| python3-fsspec | ✅ | not tested | ❌ | 2026.4.0 | 2026.4.0 |
+| python3-fsspec | ✅ | not tested | ❌ | 2026.6.0 | 2026.6.0 |
 | python3-packaging | ✅ | not tested | ❌ | 26.2 | 26.2 |
 | python3-annotated-doc | ✅ | not tested | ❌ | 0.0.4 | 0.0.4 |
-| python3-typer | ✅ | not tested | ❌ | 0.25.1 | 0.25.1 |
-| python3-huggingface_hub | ✅ | not tested | ❌ | 1.18.0 | 1.18.0 |
-| click | ✅ | not tested | ✅ [click](https://slackbuilds.org/repository/15.0/python/click/) | 8.4.1 | 8.4.1 |
-| playwright-cli | ✅ | not tested | ❌ | 0.1.14 | 0.1.14 |
+| python3-typer | ✅ | not tested | ❌ | 0.26.8 | 0.26.8 |
+| python3-huggingface_hub | ✅ | not tested | ❌ | 1.22.0 | 1.22.0 |
+| click | ✅ | not tested | ✅ [click](https://slackbuilds.org/repository/15.0/python/click/) | 8.4.2 | 8.4.2 |
+| playwright-cli | ✅ | not tested | ❌ | 0.1.15 | 0.1.15 |
 | r8125 | ✅ | not tested | ✅ [r8125](https://slackbuilds.org/repository/15.0/network/r8125/) | 9.018.00 | 9.018.00 |
 | firefly-cli | ✅ | not tested | ❌ | 0.4.1 | 0.4.1 |
-| UrbanTerror | ✅ | not tested | ✅ [UrbanTerror](https://slackbuilds.org/repository/15.0/games/UrbanTerror/) | 4.3.4 | 4.3.4 |
+| UrbanTerror | ✅ | ✅ | ✅ [UrbanTerror](https://slackbuilds.org/repository/15.0/games/UrbanTerror/) | 4.3.4 | 4.3.4 |
 
 ---
 
