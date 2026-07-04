@@ -1,0 +1,123 @@
+#!/bin/bash
+
+# Slackware build script for UrbanTerror
+
+# Copyright 2011  Matthew "mfillpot" Fillpot
+# Copyright 2020  Alan Ianson, Penticton, BC
+# Copyright 2026  danix <danix@danix.xyz>
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+cd $(dirname $0) ; CWD=$(pwd)
+
+PRGNAM=UrbanTerror
+VERSION=${VERSION:-4.3.4}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+PKGTYPE=${PKGTYPE:-tgz}
+
+# Upstream names the source zip and its top dir with the dot-less version
+# (4.3.4 -> 434, extracting to UrbanTerror43).
+SRCVERSION=${VERSION//./}
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i586 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$( uname -m ) ;;
+  esac
+fi
+
+# UrbanTerror ships prebuilt binaries; pick the matching executable suffix.
+if [ "$ARCH" = "x86_64" ]; then
+  EXEC="x86_64"
+elif [ "$ARCH" = "i586" ]; then
+  EXEC="i386"
+else
+  echo "$ARCH architecture is unsupported" >/dev/stderr
+  exit 1
+fi
+
+# If the variable PRINT_PACKAGE_NAME is set, then this script will report what
+# the name of the created package would be, and then exit. This information
+# could be useful to other scripts.
+if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
+  echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
+  exit 0
+fi
+
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+CLIENT_EXEC=${CLIENT_EXEC:-Quake3-UrT.$EXEC}
+SERVER_EXEC=${SERVER_EXEC:-Quake3-UrT-Ded.$EXEC}
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+rm -rf $PRGNAM-$VERSION
+mkdir -p $PKG/usr/share/games
+unzip $CWD/$PRGNAM${SRCVERSION}_full.zip -d $PKG/usr/share/games
+cd $PKG/usr/share/games/$PRGNAM${SRCVERSION%?}
+chown -R root:root .
+find -L . \
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+
+# Create symlinks in /usr/games using relative paths
+mkdir -p $PKG/usr/games
+( cd $PKG/usr/games
+  ln -sf ../share/games/$PRGNAM${SRCVERSION%?}/$CLIENT_EXEC urbanterror
+  ln -sf ../share/games/$PRGNAM${SRCVERSION%?}/$SERVER_EXEC urbanterror_server
+)
+
+# Add a menu entry and icon
+mkdir -p $PKG/usr/share/applications $PKG/usr/share/pixmaps
+cat $CWD/$PRGNAM.desktop > $PKG/usr/share/applications/$PRGNAM.desktop
+cat $CWD/q3urt.png > $PKG/usr/share/pixmaps/q3urt.png
+
+# Remove unused files from the package
+cd $PKG/usr/share/games/$PRGNAM${SRCVERSION%?}
+rm -f *.exe
+rm -rf Quake3-UrT.app
+[ "$EXEC" = "x86_64" ] && rm -vf *.i386
+[ "$EXEC" = "i386"   ] && rm -vf *.x86_64
+cd q3ut4
+rm -f *.cfg *.txt *.doc
+chmod -x *.pk3
+
+# Strip the prebuilt game binaries
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+install -m 644 $CWD/docs/* $PKG/usr/doc/$PRGNAM-$VERSION/
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

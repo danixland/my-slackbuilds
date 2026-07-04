@@ -112,3 +112,10 @@ source = "github"
 github = "danixland/firefly-cli"
 use_max_tag = true
 prefix = "v"
+
+[UrbanTerror]
+source = "regex"
+url = "https://www.urbanterror.info/downloads/"
+regex = "UrbanTerror(\\d+)_full\\.zip"
+from_pattern = "(\\d)(\\d)(\\d)"
+to_pattern = "\\1.\\2.\\3"
