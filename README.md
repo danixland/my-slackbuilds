@@ -58,7 +58,7 @@ Each package lives in its own top-level subfolder:
 | playwright-cli | ✅ | not tested | ❌ | 0.1.15 | 0.1.15 |
 | r8125 | ✅ | not tested | ✅ [r8125](https://slackbuilds.org/repository/15.0/network/r8125/) | 9.018.00 | 9.018.00 |
 | firefly-cli | ✅ | not tested | ❌ | 0.4.1 | 0.4.1 |
-| gitea-cli | ✅ | not tested | ❌ | 0.14.2 | 0.14.2 |
+| gitea-cli | ✅ | ✅ | ❌ | 0.14.2 | 0.14.2 |
 | UrbanTerror | ✅ | ✅ | ✅ [UrbanTerror](https://slackbuilds.org/repository/15.0/games/UrbanTerror/) | 4.3.4 | 4.3.4 |
 
 ---
