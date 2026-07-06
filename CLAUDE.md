@@ -125,6 +125,13 @@ SBOLINT=no git commit -m'Message here'
 
 ### Workflow per package
 
+> **Before creating a NEW package: check the name is free on SlackBuilds.org.**
+> SBo enforces unique package names across all categories, and a clash causes
+> confusion even in this personal repo. Search https://slackbuilds.org/result/?search=<name>
+> (or browse the category). If the name is taken by an unrelated project, pick a
+> distinct name (e.g. gitea-cli instead of tea, whose slot is a text editor) and
+> keep the upstream binary name via a SRCNAM variable in the SlackBuild.
+
 ```bash
 # 1. Fix any .info issues automatically
 cd <package-name> && sbofixinfo
