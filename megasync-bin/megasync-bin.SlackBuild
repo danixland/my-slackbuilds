@@ -87,9 +87,14 @@ for conf in \
   [ -f "$PKG/$conf" ] && mv "$PKG/$conf" "$PKG/$conf.new"
 done
 
-# Strip binaries and bundled libraries (RUNPATH is preserved by strip).
+# Strip ELF binaries and libraries (RUNPATH is preserved by strip) and make
+# them executable: the upstream .deb ships libraries mode 0644 (Debian
+# convention), but Slackware wants ELF objects executable.
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" \
-  | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+  | grep ELF | cut -f 1 -d : | while read elf; do
+  strip --strip-unneeded "$elf" 2> /dev/null || true
+  chmod 755 "$elf"
+done
 
 # Docs: drop the Debian packaging cruft, keep upstream copyright.
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
