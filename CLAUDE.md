@@ -25,6 +25,14 @@ Version tracking is handled by a single file:
 .extras/nvchecker.toml   # nvchecker config listing all packages
 ```
 
+### `.extras/` holds all non-package repo files
+
+Anything that is not a SlackBuild package must live under `.extras/`, never at
+the repo root. In particular, design docs and specs go in
+`.extras/docs/`, NOT a top-level `docs/`. The build repository consumes this
+repo as a subtree, and a top-level `docs/` folder leaks into that subtree.
+(This has been fixed twice already; keep it in `.extras/`.)
+
 ---
 
 ## SlackBuild Scripting Guidelines
