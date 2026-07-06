@@ -73,12 +73,14 @@ DOWNLOAD="https://gitea.com/gitea/tea/archive/v0.14.2.tar.gz"
 MD5SUM="b1f37f2cc43763a3a0c05f060b485768"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="google-go-lang"
 MAINTAINER="danix"
 EMAIL="danix@danix.xyz"
 ```
 
-REQUIRES empty: static-ish Go binary, no SBo runtime deps.
+REQUIRES `google-go-lang`: the Go toolchain is needed to build. It is a
+build-only dependency; the resulting binary is a static Go executable with no
+runtime deps.
 
 ## slack-desc
 
