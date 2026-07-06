@@ -1,12 +1,19 @@
-# SlackBuild: tea (gitea CLI client)
+# SlackBuild: gitea-cli (gitea CLI client, command "tea")
 
 Date: 2026-07-06
 Maintainer: danix
 
 ## Goal
 
-Package `tea` (the Gitea command-line client) as a SlackBuild built from source,
-for the personal repo. Upstream: https://gitea.com/gitea/tea
+Package the Gitea command-line client as a SlackBuild built from source, for the
+personal repo. Upstream: https://gitea.com/gitea/tea
+
+## Naming
+
+The package is named `gitea-cli`, NOT `tea`: SBo already has an unrelated `tea`
+package (a text editor) in the development category. The SlackBuild uses
+`PRGNAM=gitea-cli` and `SRCNAM=tea`; the upstream tarball's top dir and the
+installed binary (`/usr/bin/tea`) both keep the upstream name `tea`.
 
 ## Target: personal repo only
 

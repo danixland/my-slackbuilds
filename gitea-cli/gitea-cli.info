@@ -1,4 +1,4 @@
-PRGNAM="tea"
+PRGNAM="gitea-cli"
 VERSION="0.14.2"
 HOMEPAGE="https://gitea.com/gitea/tea"
 DOWNLOAD="https://gitea.com/gitea/tea/archive/v0.14.2.tar.gz"

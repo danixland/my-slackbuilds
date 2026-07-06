@@ -1,4 +1,8 @@
-tea (Gitea command line tool)
+gitea-cli (Gitea command line tool)
+
+This package provides "tea", the official Gitea command line client. It
+is named gitea-cli here because SBo already has an unrelated "tea"
+package (a text editor). The installed command is still called "tea".
 
 tea is the official command line tool for Gitea and Forgejo. It talks
 to a server through the Gitea API and lets you manage repositories,

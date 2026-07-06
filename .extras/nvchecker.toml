@@ -120,7 +120,7 @@ regex = "UrbanTerror(\\d+)_full\\.zip"
 from_pattern = "(\\d)(\\d)(\\d)"
 to_pattern = "\\1.\\2.\\3"
 
-[tea]
+[gitea-cli]
 source = "gitea"
 gitea = "gitea/tea"
 use_max_tag = true

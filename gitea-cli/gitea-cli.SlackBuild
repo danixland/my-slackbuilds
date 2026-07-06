@@ -26,7 +26,11 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=tea
+# Package is named gitea-cli (SBo already has an unrelated "tea" text editor),
+# but the upstream project, its tarball's top dir, and the installed binary are
+# all called "tea". SRCNAM tracks the upstream name.
+PRGNAM=gitea-cli
+SRCNAM=tea
 VERSION=${VERSION:-0.14.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -62,11 +66,11 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 # The gitea archive URL basename is "v$VERSION.tar.gz"; sbodl saves it as
-# "$PRGNAM-v$VERSION.tar.gz". It also extracts to a top dir named "tea", not
-# "tea-$VERSION".
-rm -rf $PRGNAM
+# "$PRGNAM-v$VERSION.tar.gz". It extracts to a top dir named "$SRCNAM" (tea),
+# not "$SRCNAM-$VERSION".
+rm -rf $SRCNAM
 tar xvf $CWD/$PRGNAM-v$VERSION.tar.gz
-cd $PRGNAM
+cd $SRCNAM
 
 chown -R root:root .
 find . \
@@ -108,8 +112,9 @@ export GOFLAGS="$MOD_STRATEGY -trimpath -modcacherw"
 LIB_LDFLAGS="-linkmode=external -s -w -X gitea.dev/tea/modules/version.Version=$VERSION"
 
 mkdir -p "$PKG"/usr/bin
-# Compile all packages in the module
-go build -ldflags="$LIB_LDFLAGS" -o "$PKG"/usr/bin/$PRGNAM .
+# Compile all packages in the module. The binary is installed as "tea"
+# (SRCNAM), the upstream command name, even though the package is gitea-cli.
+go build -ldflags="$LIB_LDFLAGS" -o "$PKG"/usr/bin/$SRCNAM .
 
 # Optional: Clean up the temporary Go cache after build to save space
 rm -rf "$GOPATH"
