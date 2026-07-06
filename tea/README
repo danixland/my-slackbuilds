@@ -1,0 +1,19 @@
+tea (Gitea command line tool)
+
+tea is the official command line tool for Gitea and Forgejo. It talks
+to a server through the Gitea API and lets you manage repositories,
+issues, pull requests, releases, labels, milestones, comments and more
+without leaving the terminal.
+
+Log in to a server once with "tea login add", then run commands such as
+"tea issues", "tea pulls", "tea releases" or "tea repos" against it. It
+can autodetect the target repo from the current git remote.
+
+tea is written in Go and distributed as a single static binary. No
+runtime dependencies are required.
+
+This build is compiled from source. The build fetches Go modules over
+the network (the upstream tarball is not vendored), so an internet
+connection is required at build time.
+
+Homepage: https://gitea.com/gitea/tea
