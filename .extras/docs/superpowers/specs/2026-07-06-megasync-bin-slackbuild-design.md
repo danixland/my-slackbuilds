@@ -114,19 +114,19 @@ thunar:
 ## Repo integration
 
 - `nvchecker.toml`: track the GitHub release tag.
-  Tags look like `v6.4.0.2_Linux`; strip the `v` prefix and `_Linux`
-  suffix to get `6.4.0.2` with a regex transform:
+  The latest release is tagged `v6.4.0.2_Linux`; use `use_latest_release`
+  (not `use_max_tag` — MEGAsync's tag set includes old non-Linux tags that
+  sort wrong), then strip the `v` prefix and `_Linux` suffix:
   ```toml
   [megasync-bin]
   source = "github"
   github = "meganz/MEGAsync"
-  use_max_tag = true
+  use_latest_release = true
   prefix = "v"
   from_pattern = '_Linux$'
   to_pattern = ''
   ```
-  (Verify against `nvchecker` output when wiring it up; adjust the pattern
-  if upstream tag format differs.)
+  Verified: resolves to `6.4.0.2`.
 - README version table: add a `megasync-bin` row.
 
 ## Testing

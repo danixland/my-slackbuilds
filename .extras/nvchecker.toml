@@ -125,3 +125,12 @@ source = "gitea"
 gitea = "gitea/tea"
 use_max_tag = true
 prefix = "v"
+
+# Latest release is tagged like v6.4.0.2_Linux; strip v prefix and _Linux.
+[megasync-bin]
+source = "github"
+github = "meganz/MEGAsync"
+use_latest_release = true
+prefix = "v"
+from_pattern = "_Linux$"
+to_pattern = ""

@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+            |-----handy-ruler------------------------------------------------------|
+megasync-bin: megasync-bin (desktop sync client for MEGA cloud storage)
+megasync-bin:
+megasync-bin: MEGAsync keeps local folders in sync with your MEGA (mega.nz)
+megasync-bin: account, supports selective sync and backups, and runs from the
+megasync-bin: system tray.
+megasync-bin:
+megasync-bin: This is a binary repack of MEGA's official Debian package. It also
+megasync-bin: bundles the dolphin (KDE) and thunar (Xfce) file-manager
+megasync-bin: integration plugins.
+megasync-bin:
+megasync-bin: Homepage: https://mega.io/desktop

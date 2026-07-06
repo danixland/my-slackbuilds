@@ -1,0 +1,29 @@
+MEGAsync is the desktop sync client for MEGA (mega.nz) cloud storage. It
+keeps local folders in sync with your MEGA account, supports selective
+sync and backups, and runs as a system-tray application.
+
+This is a binary repack of MEGA's official prebuilt Debian package: MEGA
+does not ship a Slackware build, and building from source pulls in the
+MEGA SDK plus a large set of vcpkg-managed dependencies at build time.
+The binary links against Slackware's own Qt5 and bundles its ffmpeg
+libraries under /opt/megasync/lib, so no extra deps are required.
+
+The package also bundles the file-manager integration plugins:
+
+  * dolphin (KDE) - sync-status emblems and context-menu actions
+  * thunar (Xfce) - context-menu actions
+
+These plugins are loaded only by their respective file manager; if you
+do not run dolphin or thunar they simply sit unused.
+
+Two configuration files are installed as .new so they never overwrite an
+admin-tuned copy:
+
+  /etc/udev/rules.d/99-megasync-udev.rules.new
+  /etc/sysctl.d/99-megasync-inotify-limit.conf.new
+
+The sysctl file raises the inotify watch limit, useful when syncing
+large folder trees. To activate a file, remove the .new suffix and
+reload (udevadm control --reload / sysctl --system).
+
+This package is x86_64 only; MEGA ships no 32-bit build.
