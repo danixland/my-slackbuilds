@@ -25,14 +25,16 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=openvino
-VERSION=${VERSION:-2024.4.1}
-VERSION_FLATBUFFERS=24.3.25
-VERSION_ONNX=1.16.0
-VERSION_ITTAPI=3.24.4
-VERSION_PROTOBUF=21.12
-COMMIT_ONEDNN=c8ae8d96e963bd04214858319fa334968e5e73c9
-COMMIT_ONEDNN_GPU=4ccd07e3a10e1c08075cf824ac14708245fbc334
+VERSION=${VERSION:-2026.2.1}
+# All bundled deps are pinned to the exact commit openvino references at this
+# tag (its git submodule gitlinks), downloaded as archive/<sha> tarballs.
 COMMIT_MLAS=d1bc25ec4660cddd87804fcf03b2411b5dfb2e94
+COMMIT_ONEDNN=87f65fdd1927b1d0cbdf0ea37728146abfbffb52
+COMMIT_ONEDNN_GPU=20db47e2d3c4df1b66e93bed2e97d30da175512d
+COMMIT_FLATBUFFERS=595bf0007ab1929570c7671f091313c8fc20644e
+COMMIT_ONNX=e709452ef2bbc1d113faf678c24e6d3467696e83
+COMMIT_ITTAPI=ca45fef1a12cef3316e6ff362a4d36571270e392
+COMMIT_PROTOBUF=f0dc78d7e6e331b8c6bb2d5283e06aa26883ca7c
 BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -93,55 +95,30 @@ find -L . \
 patch -p1 < $CWD/010-openvino-disable-werror.patch
 patch -p1 < $CWD/020-openvino-use-protobuf-shared-libs.patch
 
-# Flatbuffers from SBo provide broken cmake files(static-lib removed but static-lib-cmake-files not removed)
-(
-cd thirdparty/flatbuffers/
-rmdir flatbuffers
-tar vxf $CWD/flatbuffers-$VERSION_FLATBUFFERS.tar.gz
-ln -s flatbuffers-$VERSION_FLATBUFFERS flatbuffers
-)
-# onnx frontend
-(
-cd thirdparty/onnx/
-rmdir onnx
-tar vxf $CWD/onnx-$VERSION_ONNX.tar.gz
-ln -s onnx-$VERSION_ONNX onnx
-)
-# ittapi
-(
-cd thirdparty/ittapi/
-rmdir ittapi
-tar vxf $CWD/ittapi-$VERSION_ITTAPI.tar.gz
-ln -s ittapi-$VERSION_ITTAPI ittapi
-)
-# protobuf
-(
-cd thirdparty/protobuf/
-rmdir protobuf
-tar vxf $CWD/protobuf-all-$VERSION_PROTOBUF.tar.gz
-ln -s protobuf-$VERSION_PROTOBUF protobuf
-)
-# mlas for cpu inference device
-(
-cd src/plugins/intel_cpu/thirdparty
-rmdir mlas
-tar vxf $CWD/mlas-$COMMIT_MLAS.tar.gz
-ln -s mlas-$COMMIT_MLAS mlas
-)
-# oneDNN for cpu inference device
-(
-cd src/plugins/intel_cpu/thirdparty
-rmdir onednn
-tar vxf $CWD/oneDNN-$COMMIT_ONEDNN.tar.gz
-ln -s oneDNN-$COMMIT_ONEDNN onednn
-)
-# oneDNN for gpu inference device
-(
-cd src/plugins/intel_gpu/thirdparty
-rmdir onednn_gpu
-tar vxf $CWD/oneDNN-$COMMIT_ONEDNN_GPU.tar.gz
-ln -s oneDNN-$COMMIT_ONEDNN_GPU onednn_gpu
-)
+# Each bundled dep ships as a git submodule; upstream leaves an empty
+# placeholder dir where it expects the source. We drop in the pinned tarball
+# and symlink the placeholder to whatever top-level dir it unpacks, so the
+# extracted dir name (a commit hash) never has to be spelled out here. Bumping
+# a dep is then just a new SHA/URL/md5 in the vars and .info, no edits below.
+# args: <parent-dir> <placeholder-name> <tarball>
+bundle_dep() {
+  ( cd "$1"
+    rmdir "$2"
+    top=$(tar tf "$CWD/$3" | head -1 | cut -d/ -f1)
+    tar xf "$CWD/$3"
+    ln -s "$top" "$2"
+  )
+}
+
+# Flatbuffers from SBo provide broken cmake files (static-lib removed but
+# static-lib-cmake-files not removed), so bundle upstream's copy.
+bundle_dep thirdparty/flatbuffers flatbuffers "flatbuffers-$COMMIT_FLATBUFFERS.tar.gz"
+bundle_dep thirdparty/onnx onnx "onnx-$COMMIT_ONNX.tar.gz"
+bundle_dep thirdparty/ittapi ittapi "ittapi-$COMMIT_ITTAPI.tar.gz"
+bundle_dep thirdparty/protobuf protobuf "protobuf-$COMMIT_PROTOBUF.tar.gz"
+bundle_dep src/plugins/intel_cpu/thirdparty mlas "mlas-$COMMIT_MLAS.tar.gz"
+bundle_dep src/plugins/intel_cpu/thirdparty onednn "oneDNN-$COMMIT_ONEDNN.tar.gz"
+bundle_dep src/plugins/intel_gpu/thirdparty onednn_gpu "oneDNN-$COMMIT_ONEDNN_GPU.tar.gz"
 
 # npu plugin needs avx and does not build with the default x86_64 arch
 mkdir -p build

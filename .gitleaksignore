@@ -1,0 +1,4 @@
+# openvino bundles deps pinned to upstream git commit SHAs. gitleaks'
+# generic-api-key entropy rule occasionally flags a 40-hex commit hash as a
+# secret. These are public commit hashes, not credentials.
+openvino/openvino.SlackBuild:generic-api-key:36

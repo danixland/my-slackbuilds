@@ -1,24 +1,24 @@
 PRGNAM="openvino"
-VERSION="2024.4.1"
+VERSION="2026.2.1"
 HOMEPAGE="https://github.com/openvinotoolkit/openvino/"
 DOWNLOAD="UNSUPPORTED"
 MD5SUM=""
-DOWNLOAD_x86_64="https://github.com/openvinotoolkit/openvino/archive/2024.4.1/openvino-2024.4.1.tar.gz \
-          https://github.com/openvinotoolkit/mlas/archive/d1bc25e/mlas-d1bc25ec4660cddd87804fcf03b2411b5dfb2e94.tar.gz \
-          https://github.com/openvinotoolkit/oneDNN/archive/c8ae8d9/oneDNN-c8ae8d96e963bd04214858319fa334968e5e73c9.tar.gz \
-          https://github.com/google/flatbuffers/archive/v24.3.25/flatbuffers-24.3.25.tar.gz \
-          https://github.com/onnx/onnx/archive/v1.16.0/onnx-1.16.0.tar.gz \
-          https://github.com/intel/ittapi/archive/v3.24.4/ittapi-3.24.4.tar.gz \
-          https://github.com/oneapi-src/oneDNN/archive/4ccd07e/oneDNN-4ccd07e3a10e1c08075cf824ac14708245fbc334.tar.gz \
-          https://github.com/protocolbuffers/protobuf/releases/download/v21.12/protobuf-all-21.12.tar.gz"
-MD5SUM_x86_64="3d9d1aa5ab807761bfe6a8d896c17d18 \
+DOWNLOAD_x86_64="https://github.com/openvinotoolkit/openvino/archive/2026.2.1/openvino-2026.2.1.tar.gz \
+          https://github.com/openvinotoolkit/mlas/archive/d1bc25ec4660cddd87804fcf03b2411b5dfb2e94/mlas-d1bc25ec4660cddd87804fcf03b2411b5dfb2e94.tar.gz \
+          https://github.com/openvinotoolkit/oneDNN/archive/87f65fdd1927b1d0cbdf0ea37728146abfbffb52/oneDNN-87f65fdd1927b1d0cbdf0ea37728146abfbffb52.tar.gz \
+          https://github.com/oneapi-src/oneDNN/archive/20db47e2d3c4df1b66e93bed2e97d30da175512d/oneDNN-20db47e2d3c4df1b66e93bed2e97d30da175512d.tar.gz \
+          https://github.com/google/flatbuffers/archive/595bf0007ab1929570c7671f091313c8fc20644e/flatbuffers-595bf0007ab1929570c7671f091313c8fc20644e.tar.gz \
+          https://github.com/onnx/onnx/archive/e709452ef2bbc1d113faf678c24e6d3467696e83/onnx-e709452ef2bbc1d113faf678c24e6d3467696e83.tar.gz \
+          https://github.com/intel/ittapi/archive/ca45fef1a12cef3316e6ff362a4d36571270e392/ittapi-ca45fef1a12cef3316e6ff362a4d36571270e392.tar.gz \
+          https://github.com/protocolbuffers/protobuf/archive/f0dc78d7e6e331b8c6bb2d5283e06aa26883ca7c/protobuf-f0dc78d7e6e331b8c6bb2d5283e06aa26883ca7c.tar.gz"
+MD5SUM_x86_64="d912a0b8f832cc526fc90e7c0fe4abbd \
         0e87473410db355fd9251a2e1337dc32 \
-        8555add7194a7a01ced2c4b69899dc75 \
-        f28f12fc16c72f4e7c22066a35405c3a \
-        5ef5a7bd4f9dad914bddc3b4335a67cd \
-        aec402d3441bb8ecb9c8e75bab6cc102 \
-        8217ab4ac4af784d7e8b029530c6ab5d \
-        7fb5fa6217646e5146346e39d9aad6f9"
-REQUIRES="xbyak pugixml tbb snappy pybind11 OpenCL-CLHPP"
+        09c8e12d3638ee7fb084035e3c99b914 \
+        e8aa621185319f2a4ad195e9380a3f2a \
+        16699a34eed210ecfe6c4d164926350c \
+        d4b12189e7665ae1211181b6a4905700 \
+        66726ae396392a1fa43156a0c764ec5e \
+        dbd2ff372e1033676a0c3798a8df4a07"
+REQUIRES="xbyak pugixml tbb snappy OpenCL-CLHPP"
 MAINTAINER="Johannes Schoepfer"
 EMAIL="slackbuilds@schoepfer.info"
