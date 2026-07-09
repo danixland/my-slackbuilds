@@ -68,12 +68,15 @@ mkdir -p $TMP $PKG $OUTPUT
 # Drop Debian-only cruft.
 rm -rf $PKG/usr/share/lintian
 
-# Defensive: the deb ships its bundled chromium libs mode 0755 already, but
-# guard against a future deb regressing to 0644 (the "ELF libs 0644" Debian
-# convention that trips sbopkglint's 20-arch test).  Do NOT strip: these are
-# prebuilt Electron/Chromium binaries and upstream ships them unstripped.
-find $PKG/usr/lib/$SRCNAM -maxdepth 1 -name '*.so*' -type f -print0 \
-  | xargs -0 -r chmod 755
+# Make every bundled ELF executable.  The deb ships most chromium libs 0755,
+# but some prebuilt native modules are 0644 (e.g. node-pty's pty.node, buried
+# under resources/app.asar.unpacked/), which trips sbopkglint's 20-arch test.
+# Match by content, not name/depth, since these use .node/.so/no suffix.  Do
+# NOT strip: these are prebuilt Electron/Chromium binaries shipped unstripped.
+find $PKG -type f -print0 | xargs -0 file | grep -e "executable" -e "shared object" \
+  | grep ELF | cut -f 1 -d : | while read elf; do
+  chmod 755 "$elf"
+done
 
 # Docs: keep the upstream copyright, add the SlackBuild and nvchecker stanza.
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
