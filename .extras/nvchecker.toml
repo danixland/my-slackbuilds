@@ -134,3 +134,7 @@ use_latest_release = true
 prefix = "v"
 from_pattern = "_Linux$"
 to_pattern = ""
+
+[claude-desktop-bin]
+source = "cmd"
+cmd = "curl -fsSL https://downloads.claude.ai/claude-desktop/apt/stable/dists/stable/main/binary-amd64/Packages | awk '/^Version:/{print $2}' | sort -V | tail -1"

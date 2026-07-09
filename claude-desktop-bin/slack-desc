@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                  |-----handy-ruler------------------------------------------------------|
+claude-desktop-bin: claude-desktop-bin (official desktop client for Claude.ai)
+claude-desktop-bin:
+claude-desktop-bin: Claude Desktop is Anthropic's Electron desktop application for
+claude-desktop-bin: Claude.ai, with support for the claude:// URL scheme, quick chat
+claude-desktop-bin: and Claude Code session launchers.
+claude-desktop-bin:
+claude-desktop-bin: This is a binary repack of Anthropic's official Debian package.
+claude-desktop-bin: It bundles its own Chromium runtime and is x86_64 only.
+claude-desktop-bin:
+claude-desktop-bin:
+claude-desktop-bin: Homepage: https://claude.ai/download

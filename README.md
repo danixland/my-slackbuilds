@@ -61,6 +61,7 @@ Each package lives in its own top-level subfolder:
 | gitea-cli | ✅ | ✅ | ❌ | 0.14.2 | 0.14.2 |
 | UrbanTerror | ✅ | ✅ | ✅ [UrbanTerror](https://slackbuilds.org/repository/15.0/games/UrbanTerror/) | 4.3.4 | 4.3.4 |
 | megasync-bin | ✅ | ✅ | ❌ | 6.4.0.2 | 6.4.0.2 |
+| claude-desktop-bin | not tested | not tested | ❌ | 1.18286.2 | 1.18286.2 |
 
 ---
 

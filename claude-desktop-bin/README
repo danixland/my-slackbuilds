@@ -1,0 +1,31 @@
+Claude Desktop is Anthropic's official Electron desktop application for
+Claude.ai. It bundles its own Chromium runtime, registers the claude://
+URL scheme handler, and provides desktop actions for starting a new
+chat or a new Claude Code session.
+
+This is a binary repack of Anthropic's official Debian package pulled
+from the Anthropic apt repository
+(https://downloads.claude.ai/claude-desktop). No build from source is
+performed. The package is x86_64 only and installs to roughly 480 MB.
+
+The Debian package's apt-repository registration and AppArmor userns
+profile are Debian/Ubuntu specific and are not reproduced here.
+Chromium's SUID sandbox helper (chrome-sandbox) is shipped setuid root
+so the sandbox works without --no-sandbox.
+
+There are no SBo dependencies: the Debian runtime dependencies (gtk3,
+nss, notify, atspi, drm, gbm, secret, xtst, xdg-utils,
+xdg-desktop-portal) are all satisfied by a stock Slackware install, and
+Chromium's own libraries are bundled inside the package.
+
+
+NVCHECKER
+---------
+An nvchecker configuration file is installed alongside this README at:
+
+  /usr/doc/claude-desktop-bin-VERSION/claude-desktop-bin.nvchecker
+
+nvchecker (https://github.com/lilydjwg/nvchecker) is a tool for checking
+new versions of software. Copy or include this file in your nvchecker
+configuration to be notified when Anthropic publishes a new Claude
+Desktop release.

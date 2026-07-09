@@ -1,0 +1,104 @@
+#!/bin/bash
+
+# Slackware build script for claude-desktop (binary repack)
+
+# Copyright 2026 danix <danix@danix.xyz>
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+cd $(dirname $0) ; CWD=$(pwd)
+
+PRGNAM=claude-desktop-bin
+SRCNAM=claude-desktop
+VERSION=${VERSION:-1.18286.2}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+PKGTYPE=${PKGTYPE:-tgz}
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    *) ARCH=$( uname -m ) ;;
+  esac
+fi
+
+if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
+  echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
+  exit 0
+fi
+
+# Upstream ships x86_64 only.
+if [ "$ARCH" != "x86_64" ]; then
+  echo "$ARCH is not supported: Claude Desktop is x86_64 only."
+  exit 1
+fi
+
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+
+# Extract the upstream .deb (an ar archive holding a data.tar.xz payload with
+# the real file tree) into $PKG.  The Debian control scripts (postinst/postrm:
+# apt-repo registration + AppArmor userns profile) are intentionally NOT
+# carried over -- neither applies to Slackware.
+( cd $TMP && ar x $CWD/${SRCNAM}_${VERSION}_amd64.deb data.tar.xz \
+  && tar xf data.tar.xz -C $PKG && rm -f data.tar.xz )
+
+# Drop Debian-only cruft.
+rm -rf $PKG/usr/share/lintian
+
+# Defensive: the deb ships its bundled chromium libs mode 0755 already, but
+# guard against a future deb regressing to 0644 (the "ELF libs 0644" Debian
+# convention that trips sbopkglint's 20-arch test).  Do NOT strip: these are
+# prebuilt Electron/Chromium binaries and upstream ships them unstripped.
+find $PKG/usr/lib/$SRCNAM -maxdepth 1 -name '*.so*' -type f -print0 \
+  | xargs -0 -r chmod 755
+
+# Docs: keep the upstream copyright, add the SlackBuild and nvchecker stanza.
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+if [ -f $PKG/usr/share/doc/$SRCNAM/copyright ]; then
+  cp -a $PKG/usr/share/doc/$SRCNAM/copyright $PKG/usr/doc/$PRGNAM-$VERSION/
+fi
+rm -rf $PKG/usr/share/doc
+cat $CWD/README > $PKG/usr/doc/$PRGNAM-$VERSION/README
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+cat $CWD/$PRGNAM.nvchecker > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.nvchecker
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+chown -R root:root $PKG
+find -L $PKG \
+  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+   -o -perm 511 \) -exec chmod 755 {} \+ -o \
+  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \+
+
+# chrome-sandbox needs setuid root (4755) for Chromium's SUID sandbox.  Set it
+# LAST, after the find -L perm-normalize above would otherwise strip it.
+chmod 4755 $PKG/usr/lib/$SRCNAM/chrome-sandbox
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

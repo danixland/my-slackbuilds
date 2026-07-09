@@ -1,0 +1,6 @@
+# Claude Desktop has no github/pypi release feed; the source of truth is the
+# Anthropic apt repo Packages index. nvchecker has no native apt/deb source,
+# so use the cmd source to parse the highest Version: out of the index.
+[claude-desktop-bin]
+source = "cmd"
+cmd = "curl -fsSL https://downloads.claude.ai/claude-desktop/apt/stable/dists/stable/main/binary-amd64/Packages | awk '/^Version:/{print $2}' | sort -V | tail -1"
