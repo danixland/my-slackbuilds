@@ -32,10 +32,11 @@ source = "jq"
 url = "https://www.realtek.com/Download/ListAllDownloadItem?cate_id=584"
 filter = '.Data.DownloadItems["Unix (Linux)"][] | select(.Name | startswith("r8125")) | .Version'
 
-[Kvantum]
+[kvantum-qt6]
 source = "github"
 github = "tsujan/Kvantum"
 use_latest_release = true
+prefix = "V"
 
 [gitleaks]
 source = "github"
@@ -138,3 +139,20 @@ to_pattern = ""
 [claude-desktop-bin]
 source = "cmd"
 cmd = "curl -fsSL https://downloads.claude.ai/claude-desktop/apt/stable/dists/stable/main/binary-amd64/Packages | awk '/^Version:/{print $2}' | sort -V | tail -1"
+
+["claude-code-bin"]
+source = "github"
+github = "anthropics/claude-code"
+use_latest_release = true
+prefix = "v"
+
+[mutagen]
+source = "github"
+github = "quodlibet/mutagen"
+use_latest_release = true
+prefix = "release-"
+
+[openvino]
+source = "github"
+github = "openvinotoolkit/openvino"
+use_latest_release = true
