@@ -35,6 +35,7 @@ COMMIT_FLATBUFFERS=595bf0007ab1929570c7671f091313c8fc20644e
 COMMIT_ONNX=e709452ef2bbc1d113faf678c24e6d3467696e83
 COMMIT_ITTAPI=ca45fef1a12cef3316e6ff362a4d36571270e392
 COMMIT_PROTOBUF=f0dc78d7e6e331b8c6bb2d5283e06aa26883ca7c
+COMMIT_XBYAK=0d67fd1530016b7c56f3cd74b3fca920f4c3e2b4
 BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -116,6 +117,10 @@ bundle_dep thirdparty/flatbuffers flatbuffers "flatbuffers-$COMMIT_FLATBUFFERS.t
 bundle_dep thirdparty/onnx onnx "onnx-$COMMIT_ONNX.tar.gz"
 bundle_dep thirdparty/ittapi ittapi "ittapi-$COMMIT_ITTAPI.tar.gz"
 bundle_dep thirdparty/protobuf protobuf "protobuf-$COMMIT_PROTOBUF.tar.gz"
+# Bundle xbyak rather than use the system package: its cmake config exports a
+# bare -isystem /usr/include, which breaks GCC 15's #include_next <stdlib.h>.
+# Its submodule sits directly at thirdparty/xbyak (no nested wrapper dir).
+bundle_dep thirdparty xbyak "xbyak-$COMMIT_XBYAK.tar.gz"
 bundle_dep src/plugins/intel_cpu/thirdparty mlas "mlas-$COMMIT_MLAS.tar.gz"
 bundle_dep src/plugins/intel_cpu/thirdparty onednn "oneDNN-$COMMIT_ONEDNN.tar.gz"
 bundle_dep src/plugins/intel_gpu/thirdparty onednn_gpu "oneDNN-$COMMIT_ONEDNN_GPU.tar.gz"
