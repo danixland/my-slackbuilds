@@ -205,11 +205,14 @@ cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
 ```
 
-- [ ] **Step 2: Make it executable and syntax-check**
+- [ ] **Step 2: Set mode 0644 and syntax-check**
+
+SBo requires the `.SlackBuild` to be mode 0644 (sbolint errors on 0755); it is
+invoked as `bash x.SlackBuild`, not executed directly.
 
 Run:
 ```bash
-chmod +x claude-desktop-bin/claude-desktop-bin.SlackBuild
+chmod 0644 claude-desktop-bin/claude-desktop-bin.SlackBuild
 bash -n claude-desktop-bin/claude-desktop-bin.SlackBuild && echo "syntax OK"
 ```
 Expected: `syntax OK`.
