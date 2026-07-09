@@ -154,15 +154,28 @@ cmd = "curl -fsSL https://downloads.claude.ai/claude-desktop/apt/stable/dists/st
 returns the highest. Verified to resolve to `1.18286.2` at spec time. Added to
 both `.extras/nvchecker.toml` and `~/.config/nvchecker/nvchecker.toml`.
 
+**Ship the stanza with the package.** This is a "no github/pypi feed" package,
+same class as `r8125` and `UrbanTerror`, both of which ship a per-package
+`<pkg>.nvchecker` file. Follow that precedent:
+
+- Add `claude-desktop-bin.nvchecker` to the package directory containing the
+  `[claude-desktop-bin]` cmd stanza above.
+- The SlackBuild installs it to `/usr/doc/$PRGNAM-$VERSION/`:
+  `cat $CWD/$PRGNAM.nvchecker > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.nvchecker`
+- README gets an `NVCHECKER` section pointing at the installed path, worded
+  like r8125's (a user copies the stanza into their own nvchecker config to be
+  notified of new Anthropic releases).
+
 ## Files produced
 
 ```
 claude-desktop-bin/
   claude-desktop-bin.SlackBuild
-  claude-desktop-bin.info    # single amd64 deb DOWNLOAD + MD5SUM, REQUIRES=""
+  claude-desktop-bin.info      # single amd64 deb DOWNLOAD + MD5SUM, REQUIRES=""
+  claude-desktop-bin.nvchecker # cmd stanza, installed to /usr/doc/<pkg>-<ver>/
   README
-  slack-desc                 # official Anthropic Electron client, x86_64 only
-  doinst.sh                  # desktop-db, mime-db, icon-cache (+ sandbox fallback)
+  slack-desc                   # official Anthropic Electron client, x86_64 only
+  doinst.sh                    # desktop-db, mime-db, icon-cache (+ sandbox fallback)
 ```
 
 Plus: nvchecker entry (both configs), README package-table row, a memory note.
@@ -174,6 +187,9 @@ Plus: nvchecker entry (both configs), README package-table row, a memory note.
 - chrome-sandbox ships setuid root for Chromium's sandbox.
 - No SBo dependencies; all libs are stock Slackware or bundled.
 - Registers the `claude://` URL scheme handler.
+- `NVCHECKER` section: points at the shipped
+  `/usr/doc/claude-desktop-bin-VERSION/claude-desktop-bin.nvchecker` stanza,
+  worded like r8125/UrbanTerror.
 
 ## Testing
 
