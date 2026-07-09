@@ -117,14 +117,25 @@ Base: SBo template + the megasync-bin binary-repack pattern in this repo.
    deb already ships its libs 0755. A defensive `chmod 755` over the bundled
    `*.so` files is still applied in case a future deb regresses.)
 5. `chmod 4755 usr/lib/claude-desktop/chrome-sandbox` (setuid, per above).
-6. Install docs: `usr/doc/$PRGNAM-$VERSION/`, moving the upstream `copyright`
-   there and adding the `.SlackBuild` script. Remove the Debian
-   `usr/share/doc/claude-desktop` dir after copying.
+6. Install docs to `usr/doc/$PRGNAM-$VERSION/`: move the upstream `copyright`
+   there, and pipe in the SlackBuild and nvchecker stanza with `cat` (never
+   `cp`, see below):
+   `cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild`
+   `cat $CWD/$PRGNAM.nvchecker > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.nvchecker`
+   Remove the Debian `usr/share/doc/claude-desktop` dir after copying.
 7. Standard `find -L $PKG` chown/chmod cleanup block (root:root, sane dir/file
    modes) — applied **before** the chrome-sandbox chmod so it does not clobber
    the setuid bit. Order matters: perm-normalize first, setuid last.
-8. Install `slack-desc` to `install/`, `doinst.sh` to `install/`.
+8. Install package metadata with `cat` into `$PKG/install/`:
+   `cat $CWD/slack-desc > $PKG/install/slack-desc`
+   `cat $CWD/doinst.sh  > $PKG/install/doinst.sh`
 9. `makepkg -l y -c n`.
+
+**Always `cat` source files into `$PKG`, never `cp`.** Standard SBo procedure:
+`cat src > dest` writes through a fresh dest so the umask/root ownership of the
+build controls the resulting perms, whereas `cp` would carry the source tree's
+mode/ownership into the package. This matters here because the working copy is
+checked out from git with the user's perms.
 
 ## doinst.sh
 
