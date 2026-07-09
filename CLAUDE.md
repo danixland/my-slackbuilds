@@ -44,6 +44,11 @@ repo as a subtree, and a top-level `docs/` folder leaks into that subtree.
 - Strip binaries and libraries unless upstream explicitly discourages it
 - Install docs to `/usr/doc/$PRGNAM-$VERSION/`
 - Always include `find -L` + `chown`/`chmod` cleanup block before packaging
+- Copy repo files into `$PKG` with `cat src > dest`, never `cp`. `cat` writes
+  through a fresh destination so the build's umask/root ownership sets the
+  perms; `cp` bleeds the git working-tree mode/ownership into the package.
+  Applies to `slack-desc`, `doinst.sh`, and any file staged from `$CWD`
+  (SlackBuild, README, `.nvchecker`) into `$PKG`.
 - Use `makepkg -l y -c n` to create the final package
 
 ### `.info` file
