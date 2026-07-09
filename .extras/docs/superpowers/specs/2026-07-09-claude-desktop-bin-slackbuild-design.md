@@ -1,7 +1,7 @@
-# claude-desktop SlackBuild — Design Spec
+# claude-desktop-bin SlackBuild — Design Spec
 
 Date: 2026-07-09
-Package: `claude-desktop`
+Package: `claude-desktop-bin`
 Type: binary repack of the official Anthropic Debian package
 
 ---
@@ -18,9 +18,12 @@ the Electron/Chromium app offline is slow and fragile with no gain.
 
 ## Package facts
 
-- `PRGNAM=claude-desktop`
+- `PRGNAM=claude-desktop-bin`
 - `VERSION=1.18286.2` (latest amd64 in the apt repo at spec time)
-- `SRCNAM=claude-desktop`
+- `SRCNAM=claude-desktop` (deb filename + installed `/usr/bin/claude-desktop`
+  keep the upstream name; only the SlackBuild package name gets the `-bin`
+  suffix, matching this repo's convention: megasync-bin, kitty-bin,
+  opencode-bin, claude-code-bin)
 - `ARCH`: **x86_64 only**. The apt repo also serves `arm64`, but this repo
   targets x86_64; the SlackBuild exits with an error on any other arch.
 - `REQUIRES=""`. The Debian `Depends` (libgtk-3-0, libnss3, libnotify4,
@@ -28,8 +31,9 @@ the Electron/Chromium app offline is slow and fragile with no gain.
   libc6) are all satisfied by stock Slackware. Chromium's own libs
   (libEGL, libGLESv2, libffmpeg, libvulkan, libvk_swiftshader) are bundled
   inside the payload. No SBo dependencies.
-- Name is free on SlackBuilds.org (only `claude-code*` exists there). Does not
-  clash with the unrelated `claude-code-bin` already in this repo.
+- Name `claude-desktop-bin` is free on SlackBuilds.org (only `claude-code*`
+  exists there). Does not clash with the unrelated `claude-code-bin` already in
+  this repo.
 
 ## Source
 
@@ -141,7 +145,7 @@ is the apt repo `Packages` index. nvchecker has no native apt/deb source, so use
 the `cmd` source to parse it:
 
 ```toml
-[claude-desktop]
+[claude-desktop-bin]
 source = "cmd"
 cmd = "curl -fsSL https://downloads.claude.ai/claude-desktop/apt/stable/dists/stable/main/binary-amd64/Packages | awk '/^Version:/{print $2}' | sort -V | tail -1"
 ```
@@ -153,9 +157,9 @@ both `.extras/nvchecker.toml` and `~/.config/nvchecker/nvchecker.toml`.
 ## Files produced
 
 ```
-claude-desktop/
-  claude-desktop.SlackBuild
-  claude-desktop.info        # single amd64 deb DOWNLOAD + MD5SUM, REQUIRES=""
+claude-desktop-bin/
+  claude-desktop-bin.SlackBuild
+  claude-desktop-bin.info    # single amd64 deb DOWNLOAD + MD5SUM, REQUIRES=""
   README
   slack-desc                 # official Anthropic Electron client, x86_64 only
   doinst.sh                  # desktop-db, mime-db, icon-cache (+ sandbox fallback)
