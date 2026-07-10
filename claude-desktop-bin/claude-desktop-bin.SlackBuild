@@ -68,16 +68,6 @@ mkdir -p $TMP $PKG $OUTPUT
 # Drop Debian-only cruft.
 rm -rf $PKG/usr/share/lintian
 
-# Cowork (the sandboxed-agent feature) launches a QEMU VM and probes for OVMF
-# UEFI firmware at the Debian paths /usr/share/OVMF/OVMF_CODE{,_4M}.fd.  On
-# Slackware the edk2-ovmf package (a REQUIRES) installs those under
-# /usr/share/edk2-ovmf-x64/.  Bridge the two with relative symlinks; makepkg
-# folds these into doinst.sh so no dead links ship in the tree.
-mkdir -p $PKG/usr/share/OVMF
-ln -s ../edk2-ovmf-x64/OVMF_CODE.fd $PKG/usr/share/OVMF/OVMF_CODE.fd
-ln -s ../edk2-ovmf-x64/OVMF_CODE.fd $PKG/usr/share/OVMF/OVMF_CODE_4M.fd
-ln -s ../edk2-ovmf-x64/OVMF_VARS.fd $PKG/usr/share/OVMF/OVMF_VARS.fd
-
 # Make every bundled ELF executable.  The deb ships most chromium libs 0755,
 # but some prebuilt native modules are 0644 (e.g. node-pty's pty.node, buried
 # under resources/app.asar.unpacked/), which trips sbopkglint's 20-arch test.
@@ -112,6 +102,19 @@ find -L $PKG \
 # chrome-sandbox needs setuid root (4755) for Chromium's SUID sandbox.  Set it
 # LAST, after the find -L perm-normalize above would otherwise strip it.
 chmod 4755 $PKG/usr/lib/$SRCNAM/chrome-sandbox
+
+# Cowork (the sandboxed-agent feature) launches a QEMU VM and probes for OVMF
+# UEFI firmware at the Debian paths /usr/share/OVMF/OVMF_CODE{,_4M}.fd.  On
+# Slackware the edk2-ovmf package (a REQUIRES) installs those under
+# /usr/share/edk2-ovmf-x64/.  Bridge the two with relative symlinks; makepkg
+# folds these into doinst.sh so no dead links ship in the tree.  Create these
+# LAST: the symlinks are dangling inside $PKG (their targets live in the
+# edk2-ovmf package), so the "find -L" perm-normalize above would choke on
+# them.
+mkdir -p $PKG/usr/share/OVMF
+ln -s ../edk2-ovmf-x64/OVMF_CODE.fd $PKG/usr/share/OVMF/OVMF_CODE.fd
+ln -s ../edk2-ovmf-x64/OVMF_CODE.fd $PKG/usr/share/OVMF/OVMF_CODE_4M.fd
+ln -s ../edk2-ovmf-x64/OVMF_VARS.fd $PKG/usr/share/OVMF/OVMF_VARS.fd
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
