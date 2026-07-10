@@ -28,7 +28,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 PRGNAM=claude-desktop-bin
 SRCNAM=claude-desktop
 VERSION=${VERSION:-1.18286.2}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
 
@@ -104,7 +104,7 @@ find -L $PKG \
 chmod 4755 $PKG/usr/lib/$SRCNAM/chrome-sandbox
 
 # Cowork (the sandboxed-agent feature) launches a QEMU VM and probes for OVMF
-# UEFI firmware at the Debian paths /usr/share/OVMF/OVMF_CODE{,_4M}.fd.  On
+# UEFI firmware at the Debian paths /usr/share/OVMF/OVMF_{CODE,VARS}{,_4M}.fd.  On
 # Slackware the edk2-ovmf package (a REQUIRES) installs those under
 # /usr/share/edk2-ovmf-x64/.  Bridge the two with relative symlinks; makepkg
 # folds these into doinst.sh so no dead links ship in the tree.  Create these
@@ -115,6 +115,7 @@ mkdir -p $PKG/usr/share/OVMF
 ln -s ../edk2-ovmf-x64/OVMF_CODE.fd $PKG/usr/share/OVMF/OVMF_CODE.fd
 ln -s ../edk2-ovmf-x64/OVMF_CODE.fd $PKG/usr/share/OVMF/OVMF_CODE_4M.fd
 ln -s ../edk2-ovmf-x64/OVMF_VARS.fd $PKG/usr/share/OVMF/OVMF_VARS.fd
+ln -s ../edk2-ovmf-x64/OVMF_VARS.fd $PKG/usr/share/OVMF/OVMF_VARS_4M.fd
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
