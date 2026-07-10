@@ -27,11 +27,6 @@ github = "anomalyco/opencode"
 use_latest_release = true
 prefix = "v"
 
-[r8125]
-source = "jq"
-url = "https://www.realtek.com/Download/ListAllDownloadItem?cate_id=584"
-filter = '.Data.DownloadItems["Unix (Linux)"][] | select(.Name | startswith("r8125")) | .Version'
-
 [kvantum-qt6]
 source = "github"
 github = "tsujan/Kvantum"
@@ -113,13 +108,6 @@ source = "github"
 github = "danixland/firefly-cli"
 use_max_tag = true
 prefix = "v"
-
-[UrbanTerror]
-source = "regex"
-url = "https://www.urbanterror.info/downloads/"
-regex = "UrbanTerror(\\d+)_full\\.zip"
-from_pattern = "(\\d)(\\d)(\\d)"
-to_pattern = "\\1.\\2.\\3"
 
 [gitea-cli]
 source = "gitea"

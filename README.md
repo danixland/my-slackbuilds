@@ -56,10 +56,8 @@ Each package lives in its own top-level subfolder:
 | python3-huggingface_hub | ✅ | not tested | ❌ | 1.22.0 | 1.22.0 |
 | click | ✅ | not tested | ✅ [click](https://slackbuilds.org/repository/15.0/python/click/) | 8.4.2 | 8.4.2 |
 | playwright-cli | ✅ | not tested | ❌ | 0.1.15 | 0.1.15 |
-| r8125 | ✅ | not tested | ✅ [r8125](https://slackbuilds.org/repository/15.0/network/r8125/) | 9.018.00 | 9.018.00 |
 | firefly-cli | ✅ | not tested | ❌ | 0.4.1 | 0.4.1 |
 | gitea-cli | ✅ | ✅ | ❌ | 0.14.2 | 0.14.2 |
-| UrbanTerror | ✅ | ✅ | ✅ [UrbanTerror](https://slackbuilds.org/repository/15.0/games/UrbanTerror/) | 4.3.4 | 4.3.4 |
 | megasync-bin | ✅ | ✅ | ❌ | 6.4.0.2 | 6.4.0.2 |
 | claude-desktop-bin | ✅ | ✅ | ❌ | 1.18286.2 | 1.18286.2 |
 
