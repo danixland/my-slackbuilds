@@ -1,13 +1,13 @@
 [qarma]
 source = "github"
 github = "luebking/qarma"
-use_max_tag = true
+use_latest_release = true
 prefix = "v"
 
 [hstr]
 source = "github"
 github = "dvorka/hstr"
-use_max_tag = true
+use_latest_release = true
 prefix = "v"
 
 [kitty-bin]
@@ -85,7 +85,7 @@ use_max_tag = true
 [python3-packaging]
 source = "github"
 github = "pypa/packaging"
-use_max_tag = true
+use_latest_release = true
 
 [python3-annotated-doc]
 source = "pypi"
@@ -102,7 +102,7 @@ pypi = "huggingface_hub"
 [click]
 source = "github"
 github = "mitsuhiko/click"
-use_max_tag = true
+use_latest_release = true
 
 [playwright-cli]
 source = "npm"
