@@ -13,10 +13,34 @@ profile are Debian/Ubuntu specific and are not reproduced here.
 Chromium's SUID sandbox helper (chrome-sandbox) is shipped setuid root
 so the sandbox works without --no-sandbox.
 
-There are no SBo dependencies: the Debian runtime dependencies (gtk3,
-nss, notify, atspi, drm, gbm, secret, xtst, xdg-utils,
-xdg-desktop-portal) are all satisfied by a stock Slackware install, and
-Chromium's own libraries are bundled inside the package.
+The Debian runtime dependencies (gtk3, nss, notify, atspi, drm, gbm,
+secret, xtst, xdg-utils, xdg-desktop-portal) are all satisfied by a
+stock Slackware install, and Chromium's own libraries are bundled
+inside the package.
+
+The single SBo dependency, edk2-ovmf, is required by the Cowork feature
+(see below); it is not needed to launch or use Claude Desktop itself.
+
+
+COWORK
+------
+Cowork runs the coding agent inside an isolated QEMU virtual machine.
+It requires:
+
+  - qemu (shipped with Slackware)
+  - edk2-ovmf (OVMF UEFI firmware; the REQUIRES of this package)
+  - virtiofsd (bundled inside this package)
+
+Cowork probes for the OVMF firmware at the Debian paths
+/usr/share/OVMF/OVMF_CODE{,_4M}.fd. This package installs compatibility
+symlinks there pointing at edk2-ovmf's /usr/share/edk2-ovmf-x64/ files,
+so Cowork finds them with no manual setup.
+
+For hardware acceleration the VM needs /dev/kvm, which is root:kvm 0660.
+Add your user to the kvm group so the VM does not fall back to slow
+software emulation:
+
+  # usermod -aG kvm <user>
 
 
 NVCHECKER

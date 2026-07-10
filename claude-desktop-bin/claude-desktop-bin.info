@@ -5,6 +5,6 @@ DOWNLOAD="https://downloads.claude.ai/claude-desktop/apt/stable/pool/main/c/clau
 MD5SUM="853168e12c721d6bc6ce9566bbd5348e"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="edk2-ovmf"
 MAINTAINER="danix"
 EMAIL="danix@danix.xyz"

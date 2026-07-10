@@ -28,7 +28,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 PRGNAM=claude-desktop-bin
 SRCNAM=claude-desktop
 VERSION=${VERSION:-1.18286.2}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
 
@@ -67,6 +67,16 @@ mkdir -p $TMP $PKG $OUTPUT
 
 # Drop Debian-only cruft.
 rm -rf $PKG/usr/share/lintian
+
+# Cowork (the sandboxed-agent feature) launches a QEMU VM and probes for OVMF
+# UEFI firmware at the Debian paths /usr/share/OVMF/OVMF_CODE{,_4M}.fd.  On
+# Slackware the edk2-ovmf package (a REQUIRES) installs those under
+# /usr/share/edk2-ovmf-x64/.  Bridge the two with relative symlinks; makepkg
+# folds these into doinst.sh so no dead links ship in the tree.
+mkdir -p $PKG/usr/share/OVMF
+ln -s ../edk2-ovmf-x64/OVMF_CODE.fd $PKG/usr/share/OVMF/OVMF_CODE.fd
+ln -s ../edk2-ovmf-x64/OVMF_CODE.fd $PKG/usr/share/OVMF/OVMF_CODE_4M.fd
+ln -s ../edk2-ovmf-x64/OVMF_VARS.fd $PKG/usr/share/OVMF/OVMF_VARS.fd
 
 # Make every bundled ELF executable.  The deb ships most chromium libs 0755,
 # but some prebuilt native modules are 0644 (e.g. node-pty's pty.node, buried
