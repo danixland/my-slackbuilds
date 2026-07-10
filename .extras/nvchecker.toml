@@ -151,8 +151,3 @@ source = "github"
 github = "quodlibet/mutagen"
 use_latest_release = true
 prefix = "release-"
-
-[openvino]
-source = "github"
-github = "openvinotoolkit/openvino"
-use_latest_release = true
