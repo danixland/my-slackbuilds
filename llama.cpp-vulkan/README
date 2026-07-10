@@ -19,4 +19,3 @@ locally and in the cloud.
  - Vulkan and SYCL backend support
  - CPU+GPU hybrid inference to partially accelerate models larger than
    the total VRAM capacity
-
