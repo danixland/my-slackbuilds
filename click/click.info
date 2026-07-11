@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/source/c/click/click-8.4.2.tar
 MD5SUM="e35da284dc6420c59c1885ccb22d9879"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-installer"
+REQUIRES="python3-flit_core python3-installer"
 MAINTAINER="fourtysixandtwo"
 EMAIL="fourtysixandtwo@sliderr.net"
