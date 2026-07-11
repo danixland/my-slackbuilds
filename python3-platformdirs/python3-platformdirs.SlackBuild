@@ -64,16 +64,11 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-# platformdirs uses setuptools-scm; provide version so it doesn't require git tags
+# platformdirs uses hatch-vcs (setuptools-scm under the hood); provide the
+# version so it doesn't need git tags. hatch-vcs writes src/platformdirs/version.py
+# during the build, so no manual fixup is needed.
 SETUPTOOLS_SCM_PRETEND_VERSION=$VERSION python3 -m build --wheel --no-isolation
 python3 -m installer --destdir "$PKG" dist/*.whl
-
-# Fix version.py: setuptools-scm leaves vars unset without git tags; insert after from __future__
-VERFILE=$(find "$PKG" -name "version.py" -path "*/platformdirs/*")
-if [ -n "$VERFILE" ]; then
-  VERTUPLE="($(echo $VERSION | tr '.' ','))"
-  sed -i "/^from __future__/a __version__ = \"$VERSION\"\n__version_tuple__ = $VERTUPLE" "$VERFILE"
-fi
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true

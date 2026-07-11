@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a7507
 MD5SUM="ee2194f2e71385c5dc6b647858dc1da4"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-build python3-installer"
+REQUIRES="python3-hatchling python3-hatch-vcs python3-build python3-installer"
 MAINTAINER="Jeremy Hansen"
 EMAIL="jebrhansen+SBo@gmail.com"
