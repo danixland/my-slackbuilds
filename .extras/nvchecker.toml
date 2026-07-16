@@ -37,6 +37,7 @@ prefix = "V"
 source = "github"
 github = "gitleaks/gitleaks"
 use_latest_release = true
+prefix = "v"
 
 [discord]
 source = "httpheader"
