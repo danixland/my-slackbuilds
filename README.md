@@ -34,32 +34,33 @@ Each package lives in its own top-level subfolder:
 | Package | -current | 15.0 | SBo | Version | Latest |
 |---------|----------|------|-----|---------|--------|
 | hstr | ✅ | not tested | ✅ [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.2 | 3.2 |
-| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.145 | 1.0.145 |
+| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.148 | 1.0.149 |
 | kitty-bin | ✅ | not tested | ❌ | 0.47.4 | 0.47.4 |
-| llama.cpp-vulkan | ✅ | not tested | ❌ | b9871 | b9871 |
+| llama.cpp-vulkan | ✅ | not tested | ❌ | b10041 | b10056 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
-| opencode-bin | ✅ | not tested | ❌ | 1.17.13 | 1.17.13 |
-| claude-code-bin | ✅ | not tested | ❌ | 2.1.140 | 2.1.140 |
+| opencode-bin | ✅ | not tested | ❌ | 1.18.2 | 1.18.3 |
+| claude-code-bin | ✅ | not tested | ❌ | 2.1.211 | 2.1.212 |
 | kvantum-qt6 | ✅ | not tested | ❌ | 1.1.8 | 1.1.8 |
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
-| mutagen | ✅ | not tested | ✅ [mutagen](https://slackbuilds.org/repository/15.0/development/mutagen/) | 1.47.0 | 1.47.0 |
+| mutagen | ✅ | not tested | ✅ [mutagen](https://slackbuilds.org/repository/15.0/development/mutagen/) | 1.48.1 | 1.48.1 |
 | solvespace | ✅ | not tested | ❌ | 3.2 | 3.2 |
 | gamescope | ✅ | not tested | ✅ [gamescope](https://slackbuilds.org/repository/15.0/system/gamescope/) | 3.16.24 | 3.16.24 |
-| nvchecker | ✅ | not tested | ❌ | 2.20 | 2.20 |
+| nvchecker | ✅ | not tested | ❌ | 2.21 | 2.21 |
 | python3-structlog | ✅ | not tested | ❌ | 26.1.0 | 26.1.0 |
 | python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.10.0 | 4.10.0 |
 | python3-awesomeversion | ✅ | not tested | ❌ | 25.8.0 | 25.8.0 |
 | python3-fsspec | ✅ | not tested | ❌ | 2026.6.0 | 2026.6.0 |
 | python3-packaging | ✅ | not tested | ❌ | 26.2 | 26.2 |
 | python3-annotated-doc | ✅ | not tested | ❌ | 0.0.4 | 0.0.4 |
-| python3-typer | ✅ | not tested | ❌ | 0.26.8 | 0.26.8 |
-| python3-huggingface_hub | ✅ | not tested | ❌ | 1.22.0 | 1.22.0 |
+| python3-typer | ✅ | not tested | ❌ | 0.27.0 | 0.27.0 |
+| python3-huggingface_hub | ✅ | not tested | ❌ | 1.23.0 | 1.24.0 |
 | click | ✅ | not tested | ✅ [click](https://slackbuilds.org/repository/15.0/python/click/) | 8.4.2 | 8.4.2 |
-| playwright-cli | ✅ | not tested | ❌ | 0.1.15 | 0.1.15 |
-| firefly-cli | ✅ | not tested | ❌ | 0.4.1 | 0.4.1 |
+| playwright-cli | ✅ | not tested | ❌ | 0.1.17 | 0.1.17 |
+| firefly-cli | ✅ | not tested | ❌ | 0.5.0 | 0.5.0 |
 | gitea-cli | ✅ | ✅ | ❌ | 0.14.2 | 0.14.2 |
 | megasync-bin | ✅ | ✅ | ❌ | 6.4.0.2 | 6.4.0.2 |
-| claude-desktop-bin | ✅ | ✅ | ❌ | 1.18286.2 | 1.18286.2 |
+| claude-desktop-bin | ✅ | ✅ | ❌ | 1.21459.3 | 1.22209.0 |
+| hyprsunset-qt | ✅ | not tested | ❌ | 0.1.1 | 0.1.1 |
 
 ---
 
