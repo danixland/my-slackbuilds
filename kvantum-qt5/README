@@ -1,0 +1,7 @@
+Kvantum is an SVG-based theme engine for Qt, tuned to KDE and LXQt,
+with an emphasis on elegance, usability and practicality.
+
+This package builds the Qt5 style plugin only. The kvantummanager
+GUI and bundled themes are provided by the kvantum-qt6 package.
+
+By !red

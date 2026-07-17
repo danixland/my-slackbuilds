@@ -41,6 +41,7 @@ Each package lives in its own top-level subfolder:
 | opencode-bin | ✅ | not tested | ❌ | 1.18.2 | 1.18.3 |
 | claude-code-bin | ✅ | not tested | ❌ | 2.1.211 | 2.1.212 |
 | kvantum-qt6 | ✅ | not tested | ❌ | 1.1.8 | 1.1.8 |
+| kvantum-qt5 | ✅ | not tested | ✅ [kvantum-qt5](https://slackbuilds.org/repository/15.0/system/kvantum-qt5/) | 1.1.8 | 1.1.8 |
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
 | mutagen | ✅ | not tested | ✅ [mutagen](https://slackbuilds.org/repository/15.0/development/mutagen/) | 1.48.1 | 1.48.1 |
 | solvespace | ✅ | not tested | ❌ | 3.2 | 3.2 |
@@ -61,6 +62,11 @@ Each package lives in its own top-level subfolder:
 | megasync-bin | ✅ | ✅ | ❌ | 6.4.0.2 | 6.4.0.2 |
 | claude-desktop-bin | ✅ | ✅ | ❌ | 1.21459.3 | 1.22209.0 |
 | hyprsunset-qt | ✅ | not tested | ❌ | 0.1.1 | 0.1.1 |
+
+> **Note on `kvantum-qt5`:** the official SBo build lags several releases behind
+> upstream (1.1.2 vs 1.1.8), so this repo ships an updated build. It provides the
+> Qt5 style plugin only (`libkvantum.so`); the kvantummanager GUI and bundled
+> themes come from the `kvantum-qt6` package, which upstream now builds Qt6-only.
 
 ---
 
