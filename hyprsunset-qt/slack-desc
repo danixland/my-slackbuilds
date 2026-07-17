@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+             |-----handy-ruler------------------------------------------------------|
+hyprsunset-qt: hyprsunset-qt (Qt6 GUI for hyprsunset)
+hyprsunset-qt:
+hyprsunset-qt: A small PyQt6 interface to manage hyprsunset profiles. It edits
+hyprsunset-qt: ~/.config/hypr/hyprsunset.conf, fetches sunrise/sunset times for
+hyprsunset-qt: your location, drops them into the day/night profiles, previews
+hyprsunset-qt: temperature and gamma live over hyprctl, and restarts the
+hyprsunset-qt: hyprsunset daemon so changes take effect.
+hyprsunset-qt:
+hyprsunset-qt: Sun times courtesy of the sunrise-sunset.org API.
+hyprsunset-qt:
+hyprsunset-qt:

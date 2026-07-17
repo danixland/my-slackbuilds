@@ -1,0 +1,8 @@
+hyprsunset-qt is a small PyQt6 GUI for hyprsunset. It edits the
+hyprsunset config, fetches sunrise/sunset times for your location and
+applies them to the day/night profiles, previews temperature and gamma
+live via hyprctl, and restarts the hyprsunset daemon.
+
+It is a pure-python, noarch package. At runtime it needs PyQt6 and a
+running hyprsunset (0.3.3 or newer) under Hyprland; both PyQt6 and the
+python build tooling ship with Slackware -current.

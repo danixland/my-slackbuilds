@@ -140,3 +140,7 @@ source = "github"
 github = "quodlibet/mutagen"
 use_latest_release = true
 prefix = "release-"
+
+[hyprsunset-qt]
+source = "cmd"
+cmd = '''curl -fsSL https://git.danix.xyz/hyprsunset-qt/refs/tags | grep -oE 'hyprsunset-qt-[0-9.]+\.tar' | sed 's/hyprsunset-qt-//;s/\.tar//' | sort -V | tail -1'''
