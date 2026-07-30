@@ -120,7 +120,8 @@ prefix = "v"
 [megasync-bin]
 source = "github"
 github = "meganz/MEGAsync"
-use_latest_release = true
+use_max_tag = true
+include_regex = ".*_Linux$"
 prefix = "v"
 from_pattern = "_Linux$"
 to_pattern = ""
