@@ -34,33 +34,33 @@ Each package lives in its own top-level subfolder:
 | Package | -current | 15.0 | SBo | Version | Latest |
 |---------|----------|------|-----|---------|--------|
 | hstr | ✅ | not tested | ✅ [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.2 | 3.2 |
-| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.148 | 1.0.149 |
-| kitty-bin | ✅ | not tested | ❌ | 0.47.4 | 0.47.4 |
-| llama.cpp-vulkan | ✅ | not tested | ❌ | b10041 | b10056 |
+| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.151 | 1.0.151 |
+| kitty-bin | ✅ | not tested | ❌ | 0.48.1 | 0.48.1 |
+| llama.cpp-vulkan | ✅ | not tested | ❌ | b10184 | b10186 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
-| opencode-bin | ✅ | not tested | ❌ | 1.18.2 | 1.18.3 |
-| claude-code-bin | ✅ | not tested | ❌ | 2.1.211 | 2.1.212 |
+| opencode-bin | ✅ | not tested | ❌ | 1.18.9 | 1.18.9 |
+| claude-code-bin | ✅ | not tested | ❌ | 2.1.220 | 2.1.220 |
 | kvantum-qt6 | ✅ | not tested | ❌ | 1.1.8 | 1.1.8 |
 | kvantum-qt5 | ✅ | not tested | ✅ [kvantum-qt5](https://slackbuilds.org/repository/15.0/system/kvantum-qt5/) | 1.1.8 | 1.1.8 |
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
 | mutagen | ✅ | not tested | ✅ [mutagen](https://slackbuilds.org/repository/15.0/development/mutagen/) | 1.48.1 | 1.48.1 |
 | solvespace | ✅ | not tested | ❌ | 3.2 | 3.2 |
-| gamescope | ✅ | not tested | ✅ [gamescope](https://slackbuilds.org/repository/15.0/system/gamescope/) | 3.16.24 | 3.16.24 |
+| gamescope | ✅ | not tested | ✅ [gamescope](https://slackbuilds.org/repository/15.0/system/gamescope/) | 3.16.25 | 3.16.25 |
 | nvchecker | ✅ | not tested | ❌ | 2.21 | 2.21 |
 | python3-structlog | ✅ | not tested | ❌ | 26.1.0 | 26.1.0 |
-| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.10.0 | 4.10.0 |
+| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.11.0 | 4.11.0 |
 | python3-awesomeversion | ✅ | not tested | ❌ | 25.8.0 | 25.8.0 |
-| python3-fsspec | ✅ | not tested | ❌ | 2026.6.0 | 2026.6.0 |
+| python3-fsspec | ✅ | not tested | ❌ | 2026.7.0 | 2026.7.0 |
 | python3-packaging | ✅ | not tested | ❌ | 26.2 | 26.2 |
-| python3-annotated-doc | ✅ | not tested | ❌ | 0.0.4 | 0.0.4 |
+| python3-annotated-doc | ✅ | not tested | ❌ | 0.0.5 | 0.0.5 |
 | python3-typer | ✅ | not tested | ❌ | 0.27.0 | 0.27.0 |
-| python3-huggingface_hub | ✅ | not tested | ❌ | 1.23.0 | 1.24.0 |
+| python3-huggingface_hub | ✅ | not tested | ❌ | 1.25.1 | 1.25.1 |
 | click | ✅ | not tested | ✅ [click](https://slackbuilds.org/repository/15.0/python/click/) | 8.4.2 | 8.4.2 |
 | playwright-cli | ✅ | not tested | ❌ | 0.1.17 | 0.1.17 |
 | firefly-cli | ✅ | not tested | ❌ | 0.5.0 | 0.5.0 |
-| gitea-cli | ✅ | ✅ | ❌ | 0.14.2 | 0.14.2 |
+| gitea-cli | ✅ | ✅ | ❌ | 0.15.0 | 0.15.0 |
 | megasync-bin | ✅ | ✅ | ❌ | 6.4.0.2 | 6.4.0.2 |
-| claude-desktop-bin | ✅ | ✅ | ❌ | 1.21459.3 | 1.22209.0 |
+| claude-desktop-bin | ✅ | ✅ | ❌ | 1.24012.9 | 1.24012.9 |
 | hyprsunset-qt | ✅ | not tested | ❌ | 0.1.1 | 0.1.1 |
 
 > **Note on `kvantum-qt5`:** the official SBo build lags several releases behind
