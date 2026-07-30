@@ -59,7 +59,7 @@ Each package lives in its own top-level subfolder:
 | playwright-cli | ✅ | not tested | ❌ | 0.1.17 | 0.1.17 |
 | firefly-cli | ✅ | not tested | ❌ | 0.5.0 | 0.5.0 |
 | gitea-cli | ✅ | ✅ | ❌ | 0.15.0 | 0.15.0 |
-| megasync-bin | ✅ | ✅ | ❌ | 6.4.0.2 | 6.4.0.2 |
+| megasync-bin | ✅ | ✅ | ❌ | 6.5.0.2 | 6.5.0.2 |
 | claude-desktop-bin | ✅ | ✅ | ❌ | 1.24012.9 | 1.24012.9 |
 | hyprsunset-qt | ✅ | not tested | ❌ | 0.1.1 | 0.1.1 |
 
