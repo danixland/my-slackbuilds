@@ -37,6 +37,36 @@ repo as a subtree, and a top-level `docs/` folder leaks into that subtree.
 
 ## SlackBuild Scripting Guidelines
 
+### Templates live in `~/Templates/SlackBuilds/`
+
+The official SBo templates are kept locally as a git clone at
+`~/Templates/SlackBuilds/sbo/` (a second clone, `conraid/`, holds Conraid's
+scripts for reference). Both are refreshed by
+`~/Templates/SlackBuilds/update-templates.sh`, which pulls each clone; run it to
+get the latest upstream templates before starting work.
+
+**Always start from these templates** when authoring a NEW SlackBuild, or when
+taking over maintenance of an existing script on SBo. Read the matching template
+first, do not copy an existing package from this repo and rename it, an old
+package can carry drift the current template has since fixed.
+
+Pick by build system:
+
+| Template | Use for |
+|----------|---------|
+| `sbo/python-template.SlackBuild` | Python packages (setup.py and pyproject-only paths) |
+| `sbo/autotools-template.SlackBuild` | `./configure && make` |
+| `sbo/cmake-template.SlackBuild` | CMake |
+| `sbo/meson-template.SlackBuild` | Meson |
+| `sbo/perl-template.SlackBuild` | Perl modules |
+| `sbo/rubygem-template.SlackBuild` | Ruby gems |
+| `sbo/haskell-template.SlackBuild` | Haskell |
+| `sbo/template.info`, `sbo/slack-desc`, `sbo/README`, `sbo/doinst.sh`, `sbo/douninst.sh` | the other package files |
+
+Strip the template's instructional comment blocks and unused branches (e.g. the
+python2/setup.py path, the man-page gzip block when upstream ships no man pages)
+before shipping the script.
+
 - Follow the [SBo template](https://slackbuilds.org/templates/) as the base for all scripts
 - Use `set -e` to abort on errors
 - Honor `$TMP`, `$BUILD`, `$TAG`, `$OUTPUT` variables; default values must be set if unset
