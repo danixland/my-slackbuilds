@@ -145,3 +145,13 @@ prefix = "release-"
 [hyprsunset-qt]
 source = "cmd"
 cmd = '''curl -fsSL https://git.danix.xyz/hyprsunset-qt/refs/tags | grep -oE 'hyprsunset-qt-[0-9.]+\.tar' | sed 's/hyprsunset-qt-//;s/\.tar//' | sort -V | tail -1'''
+
+# Tracked from the codeberg tags, matching DOWNLOAD: the PyPI sdist omits
+# telethon_generator/ and cannot be built from source. Codeberg is Forgejo,
+# so the gitea source works against it with a host override.
+[python3-telethon]
+source = "gitea"
+gitea = "Lonami/Telethon"
+host = "codeberg.org"
+use_max_tag = true
+prefix = "v"

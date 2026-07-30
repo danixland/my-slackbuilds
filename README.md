@@ -55,6 +55,7 @@ Each package lives in its own top-level subfolder:
 | python3-annotated-doc | ✅ | not tested | ❌ | 0.0.5 | 0.0.5 |
 | python3-typer | ✅ | not tested | ❌ | 0.27.0 | 0.27.0 |
 | python3-huggingface_hub | ✅ | not tested | ❌ | 1.25.1 | 1.25.1 |
+| python3-telethon | ✅ | ✅ | ❌ | 1.44.0 | 1.44.0 |
 | click | ✅ | not tested | ✅ [click](https://slackbuilds.org/repository/15.0/python/click/) | 8.4.2 | 8.4.2 |
 | playwright-cli | ✅ | not tested | ❌ | 0.1.17 | 0.1.17 |
 | firefly-cli | ✅ | not tested | ❌ | 0.5.0 | 0.5.0 |
