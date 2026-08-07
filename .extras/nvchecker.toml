@@ -6,7 +6,7 @@ prefix = "v"
 
 [hstr]
 source = "github"
-github = "dvorka/hstr"
+github = "dvorka-oss/hstr"
 use_latest_release = true
 prefix = "v"
 
