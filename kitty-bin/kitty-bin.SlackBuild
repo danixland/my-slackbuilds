@@ -27,7 +27,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=kitty-bin
 SRCNAM=kitty
-VERSION=${VERSION:-0.48.1}
+VERSION=${VERSION:-0.48.2}
 BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
