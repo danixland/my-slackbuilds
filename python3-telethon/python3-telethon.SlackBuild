@@ -77,10 +77,14 @@ cd $TMP
 # The codeberg archive lands under one of two names depending on the
 # downloader: "v$VERSION.tar.gz" (URL path basename, e.g. plain wget) or
 # "Telethon-v$VERSION.tar.gz" (Content-Disposition, which uses the upstream
-# repo's capitalization, e.g. slackrepo/sbodl).
+# repo's capitalization, e.g. slackrepo/sbodl). Accept either: there's no way
+# to know which tool the user downloaded with. Note "sbodl -n" ignores
+# Content-Disposition, for checksum verification.
 # It extracts to a top dir named "$SRCNAM", not "$SRCNAM-$VERSION".
 rm -rf $SRCNAM
-tar xvf $CWD/v$VERSION.tar.gz || tar xvf $CWD/Telethon-v$VERSION.tar.gz
+TARBALL=$CWD/Telethon-v$VERSION.tar.gz
+[ -e $TARBALL ] || TARBALL=$CWD/v$VERSION.tar.gz
+tar xvf $TARBALL
 cd $SRCNAM
 chown -R root:root .
 find -L . \
