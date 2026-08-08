@@ -11,8 +11,9 @@ Typora is proprietary paid software. It ships as a time-limited free
 trial and needs a purchased license key for continued use. Packaging
 the tarball does not grant a license; see the homepage for terms.
 
-The app is installed under /opt/Typora-linux-x64 and launched through
-the /usr/bin/typora wrapper, which enables Electron's Ozone Wayland
+The app is installed under a versioned directory in /opt (for this
+release, /opt/typora-bin-1.14.9) and launched through the
+/usr/bin/typora wrapper, which enables Electron's Ozone Wayland
 backend when it detects a Wayland session and otherwise leaves the
 default X11 path alone. Force either backend by setting
 TYPORA_OZONE=wayland or TYPORA_OZONE=x11.
@@ -25,5 +26,5 @@ Export to PDF works out of the box. For docx, epub, LaTeX and other
 pandoc formats, install pandoc (available on SBo).
 
 Upstream's bundled Chromium license file is not duplicated into
-/usr/doc; it ships in place as
-/opt/Typora-linux-x64/LICENSES.chromium.html.
+/usr/doc; it ships in place as LICENSES.chromium.html in that same
+directory.

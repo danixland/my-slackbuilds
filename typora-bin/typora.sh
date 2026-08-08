@@ -8,7 +8,9 @@
 #
 # Override either way with TYPORA_OZONE=wayland or TYPORA_OZONE=x11.
 
-APPDIR=/opt/Typora-linux-x64
+# @APPDIR@ is substituted by the SlackBuild at build time (it carries the
+# package version, so it must not be hardcoded here).
+APPDIR=@APPDIR@
 
 ozone=${TYPORA_OZONE:-auto}
 if [ "$ozone" = auto ]; then

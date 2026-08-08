@@ -9,5 +9,5 @@ if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
 fi
 
 # Chromium's SUID sandbox helper must be setuid root.  Re-assert in case the
-# package did not preserve the 4755 bit.
-chmod 4755 opt/Typora-linux-x64/chrome-sandbox 2>/dev/null
+# package did not preserve the 4755 bit.  The versioned path is appended by
+# the SlackBuild, so it cannot go stale on a version bump.

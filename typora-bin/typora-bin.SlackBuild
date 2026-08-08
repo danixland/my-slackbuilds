@@ -53,9 +53,11 @@ TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-# Where the Electron bundle lands.  Upstream hardcodes nothing, but its own
-# tarball layout is bin/Typora-linux-x64, so keep that name under /opt.
-APPDIR=/opt/$SRCNAM-linux-x64
+# Where the Electron bundle lands.  Versioned, so upgrades cannot leave a
+# previous release's files behind and two versions can coexist.  Upstream
+# resolves resources/ relative to its own binary, so any prefix works as long
+# as the tree stays intact.
+APPDIR=/opt/$PRGNAM-$VERSION
 
 set -e
 
@@ -92,10 +94,16 @@ done
 
 # Launch through a wrapper rather than a symlink to the binary: it picks the
 # Ozone Wayland backend when a Wayland session is detected, so one package
-# behaves correctly in both session types.
+# behaves correctly in both session types.  APPDIR is versioned, so stamp it
+# in here instead of hardcoding it in the script.
 mkdir -p $PKG/usr/bin
-cat $CWD/typora.sh > $PKG/usr/bin/typora
+sed "s|@APPDIR@|$APPDIR|" $CWD/typora.sh > $PKG/usr/bin/typora
 chmod 755 $PKG/usr/bin/typora
+# Fail loudly rather than shipping a launcher that points nowhere.
+if grep -q '@APPDIR@' $PKG/usr/bin/typora ; then
+  echo "ERROR: @APPDIR@ substitution failed in typora.sh" 1>&2
+  exit 1
+fi
 
 # Upstream ships no .desktop file and no hicolor icons, only a macOS-style
 # icon set under resources/assets/icon.  The @2x variants are just the next
@@ -122,6 +130,10 @@ cat $CWD/$PRGNAM.nvchecker > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.nvchecker
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
+# APPDIR is versioned; append the chmod here so doinst.sh needs no edit on a
+# bump.  Leading ./ and no slash on APPDIR: doinst.sh runs from the root of
+# the installed filesystem.
+echo "chmod 4755 .$APPDIR/chrome-sandbox 2>/dev/null" >> $PKG/install/doinst.sh
 
 chown -R root:root $PKG
 find -L $PKG \
