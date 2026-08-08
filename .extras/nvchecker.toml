@@ -155,3 +155,11 @@ gitea = "Lonami/Telethon"
 host = "codeberg.org"
 use_max_tag = true
 prefix = "v"
+
+# Upstream is on freedesktop.org, not a forge, so scrape the release
+# directory listing. Versions are CalVer-ish (26.134.222), so sorting is
+# left to nvchecker's default.
+[plymouth]
+source = "regex"
+url = "https://www.freedesktop.org/software/plymouth/releases/"
+regex = 'plymouth-([0-9][0-9.]*)\.tar\.xz'

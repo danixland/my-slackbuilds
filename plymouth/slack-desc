@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+        |-----handy-ruler------------------------------------------------------|
+plymouth: plymouth (graphical boot splash)
+plymouth:
+plymouth: Plymouth provides a flicker-free graphical boot process. It relies
+plymouth: on kernel mode setting (KMS) to set the native resolution of the
+plymouth: display as early as possible, then shows a splash screen leading up
+plymouth: to the login manager. Boot messages remain available by pressing the
+plymouth: Esc key during boot.
+plymouth:
+plymouth: Homepage: https://www.freedesktop.org/wiki/Software/Plymouth/
+plymouth:
+plymouth:
