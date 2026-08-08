@@ -163,3 +163,12 @@ prefix = "v"
 source = "regex"
 url = "https://www.freedesktop.org/software/plymouth/releases/"
 regex = 'plymouth-([0-9][0-9.]*)\.tar\.xz'
+
+# Typora is proprietary with no git repo, so there is no github/pypi feed.
+# The Linux changelog page is the only per-platform source of truth: its
+# newest <h2> is the current Linux version. Do NOT use dev_update.xml, which
+# carries the macOS dev channel and reports a different version.
+[typora-bin]
+source = "regex"
+url = "https://typora.io/releases/linux"
+regex = "<h2>([0-9]+\\.[0-9]+\\.[0-9]+)</h2>"

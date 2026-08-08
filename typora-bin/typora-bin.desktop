@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Typora
+GenericName=Markdown Editor
+Comment=Minimal markdown editor and reader
+Exec=typora %F
+Icon=typora
+Terminal=false
+Categories=Office;WordProcessor;TextEditor;
+MimeType=text/markdown;text/x-markdown;
+StartupWMClass=Typora
+Keywords=markdown;editor;md;

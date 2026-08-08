@@ -1,0 +1,29 @@
+Typora is a markdown editor that drops the usual split view: there is
+no preview pane and no raw source pane, the document is rendered in
+place as you type. It supports tables, math, diagrams, footnotes,
+outlines and export to PDF, HTML, docx and more.
+
+This is a binary repack of upstream's official Linux x86_64 tarball,
+not a build from source (Typora is closed source). The Electron
+runtime is bundled, so this package pulls in no SBo dependencies.
+
+Typora is proprietary paid software. It ships as a time-limited free
+trial and needs a purchased license key for continued use. Packaging
+the tarball does not grant a license; see the homepage for terms.
+
+The app is installed under /opt/Typora-linux-x64 and launched through
+the /usr/bin/typora wrapper, which enables Electron's Ozone Wayland
+backend when it detects a Wayland session and otherwise leaves the
+default X11 path alone. Force either backend by setting
+TYPORA_OZONE=wayland or TYPORA_OZONE=x11.
+
+Upstream's bundled auto-updater is removed: it would overwrite the
+tree in /opt behind pkgtool's back. Update by rebuilding this package
+instead.
+
+Export to PDF works out of the box. For docx, epub, LaTeX and other
+pandoc formats, install pandoc (available on SBo).
+
+Upstream's bundled Chromium license file is not duplicated into
+/usr/doc; it ships in place as
+/opt/Typora-linux-x64/LICENSES.chromium.html.

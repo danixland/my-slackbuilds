@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+          |-----handy-ruler------------------------------------------------------|
+typora-bin: typora-bin (minimal markdown editor and reader)
+typora-bin:
+typora-bin: Typora is a markdown editor that removes the preview pane and the
+typora-bin: raw source view, rendering the document in place as you type.  It
+typora-bin: supports tables, math, diagrams, footnotes and export to PDF,
+typora-bin: HTML and other formats via pandoc.
+typora-bin:
+typora-bin: This is a binary repack of upstream's official Linux tarball.  It
+typora-bin: bundles its own Electron runtime and is x86_64 only.  Typora is
+typora-bin: proprietary paid software with a free trial.
+typora-bin:
