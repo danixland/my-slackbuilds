@@ -28,7 +28,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 PRGNAM=typora-bin
 SRCNAM=Typora
 VERSION=${VERSION:-1.14.9}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
 
@@ -141,6 +141,14 @@ find -L $PKG \
    -o -perm 511 \) -exec chmod 755 {} \+ -o \
   \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
    -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \+
+
+# Every directory must be world-traversable.  The block above only remaps the
+# modes it lists, and upstream ships its top directory (and some below it) as
+# 0700, which is in neither list and so passes through untouched.  That leaves
+# the tree readable only by root, and a non-root launch dies with "Permission
+# denied" on the binary.  Root-run lint and root-run builds cannot see this,
+# since 0700 is traversable by root.
+find $PKG -type d -exec chmod 755 {} \+
 
 # chrome-sandbox needs setuid root (4755) for Chromium's SUID sandbox.  Set it
 # LAST, after the find -L perm-normalize above would otherwise strip it.
