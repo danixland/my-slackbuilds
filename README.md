@@ -63,11 +63,22 @@ Each package lives in its own top-level subfolder:
 | megasync-bin | ✅ | ✅ | ❌ | 6.5.0.2 | 6.5.0.2 |
 | claude-desktop-bin | ✅ | ✅ | ❌ | 1.24012.9 | 1.24012.9 |
 | hyprsunset-qt | ✅ | not tested | ❌ | 0.1.1 | 0.1.1 |
+| plymouth | ✅ | ❌ | ✅ [plymouth](https://slackbuilds.org/repository/15.0/system/plymouth/) | 26.134.222 | 26.134.222 |
 
 > **Note on `kvantum-qt5`:** the official SBo build lags several releases behind
 > upstream (1.1.2 vs 1.1.8), so this repo ships an updated build. It provides the
 > Qt5 style plugin only (`libkvantum.so`); the kvantummanager GUI and bundled
 > themes come from the `kvantum-qt6` package, which upstream now builds Qt6-only.
+
+> **Note on `plymouth`:** **-current only, it does not build on 15.0.** Upstream
+> 26.134.222 uses `PANGO_ATTR_FONT_SCALE`, which needs pango >= 1.50; 15.0 ships
+> 1.48.11, so `label-pango` fails to compile. Every other dependency resolves on
+> 15.0, and meson there is new enough. Since 15.0 is the SBo baseline, this build
+> is not submittable to SBo as-is and is not intended for submission for now. The
+> official SBo build is 22.02.122, four years behind upstream and predating
+> SimpleDRM support; this repo ships the current release, which also switched
+> from autotools to meson. Note that installing the package alone does not give
+> a splash screen, the initrd wiring is manual, see the package `README`.
 
 ---
 

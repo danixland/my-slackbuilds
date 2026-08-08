@@ -30,6 +30,25 @@ Mint, Debian, Fedora, all the same stack, differing only in theme.
 Neither package touches the initrd or the init scripts. **That wiring is the
 entire job** and it is all manual.
 
+### Update 2026-08-08: this repo now ships plymouth 26.134.222
+
+SBo's 22.02.122 is four years behind upstream and **predates SimpleDRM**, which
+changes the plan substantially (see below). A local package was written at
+`plymouth/` in this repo, built and lint-clean on -current. Findings:
+
+- Upstream switched **autotools to meson**, so the SBo script could not be
+  version-bumped, it had to be rewritten from the meson template.
+- `systemd-integration` now defaults to **true** in meson and must be turned
+  off explicitly, otherwise the build wants `systemd.pc` and
+  `systemd-tty-ask-password-agent`.
+- All build deps are satisfied by stock -current, so `REQUIRES=""`.
+- **It does not build on 15.0**: `PANGO_ATTR_FONT_SCALE` needs pango >= 1.50,
+  and 15.0 ships 1.48.11. Since 15.0 is the SBo baseline, this is not
+  submittable to SBo as-is.
+- The SBo theme package ships its own `/etc/plymouth/plymouthd.conf` setting
+  `Theme=slackware-logo`, the same path the main package installs. Installing
+  the theme after plymouth overwrites that file.
+
 ---
 
 ## How the other distributions do it
@@ -130,6 +149,19 @@ seamless boot and a splash that shows up halfway through, which looks worse
 than no splash at all.
 
 So adding `xe` to the initrd is a **prerequisite**, not an optimisation.
+
+**Superseded on 2026-08-08 for plymouth 26.x.** The above holds for SBo's
+22.02.122, which has no SimpleDRM support (verified: zero matches for
+`simpledrm` anywhere in that tarball). Upstream added SimpleDRM in **24.004.60**,
+and on UEFI systems plymouth 26.x uses it **by default** to draw on the EFI
+framebuffer, so the GPU driver does not need to be in the initrd at all. This
+machine is UEFI, so with the 26.134.222 package in this repo, **step 2.1 below
+is no longer a prerequisite**, which also removes the firmware-bloat problem and
+the per-kernel-update `xe` maintenance.
+
+Two caveats: with SimpleDRM secondary monitors stay dark during boot (irrelevant
+here, root is plain LVM with no LUKS prompt), and `plymouth.use-simpledrm=0`
+disables it if it misbehaves.
 
 ---
 
@@ -274,6 +306,21 @@ rather than flashing a bare console. For a console-only boot, call
 
 ---
 
+## Do the boot messages stay reachable?
+
+Yes. This is what Debian and Mint do, and it is not a systemd feature.
+Pressing **Esc** during boot switches from the splash to the boot text.
+Plymouth also does its own console redirection and logs messages to
+`/var/log/boot.log`, independent of any init system, which is why
+`plymouth.nolog` is documented as disabling "logging and console redirection".
+
+Slackware caveat: `rc.S` and `rc.M` are not plymouth-aware the way Debian's
+systemd units are, so there are no `plymouth message` progress updates tied to
+boot stages. Whether the rc output ends up behind the splash depends on
+plymouthd surviving `switch_root` and holding the console, see below. Stage 1
+alone (`quiet loglevel=3`) does **not** silence the rc scripts, it only
+suppresses kernel printk, which is why the wall is still there after stage 1.
+
 ## Known problem areas
 
 **`switch_root` continuity.** This is the most likely thing to consume time.
@@ -323,10 +370,14 @@ choose from, which is what makes the fallback entry usable.
 
 - Both SBo READMEs point at an LQ thread for Slackware-specific instructions:
   <https://www.linuxquestions.org/questions/slackware-14/bootsplash-4175742241/>
-  It was not readable at the time of writing (LQ returns HTTP 403 to
-  automated fetches), so **it has not been incorporated here**. Read it
-  manually before starting stage 2, it may well cover the `switch_root` and
-  initrd-population details that are the hard part.
+  It is still not readable (LQ returns HTTP 403 to automated fetches, a
+  browser User-Agent does not help), so **it has not been incorporated here**.
+  It is also an old thread, so its value is now doubtful.
+- <https://wiki.archlinux.org/title/Plymouth> is the better reference and was
+  read on 2026-08-08. It is the source for the SimpleDRM behaviour, the Esc
+  toggle, and the `plymouth.nolog` / `plymouth.debug` / `plymouth.enable=0`
+  flags. Note it 403s to plain fetches too (Anubis); a browser User-Agent
+  works, or `?action=raw` for the wikitext.
 - Theme upstream: <https://github.com/murkl/plymouth-theme-arch-os>
 - Plymouth upstream:
   <https://www.freedesktop.org/wiki/Software/Plymouth/>
@@ -335,6 +386,28 @@ choose from, which is what makes the fallback entry usable.
 
 ## Status
 
-Nothing installed, nothing modified. Stage 1 is a two-line change whenever
-wanted. Stage 2 is unstarted, and step 2.1 (`xe` in the initrd) is the gate for
-everything after it.
+Updated 2026-08-08.
+
+**Stage 1 is done.** `quiet loglevel=3` is on the kernel command line and
+`grub-mkconfig` has been run. Verified after reboot: the kernel printk wall is
+gone, but **the Slackware rc script output is not**, which is expected, no
+kernel flag suppresses it. That is what motivates stage 2.
+
+**A plymouth 26.134.222 package exists** at `plymouth/` in this repo. It builds
+and passes `sbopkglint` on -current, and fails on 15.0 (pango too old). It is
+not installed on this machine yet.
+
+**Stage 2 is otherwise unstarted**, but it is now cheaper than described below:
+step 2.1 (`xe` in the initrd) is **no longer a prerequisite** thanks to
+SimpleDRM, so the remaining work is initrd population (2.3), starting the
+daemon (2.4), the cmdline (2.5), and the quit hook (2.6).
+
+Next concrete step, and the cheapest way to derisk everything: install the
+package and preview the theme from a console, no reboot and no initrd work
+needed:
+
+```
+plymouthd; plymouth --show-splash; sleep 5; plymouth --quit
+```
+
+That confirms the renderer works on this GPU before any boot-path change.
