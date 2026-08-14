@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# Slackware build script for piper-tts
+
+# Copyright 2026 danix <danix@danix.xyz>
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+cd $(dirname $0) ; CWD=$(pwd)
+
+PRGNAM=piper-tts
+VERSION=${VERSION:-1.6.1}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+PKGTYPE=${PKGTYPE:-tgz}
+
+SRCNAM=piper_tts
+
+ARCH=${ARCH:-x86_64}
+
+# Only x86_64 is supported (pre-built manylinux wheel)
+if [ "$ARCH" != "x86_64" ]; then
+  echo "ERROR: $PRGNAM is only available for x86_64."
+  exit 1
+fi
+
+if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
+  echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
+  exit 0
+fi
+
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+
+python3 -m installer --destdir "$PKG" \
+  "$CWD/$SRCNAM-$VERSION-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl"
+
+# Rename the console script to avoid clashing with SBo's libratbag 'piper'
+mv $PKG/usr/bin/piper $PKG/usr/bin/piper-tts
+
+# The wheel's data/COPYING installs to the prefix root; the license is
+# already copied to /usr/doc from dist-info/licenses, so drop the stray copy.
+rm -f $PKG/usr/COPYING
+
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+# Copy license files from the wheel's dist-info
+for lic in \
+  $PKG/usr/lib64/python3*/site-packages/$SRCNAM-$VERSION.dist-info/licenses/* ; do
+  [ -e "$lic" ] && cp -a "$lic" $PKG/usr/doc/$PRGNAM-$VERSION
+done
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

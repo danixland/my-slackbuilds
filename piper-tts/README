@@ -1,0 +1,13 @@
+piper-tts is a fast and local neural text-to-speech engine that embeds
+espeak-ng for phonemization. It runs entirely on-device with no network
+access. Voices are ONNX models.
+
+This package installs the prebuilt manylinux x86_64 wheel from upstream
+releases. The console script is renamed from 'piper' to 'piper-tts' to
+avoid clashing with the SBo 'piper' (libratbag mouse tool).
+
+Runtime dependencies (packaged separately):
+  python3-onnxruntime
+  python3-pathvalidate
+
+Homepage: https://github.com/OHF-voice/piper1-gpl

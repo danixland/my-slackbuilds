@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+         |-----handy-ruler------------------------------------------------------|
+piper-tts: piper-tts (fast local neural text-to-speech engine)
+piper-tts:
+piper-tts: A fast and local neural text-to-speech engine that embeds
+piper-tts: espeak-ng for phonemization. Runs entirely on-device with no
+piper-tts: network access. Voices are ONNX models.
+piper-tts:
+piper-tts: The console script is installed as 'piper-tts' to avoid clashing
+piper-tts: with the SBo 'piper' (libratbag mouse tool).
+piper-tts:
+piper-tts: Homepage: https://github.com/OHF-voice/piper1-gpl
+piper-tts:
