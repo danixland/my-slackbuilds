@@ -1,0 +1,13 @@
+ONNX Runtime is a performance-focused scoring engine for Open Neural
+Network Exchange (ONNX) models. It provides a runtime accelerator for
+machine learning models.
+
+This package installs the prebuilt manylinux x86_64 wheel from PyPI,
+built for Python 3.12. The wheel tag must match the system Python
+version; if -current bumps Python, re-pin DOWNLOAD_x86_64 to the
+matching cp3XX wheel.
+
+Runtime deps are provided by Slackware -current: numpy, protobuf, and
+packaging. flatbuffers is required from SBo.
+
+Homepage: https://onnxruntime.ai

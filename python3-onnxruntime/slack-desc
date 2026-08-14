@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                   |-----handy-ruler------------------------------------------------------|
+python3-onnxruntime: python3-onnxruntime (ONNX Runtime ML accelerator)
+python3-onnxruntime:
+python3-onnxruntime: ONNX Runtime is a performance-focused scoring engine for
+python3-onnxruntime: Open Neural Network Exchange (ONNX) models. It provides a
+python3-onnxruntime: runtime accelerator for machine learning models.
+python3-onnxruntime:
+python3-onnxruntime: This package installs the prebuilt manylinux wheel from
+python3-onnxruntime: PyPI, built for Python 3.12 on x86_64.
+python3-onnxruntime:
+python3-onnxruntime: Homepage: https://onnxruntime.ai
+python3-onnxruntime:
