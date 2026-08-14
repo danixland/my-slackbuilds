@@ -1,0 +1,9 @@
+pathvalidate is a Python library to sanitize and validate strings such
+as filenames and file paths. It removes invalid characters, replaces
+reserved names, and normalizes input for a target platform. It also
+provides argument validators and sanitizers for argparse and click.
+
+This package installs the prebuilt py3-none-any wheel from PyPI. It has
+no external dependencies.
+
+Homepage: https://github.com/thombashi/pathvalidate

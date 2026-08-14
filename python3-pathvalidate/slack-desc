@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                    |-----handy-ruler------------------------------------------------------|
+python3-pathvalidate: python3-pathvalidate (sanitize and validate filenames)
+python3-pathvalidate:
+python3-pathvalidate: pathvalidate is a Python library to sanitize and validate
+python3-pathvalidate: strings such as filenames and file paths. It removes invalid
+python3-pathvalidate: characters, replaces reserved names, and normalizes input
+python3-pathvalidate: for a target platform. It also provides argument validators
+python3-pathvalidate: and sanitizers for argparse and click.
+python3-pathvalidate:
+python3-pathvalidate: Homepage: https://github.com/thombashi/pathvalidate
+python3-pathvalidate:
+python3-pathvalidate:
