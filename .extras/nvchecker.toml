@@ -178,3 +178,7 @@ source = "github"
 github = "OHF-Voice/piper1-gpl"
 use_latest_release = true
 prefix = "v"
+
+[edge-tts]
+source = "pypi"
+pypi = "edge-tts"

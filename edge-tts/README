@@ -1,0 +1,12 @@
+edge-tts uses Microsoft Edge's online text-to-speech service from Python
+or the provided edge-tts and edge-playback commands, without needing
+Microsoft Edge, Windows, or an API key.
+
+The edge-playback command requires the mpv player (Slackware ships it).
+
+Runtime dependencies (packaged separately):
+  python3-aiohttp
+  python3-tabulate
+  python3-typing-extensions
+
+Homepage: https://github.com/rany2/edge-tts

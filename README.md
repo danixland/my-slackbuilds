@@ -66,6 +66,7 @@ Each package lives in its own top-level subfolder:
 | python3-pathvalidate | ✅ | not tested | ❌ | 3.3.1 | 3.3.1 |
 | python3-onnxruntime | ✅ | not tested | ❌ | 1.28.0 | 1.28.0 |
 | piper-tts | ✅ | not tested | ❌ | 1.6.1 | 1.6.1 |
+| edge-tts | ✅ | not tested | ❌ | 7.2.8 | 7.2.8 |
 
 > **Note on `kvantum-qt5`:** the official SBo build lags several releases behind
 > upstream (1.1.2 vs 1.1.8), so this repo ships an updated build. It provides the

@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+        |-----handy-ruler------------------------------------------------------|
+edge-tts: edge-tts (Microsoft Edge online text-to-speech for Python)
+edge-tts:
+edge-tts: edge-tts is a Python module that uses Microsoft Edge's online
+edge-tts: text-to-speech service without needing Microsoft Edge, Windows,
+edge-tts: or an API key. It provides the edge-tts and edge-playback
+edge-tts: commands.
+edge-tts:
+edge-tts: Homepage: https://github.com/rany2/edge-tts
+edge-tts:
+edge-tts:
+edge-tts:
