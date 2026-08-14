@@ -156,14 +156,6 @@ host = "codeberg.org"
 use_max_tag = true
 prefix = "v"
 
-# Upstream is on freedesktop.org, not a forge, so scrape the release
-# directory listing. Versions are CalVer-ish (26.134.222), so sorting is
-# left to nvchecker's default.
-[plymouth]
-source = "regex"
-url = "https://www.freedesktop.org/software/plymouth/releases/"
-regex = 'plymouth-([0-9][0-9.]*)\.tar\.xz'
-
 # Typora is proprietary with no git repo, so there is no github/pypi feed.
 # The Linux changelog page is the only per-platform source of truth: its
 # newest <h2> is the current Linux version. Do NOT use dev_update.xml, which
@@ -172,3 +164,17 @@ regex = 'plymouth-([0-9][0-9.]*)\.tar\.xz'
 source = "regex"
 url = "https://typora.io/releases/linux"
 regex = "<h2>([0-9]+\\.[0-9]+\\.[0-9]+)</h2>"
+
+[python3-pathvalidate]
+source = "pypi"
+pypi = "pathvalidate"
+
+[python3-onnxruntime]
+source = "pypi"
+pypi = "onnxruntime"
+
+[piper-tts]
+source = "github"
+github = "OHF-Voice/piper1-gpl"
+use_latest_release = true
+prefix = "v"
