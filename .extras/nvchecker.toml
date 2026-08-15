@@ -182,3 +182,9 @@ prefix = "v"
 [edge-tts]
 source = "pypi"
 pypi = "edge-tts"
+
+[qtmaildir]
+source = "github"
+github = "danixland/qtmaildir"
+use_latest_release = true
+prefix = "v"
