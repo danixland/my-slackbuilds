@@ -362,3 +362,13 @@ trusting them, since upstream tooling fixes can retire a false positive.
   could hide a stale cache entry (e.g. after a version bump); do NOT use it
   for every `sbodl` call. If `-f` is not available, delete the entry under
   `~/sbodl-cache/` and re-run plain `sbodl`.
+
+### opencode-bin: do not strip the bun binary
+
+- Found: 2026-08-25
+- Symptom: `sbopkglint` 20-arch fails with "ELF object(s) not stripped" on
+  `usr/bin/opencode`.
+- Cause: the binary is bun-generated; stripping breaks it at runtime. The
+  SlackBuild intentionally skips stripping (see the comment in the script).
+- Action: leave it unstripped. The `sbopkglint` failure is expected; do not
+  add a strip pass to the SlackBuild.

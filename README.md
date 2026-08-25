@@ -34,12 +34,12 @@ Each package lives in its own top-level subfolder:
 | Package | -current | 15.0 | SBo | Version | Latest |
 |---------|----------|------|-----|---------|--------|
 | hstr | ✅ | not tested | ✅ [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.2 | 3.2 |
-| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.154 | 1.0.154 |
+| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.155 | 1.0.155 |
 | kitty-bin | ✅ | not tested | ❌ | 0.48.2 | 0.48.2 |
-| llama.cpp-vulkan | ✅ | not tested | ❌ | b10516 | b10516 |
+| llama.cpp-vulkan | ✅ | not tested | ❌ | 0.2.0 | 0.2.0 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
-| opencode-bin | ✅ | not tested | ❌ | 1.18.19 | 1.18.19 |
-| claude-code-bin | ✅ | not tested | ❌ | 2.1.237 | 2.1.237 |
+| opencode-bin | ✅ | not tested | ❌ | 1.18.23 | 1.18.23 |
+| claude-code-bin | ✅ | not tested | ❌ | 2.1.245 | 2.1.245 |
 | kvantum-qt6 | ✅ | not tested | ❌ | 1.1.8 | 1.1.8 |
 | kvantum-qt5 | ✅ | not tested | ✅ [kvantum-qt5](https://slackbuilds.org/repository/15.0/system/kvantum-qt5/) | 1.1.8 | 1.1.8 |
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
@@ -48,7 +48,7 @@ Each package lives in its own top-level subfolder:
 | gamescope | ✅ | not tested | ✅ [gamescope](https://slackbuilds.org/repository/15.0/system/gamescope/) | 3.16.25 | 3.16.25 |
 | nvchecker | ✅ | not tested | ❌ | 2.22 | 2.22 |
 | python3-structlog | ✅ | not tested | ❌ | 26.1.0 | 26.1.0 |
-| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.11.3 | 4.11.3 |
+| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.11.4 | 4.11.4 |
 | python3-awesomeversion | ✅ | not tested | ❌ | 25.8.0 | 25.8.0 |
 | python3-fsspec | ✅ | not tested | ❌ | 2026.7.0 | 2026.7.0 |
 | python3-packaging | ✅ | not tested | ❌ | 26.3 | 26.3 |
@@ -60,13 +60,13 @@ Each package lives in its own top-level subfolder:
 | firefly-cli | ✅ | not tested | ❌ | 0.5.0 | 0.5.0 |
 | gitea-cli | ✅ | ✅ | ❌ | 0.15.1 | 0.15.1 |
 | megasync-bin | ✅ | ✅ | ❌ | 6.5.1.0 | 6.5.1.0 |
-| claude-desktop-bin | ✅ | ✅ | ❌ | 1.32885.1 | 1.32885.1 |
+| claude-desktop-bin | ✅ | ✅ | ❌ | 1.34493.1 | 1.34493.1 |
 | hyprsunset-qt | ✅ | not tested | ❌ | 0.1.1 | 0.1.1 |
 | python3-pathvalidate | ✅ | not tested | ❌ | 3.3.1 | 3.3.1 |
 | python3-onnxruntime | ✅ | not tested | ❌ | 1.29.0 | 1.29.0 |
 | piper-tts | ✅ | not tested | ❌ | 1.7.0 | 1.7.0 |
 | edge-tts | ✅ | not tested | ❌ | 7.2.8 | 7.2.8 |
-| qtmaildir | ✅ | not tested | ❌ | 0.26.1 | 0.26.1 |
+| qtmaildir | ✅ | not tested | ❌ | 0.27.0 | 0.27.0 |
 | typora-bin | ✅ | not tested | ❌ | 1.14.9 | 1.14.9 |
 
 > **Note on `kvantum-qt5`:** the official SBo build lags several releases behind
