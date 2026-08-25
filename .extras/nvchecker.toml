@@ -20,6 +20,7 @@ prefix = "v"
 source = "github"
 github = "ggml-org/llama.cpp"
 use_latest_release = true
+prefix = "v"
 
 [opencode-bin]
 source = "github"
