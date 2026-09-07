@@ -326,25 +326,30 @@ trusting them, since upstream tooling fixes can retire a false positive.
 - Action: keep the symlinks, they are needed at runtime. The failure is a
   false positive.
 
-### llama.cpp-vulkan: sbolint false flag on tag archive URLs
+### llama.cpp-vulkan: sbolint false flag on tag archive URLs (RETIRED)
 
 - Found: 2026-08-15
-- Symptom: `sbolint` errors "github commit URL needs full 40-digit commit
+- Retired: 2026-09-07
+- Symptom: `sbolint` errored "github commit URL needs full 40-digit commit
   hash in filename" for the `archive/b<N>/llama.cpp-b<N>.tar.gz` DOWNLOAD.
-- Cause: `sbolint` misidentifies the short build tag (e.g. `b10437`) as a
+- Cause: `sbolint` misidentified the short build tag (e.g. `b10437`) as a
   commit hash.
-- Action: known false flag and the documented exception to Core Rule 4. Run
-  the normal checks, then commit with `SBOLINT=no`. Do not switch to full
-  commit hashes.
+- Action: no longer applies. Upstream switched to versioned releases, so the
+  DOWNLOAD is now `archive/refs/tags/v<X.Y.Z>/...` and `sbolint` passes
+  clean. The `SBOLINT=no` exception to Core Rule 4 is withdrawn: commit
+  normally. Kept here so the old exception is not reintroduced from memory.
 
-### nvchecker: test-build needs --local-deps
+### test-build needs --local-deps for in-repo sibling deps
 
-- Found: 2026-08-15
-- Symptom: `test-build --dry-run nvchecker` reports `UNMET-DEP` for
-  `python3-awesomeversion` and `python3-structlog`.
-- Cause: those deps are siblings in this repo, not in the SBo tree.
-- Action: run `test-build --local-deps --dry-run nvchecker` first, then
-  `test-build --local-deps --yes nvchecker`.
+- Found: 2026-08-15 (nvchecker), also seen 2026-09-07 (piper-tts)
+- Symptom: `test-build` reports `UNMET-DEP` and refuses to build, e.g.
+  `python3-awesomeversion`/`python3-structlog` for nvchecker, or
+  `python3-onnxruntime`/`python3-pathvalidate` for piper-tts.
+- Cause: those deps are siblings in this repo, not in the SBo tree, so the
+  default tree search cannot resolve them.
+- Action: pass `--local-deps` for any package whose REQUIRES names another
+  package in this repo. This is not an override case; do NOT add a `drop:`
+  rule. Check REQUIRES against the repo's own dirs before building.
 
 ### opencode-bin: sbodl verifies a stale cached file
 
