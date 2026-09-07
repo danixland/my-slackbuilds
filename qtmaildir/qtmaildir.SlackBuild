@@ -78,6 +78,11 @@ find -L . \
 
 # QTMAILDIR_BUILD_TESTS=OFF skips the test suite, which needs Qt6::Test and
 # builds nothing that ships.
+#
+# QTMAILDIR_BUILD_NUMBER=OFF keeps the version a clean X.Y.Z. That option is
+# ON upstream so a developer can tell one build of an unreleased version from
+# another, and it would make this package report "0.27.0 build 1", numbering a
+# release after a counter that starts at 1 in every fresh build directory.
 mkdir -p build
 cd build
   cmake \
@@ -86,6 +91,7 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DQTMAILDIR_BUILD_TESTS=OFF \
+    -DQTMAILDIR_BUILD_NUMBER=OFF \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install/strip DESTDIR=$PKG
