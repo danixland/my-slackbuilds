@@ -79,6 +79,13 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+# src/dbus/CMakeLists.txt leaks DBUS_INTERFACES into the dbusmenu subdirectory,
+# which appends to it, so dbusmenu tries to build src/dbus's generated sources
+# from its own binary dir and make fails with "No rule to make target
+# 'src/dbus/dbus_objectmanager.cpp'". Clear it before add_subdirectory().
+sed -i 's/^add_subdirectory(dbusmenu)$/unset(DBUS_INTERFACES)\nadd_subdirectory(dbusmenu)/' \
+  src/dbus/CMakeLists.txt
+
 mkdir -p build
 cd build
   cmake \
