@@ -68,6 +68,11 @@ Each package lives in its own top-level subfolder:
 | edge-tts | ✅ | not tested | ❌ | 7.2.8 | 7.2.8 |
 | qtmaildir | ✅ | not tested | ❌ | 0.28.0 | 0.28.0 |
 | typora-bin | ✅ | not tested | ❌ | 1.14.9 | 1.14.9 |
+| quickshell | ✅ | ❌ | ❌ | 0.3.1 | 0.3.1 |
+
+> **Note on `quickshell`:** Slackware 15.0 ships Qt5 only, so this package is
+> **Slackware64-current only**. It also relies on private Qt APIs and must be
+> rebuilt after every Qt update, or it will crash from ABI mismatches.
 
 > **Note on `kvantum-qt5`:** the official SBo build lags several releases behind
 > upstream (1.1.2 vs 1.1.8), so this repo ships an updated build. It provides the

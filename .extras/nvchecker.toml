@@ -179,3 +179,10 @@ source = "github"
 github = "danixland/qtmaildir"
 use_latest_release = true
 prefix = "v"
+
+[quickshell]
+source = "gitea"
+host = "git.outfoxxed.me"
+gitea = "quickshell/quickshell"
+use_max_tag = true
+prefix = "v"

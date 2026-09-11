@@ -1,0 +1,13 @@
+Quickshell is a toolkit for building status bars, widgets, lockscreens
+and other desktop components using QtQuick. It can be used alongside a
+Wayland compositor or window manager to build a complete desktop
+environment.
+
+Quickshell relies on private Qt APIs and must be rebuilt after every Qt
+update, or it will crash from ABI mismatches.
+
+Optional dependency: qt6-svg (detected automatically) enables SVG images
+and SVG icons, including system icon themes.
+
+The upstream crash reporter is disabled in this build, as it depends on
+cpptrace which is not packaged for Slackware.

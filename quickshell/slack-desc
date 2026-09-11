@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+          |-----handy-ruler------------------------------------------------------|
+quickshell: quickshell (QtQuick desktop shell toolkit)
+quickshell:
+quickshell: Quickshell is a toolkit for building status bars, widgets,
+quickshell: lockscreens and other desktop components using QtQuick. It can
+quickshell: be used alongside a Wayland compositor or window manager to
+quickshell: build a complete desktop environment.
+quickshell:
+quickshell: Quickshell uses private Qt APIs and must be rebuilt after every
+quickshell: Qt update.
+quickshell:
+quickshell: Homepage: https://quickshell.org/
