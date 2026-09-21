@@ -35,10 +35,8 @@ Each package lives in its own top-level subfolder:
 |---------|----------|------|-----|---------|--------|
 | hstr | ✅ | not tested | ✅ [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.2 | 3.2 |
 | discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.158 | 1.0.158 |
-| kitty-bin | ✅ | not tested | ❌ | 0.48.2 | 0.48.2 |
 | llama.cpp-vulkan | ✅ | not tested | ❌ | 0.4.1 | 0.4.1 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
-| opencode-bin | ✅ | not tested | ❌ | 1.18.31 | 1.18.31 |
 | claude-code-bin | ✅ | not tested | ❌ | 2.1.278 | 2.1.278 |
 | kvantum-qt6 | ✅ | not tested | ❌ | 1.1.8 | 1.1.8 |
 | kvantum-qt5 | ✅ | not tested | ✅ [kvantum-qt5](https://slackbuilds.org/repository/15.0/system/kvantum-qt5/) | 1.1.8 | 1.1.8 |

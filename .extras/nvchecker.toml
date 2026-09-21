@@ -10,21 +10,9 @@ github = "dvorka-oss/hstr"
 use_latest_release = true
 prefix = "v"
 
-[kitty-bin]
-source = "github"
-github = "kovidgoyal/kitty"
-use_latest_release = true
-prefix = "v"
-
 ["llama.cpp-vulkan"]
 source = "github"
 github = "ggml-org/llama.cpp"
-use_latest_release = true
-prefix = "v"
-
-[opencode-bin]
-source = "github"
-github = "anomalyco/opencode"
 use_latest_release = true
 prefix = "v"
 
