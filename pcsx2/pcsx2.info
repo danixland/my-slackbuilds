@@ -1,0 +1,28 @@
+PRGNAM="pcsx2"
+VERSION="2.8.2"
+HOMEPAGE="https://pcsx2.net"
+DOWNLOAD="UNSUPPORTED"
+MD5SUM=""
+DOWNLOAD_x86_64="https://github.com/PCSX2/pcsx2/archive/v2.8.2/pcsx2-2.8.2.tar.gz \
+                 https://github.com/PCSX2/pcsx2_patches/archive/7e1b6936ad2a70c9e28ae21c7c2f3b1510a1736f/pcsx2_patches-7e1b6936ad2a70c9e28ae21c7c2f3b1510a1736f.tar.gz \
+                 https://github.com/ianlancetaylor/libbacktrace/archive/ad106d5fdd5d960bd33fae1c48a351af567fd075/libbacktrace-ad106d5fdd5d960bd33fae1c48a351af567fd075.tar.gz \
+                 https://github.com/sammycage/plutovg/archive/v1.3.2/plutovg-1.3.2.tar.gz \
+                 https://github.com/sammycage/plutosvg/archive/v0.0.7/plutosvg-0.0.7.tar.gz \
+                 https://github.com/biojppm/rapidyaml/releases/download/v0.12.1/rapidyaml-0.12.1-src.tgz \
+                 https://github.com/google/shaderc/archive/v2026.2/shaderc-2026.2.tar.gz \
+                 https://github.com/KhronosGroup/glslang/archive/275822a6261ee689aadb1da5f09a0ec2f058685c/glslang-275822a6261ee689aadb1da5f09a0ec2f058685c.tar.gz \
+                 https://github.com/KhronosGroup/SPIRV-Headers/archive/58006c901d1d5c37dece6b6610e9af87fa951375/SPIRV-Headers-58006c901d1d5c37dece6b6610e9af87fa951375.tar.gz \
+                 https://github.com/KhronosGroup/SPIRV-Tools/archive/6337eb62cadd7d124ac6789bf39c0f71148f0a73/SPIRV-Tools-6337eb62cadd7d124ac6789bf39c0f71148f0a73.tar.gz"
+MD5SUM_x86_64="0fc17f7ac25017fd0c09d23c5bb990bd \
+               4341073d699f8bdd354d76642a76ca4b \
+               6a32924c5e2e90a99f0bc853dc188c67 \
+               8f13cdd4135974cf659b6744913526d3 \
+               264c0254e03e8722641ce3e9c451af5b \
+               bf028c7a394def3a45fccde3073b3b0d \
+               3a6c42c237a3a6f40f076c7ee366ec29 \
+               216183751d35b7ec18c514516f1ce8e6 \
+               88d2899666e260d710500beb101dc9fd \
+               3824b67172252d7a446f1ddf71714dcd"
+REQUIRES="kddockwidgets"
+MAINTAINER="danix"
+EMAIL="danix@danix.xyz"

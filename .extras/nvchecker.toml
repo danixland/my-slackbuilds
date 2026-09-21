@@ -174,3 +174,8 @@ host = "git.outfoxxed.me"
 gitea = "quickshell/quickshell"
 use_max_tag = true
 prefix = "v"
+
+[pcsx2]
+source = "github"
+github = "PCSX2/pcsx2"
+use_latest_release = true

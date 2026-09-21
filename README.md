@@ -67,6 +67,7 @@ Each package lives in its own top-level subfolder:
 | qtmaildir | ✅ | not tested | ❌ | 0.29.0 | 0.29.0 |
 | typora-bin | ✅ | not tested | ❌ | 1.14.9 | 1.14.9 |
 | quickshell | ✅ | ❌ | ❌ | 0.3.1 | 0.3.1 |
+| pcsx2 | ✅ | not tested | ❌ | 2.8.2 | 2.8.2 |
 
 > **Note on `quickshell`:** Slackware 15.0 ships Qt5 only, so this package is
 > **Slackware64-current only**. It also relies on private Qt APIs and must be
