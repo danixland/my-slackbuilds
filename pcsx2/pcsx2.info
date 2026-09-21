@@ -23,6 +23,6 @@ MD5SUM_x86_64="0fc17f7ac25017fd0c09d23c5bb990bd \
                216183751d35b7ec18c514516f1ce8e6 \
                88d2899666e260d710500beb101dc9fd \
                3824b67172252d7a446f1ddf71714dcd"
-REQUIRES="kddockwidgets"
+REQUIRES=""
 MAINTAINER="danix"
 EMAIL="danix@danix.xyz"
