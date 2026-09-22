@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+         |-----handy-ruler------------------------------------------------------|
+slang-bin: slang-bin (shading language compiler)
+slang-bin:
+slang-bin: Slang is a shading language and compiler from the Khronos Group.
+slang-bin: It extends HLSL with modules, generics and interfaces, and compiles
+slang-bin: to SPIR-V, GLSL, HLSL, Metal, CUDA and C++.
+slang-bin:
+slang-bin: This package provides the slangc command line compiler, the slangd
+slang-bin: language server, and the slang runtime libraries.  It is a binary
+slang-bin: repack of upstream's official Linux tarball and is x86_64 only.
+slang-bin:
+slang-bin: Homepage: https://shader-slang.org

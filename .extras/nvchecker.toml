@@ -185,3 +185,9 @@ prefix = "v"
 source = "github"
 github = "PCSX2/pcsx2"
 use_latest_release = true
+
+[slang-bin]
+source = "github"
+github = "shader-slang/slang"
+use_latest_release = true
+prefix = "v"

@@ -1,0 +1,21 @@
+Slang is a shading language and compiler maintained by the Khronos
+Group. It extends HLSL with modules, generics, interfaces and automatic
+differentiation, and targets SPIR-V, GLSL, HLSL, Metal, WGSL, CUDA and
+C++.
+
+This is a binary repack of upstream's official Linux x86_64 release
+tarball, not a source build. Building slang from source pulls in LLVM
+along with several bundled dependencies, so the prebuilt tarball is
+packaged instead.
+
+The tree is installed under /opt/slang-bin-$VERSION and the command line
+tools (slangc, slangd, slangi, slang) are symlinked into /usr/bin. The
+binaries locate their libraries through a RUNPATH of $ORIGIN/../lib, so
+the bin/ and lib/ directories must stay siblings; do not move them
+apart.
+
+This package is x86_64 only. Upstream also ships an aarch64 tarball,
+which this script does not handle.
+
+kitty 0.49.0 and later require slangc at build time to compile their
+shaders, which is the main reason this package exists.
