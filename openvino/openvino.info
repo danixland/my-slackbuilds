@@ -1,26 +1,26 @@
 PRGNAM="openvino"
-VERSION="2026.2.1"
+VERSION="2026.4.0"
 HOMEPAGE="https://github.com/openvinotoolkit/openvino/"
 DOWNLOAD="UNSUPPORTED"
 MD5SUM=""
-DOWNLOAD_x86_64="https://github.com/openvinotoolkit/openvino/archive/2026.2.1/openvino-2026.2.1.tar.gz \
+DOWNLOAD_x86_64="https://github.com/openvinotoolkit/openvino/archive/2026.4.0/openvino-2026.4.0.tar.gz \
           https://github.com/openvinotoolkit/mlas/archive/d1bc25ec4660cddd87804fcf03b2411b5dfb2e94/mlas-d1bc25ec4660cddd87804fcf03b2411b5dfb2e94.tar.gz \
-          https://github.com/openvinotoolkit/oneDNN/archive/87f65fdd1927b1d0cbdf0ea37728146abfbffb52/oneDNN-87f65fdd1927b1d0cbdf0ea37728146abfbffb52.tar.gz \
-          https://github.com/oneapi-src/oneDNN/archive/20db47e2d3c4df1b66e93bed2e97d30da175512d/oneDNN-20db47e2d3c4df1b66e93bed2e97d30da175512d.tar.gz \
+          https://github.com/openvinotoolkit/oneDNN/archive/1289c3b65dd6a119a5ed12a816517d9c3a21d81b/oneDNN-1289c3b65dd6a119a5ed12a816517d9c3a21d81b.tar.gz \
+          https://github.com/oneapi-src/oneDNN/archive/a3d459721b72c3a9d2685b46c03dafee7af0f25c/oneDNN-a3d459721b72c3a9d2685b46c03dafee7af0f25c.tar.gz \
           https://github.com/google/flatbuffers/archive/595bf0007ab1929570c7671f091313c8fc20644e/flatbuffers-595bf0007ab1929570c7671f091313c8fc20644e.tar.gz \
-          https://github.com/onnx/onnx/archive/e709452ef2bbc1d113faf678c24e6d3467696e83/onnx-e709452ef2bbc1d113faf678c24e6d3467696e83.tar.gz \
+          https://github.com/onnx/onnx/archive/2bb50465112feca9003e1ed654d77f01ff1415ca/onnx-2bb50465112feca9003e1ed654d77f01ff1415ca.tar.gz \
           https://github.com/intel/ittapi/archive/ca45fef1a12cef3316e6ff362a4d36571270e392/ittapi-ca45fef1a12cef3316e6ff362a4d36571270e392.tar.gz \
-          https://github.com/protocolbuffers/protobuf/archive/f0dc78d7e6e331b8c6bb2d5283e06aa26883ca7c/protobuf-f0dc78d7e6e331b8c6bb2d5283e06aa26883ca7c.tar.gz \
-          https://github.com/herumi/xbyak/archive/0d67fd1530016b7c56f3cd74b3fca920f4c3e2b4/xbyak-0d67fd1530016b7c56f3cd74b3fca920f4c3e2b4.tar.gz"
-MD5SUM_x86_64="d912a0b8f832cc526fc90e7c0fe4abbd \
+          https://github.com/protocolbuffers/protobuf/archive/d6511091a0cab1ad13f676a02676ad2a0e5eb9ae/protobuf-d6511091a0cab1ad13f676a02676ad2a0e5eb9ae.tar.gz \
+          https://github.com/herumi/xbyak/archive/431abd865e70a46d56f5aa0e1f87572decb60169/xbyak-431abd865e70a46d56f5aa0e1f87572decb60169.tar.gz"
+MD5SUM_x86_64="960ed31f149ffd06133890e46b41d6bc \
         0e87473410db355fd9251a2e1337dc32 \
-        09c8e12d3638ee7fb084035e3c99b914 \
-        e8aa621185319f2a4ad195e9380a3f2a \
+        e0952ce53444fdb08d25d2e208117466 \
+        3e70bab35aac394d34431f03847578ad \
         16699a34eed210ecfe6c4d164926350c \
-        d4b12189e7665ae1211181b6a4905700 \
+        db6e4fd04dde8fa2c24ebb1eda1a7e41 \
         66726ae396392a1fa43156a0c764ec5e \
-        dbd2ff372e1033676a0c3798a8df4a07 \
-        9d5a8e3ba68b0d1b693e503a31761779"
+        3621730f9f5f183e4a59509e18ea5022 \
+        781dbe38cb13c35947391500464a597f"
 REQUIRES="pugixml tbb snappy OpenCL-CLHPP"
 MAINTAINER="danix"
 EMAIL="danix@danix.xyz"

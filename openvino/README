@@ -4,6 +4,10 @@ inference.
 Supported hardware:
 https://docs.openvino.ai/2024/about-openvino/system-requirements.html
 
-The dependency "tbb" needs to be compiled with its optional
-dependency hwloc, otherwise libtbbbind-2.5 is missing and openvino
-will fail to build.
+This build needs OpenCL-CLHPP 2026.05.29 or newer. The 2024.05.08
+opencl.hpp refers to D3D11 and D3D12 external memory handle constants
+that the current opencl-headers no longer define, which breaks the
+intel_gpu OpenCL runtime.
+
+TBBBIND_2_5 is disabled, so tbb does not need its optional hwloc
+dependency and libtbbbind-2.5 is not required.
