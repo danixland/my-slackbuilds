@@ -181,6 +181,11 @@ gitea = "quickshell/quickshell"
 use_max_tag = true
 prefix = "v"
 
+[openvino]
+source = "github"
+github = "openvinotoolkit/openvino"
+use_latest_release = true
+
 [pcsx2]
 source = "github"
 github = "PCSX2/pcsx2"
