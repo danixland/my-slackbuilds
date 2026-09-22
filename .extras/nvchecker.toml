@@ -16,6 +16,12 @@ github = "ggml-org/llama.cpp"
 use_latest_release = true
 prefix = "v"
 
+[kitty]
+source = "github"
+github = "kovidgoyal/kitty"
+use_latest_release = true
+prefix = "v"
+
 [kvantum-qt6]
 source = "github"
 github = "tsujan/Kvantum"
