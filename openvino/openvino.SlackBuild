@@ -36,6 +36,9 @@ COMMIT_FLATBUFFERS=595bf0007ab1929570c7671f091313c8fc20644e
 COMMIT_ONNX=2bb50465112feca9003e1ed654d77f01ff1415ca
 COMMIT_ITTAPI=ca45fef1a12cef3316e6ff362a4d36571270e392
 COMMIT_PROTOBUF=d6511091a0cab1ad13f676a02676ad2a0e5eb9ae
+# protobuf 5.26.0 needs utf8_range, which needs abseil as its own nested
+# submodule; pinned to the commit that protobuf commit references.
+COMMIT_ABSEIL=4a2c63365eff8823a5221db86ef490e828306f9d
 COMMIT_XBYAK=431abd865e70a46d56f5aa0e1f87572decb60169
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -118,6 +121,7 @@ bundle_dep thirdparty/flatbuffers flatbuffers "flatbuffers-$COMMIT_FLATBUFFERS.t
 bundle_dep thirdparty/onnx onnx "onnx-$COMMIT_ONNX.tar.gz"
 bundle_dep thirdparty/ittapi ittapi "ittapi-$COMMIT_ITTAPI.tar.gz"
 bundle_dep thirdparty/protobuf protobuf "protobuf-$COMMIT_PROTOBUF.tar.gz"
+bundle_dep thirdparty/protobuf/protobuf/third_party abseil-cpp "abseil-cpp-$COMMIT_ABSEIL.tar.gz"
 # Bundle xbyak rather than use the system package: its cmake config exports a
 # bare -isystem /usr/include, which breaks GCC 15's #include_next <stdlib.h>.
 # Its submodule sits directly at thirdparty/xbyak (no nested wrapper dir).

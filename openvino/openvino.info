@@ -11,6 +11,7 @@ DOWNLOAD_x86_64="https://github.com/openvinotoolkit/openvino/archive/2026.4.0/op
           https://github.com/onnx/onnx/archive/2bb50465112feca9003e1ed654d77f01ff1415ca/onnx-2bb50465112feca9003e1ed654d77f01ff1415ca.tar.gz \
           https://github.com/intel/ittapi/archive/ca45fef1a12cef3316e6ff362a4d36571270e392/ittapi-ca45fef1a12cef3316e6ff362a4d36571270e392.tar.gz \
           https://github.com/protocolbuffers/protobuf/archive/d6511091a0cab1ad13f676a02676ad2a0e5eb9ae/protobuf-d6511091a0cab1ad13f676a02676ad2a0e5eb9ae.tar.gz \
+          https://github.com/abseil/abseil-cpp/archive/4a2c63365eff8823a5221db86ef490e828306f9d/abseil-cpp-4a2c63365eff8823a5221db86ef490e828306f9d.tar.gz \
           https://github.com/herumi/xbyak/archive/431abd865e70a46d56f5aa0e1f87572decb60169/xbyak-431abd865e70a46d56f5aa0e1f87572decb60169.tar.gz"
 MD5SUM_x86_64="960ed31f149ffd06133890e46b41d6bc \
         0e87473410db355fd9251a2e1337dc32 \
@@ -20,6 +21,7 @@ MD5SUM_x86_64="960ed31f149ffd06133890e46b41d6bc \
         db6e4fd04dde8fa2c24ebb1eda1a7e41 \
         66726ae396392a1fa43156a0c764ec5e \
         3621730f9f5f183e4a59509e18ea5022 \
+        5eabd519696e04d8c56566322cc63d65 \
         781dbe38cb13c35947391500464a597f"
 REQUIRES="pugixml tbb snappy OpenCL-CLHPP"
 MAINTAINER="danix"
