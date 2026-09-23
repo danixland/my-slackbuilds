@@ -1,0 +1,23 @@
+stable-diffusion.cpp
+
+Diffusion model inference in pure C/C++, built on ggml. Supports
+Stable Diffusion 1.x/2.x/XL/3.x, FLUX, Wan, Qwen Image, Z-Image and
+other image and video models, with LoRA, ControlNet, PhotoMaker and
+ESRGAN upscaling.
+
+This package is built with the Vulkan backend and ships:
+
+  sd-cli     command line image/video generation
+  sd-server  HTTP server (OpenAI and sdapi compatible) with web UI
+
+WebP image I/O uses the system libwebp. WebM video output is not
+enabled.
+
+The ggml copy bundled here is upstream's patched fork, linked
+statically, so it does not conflict with llama.cpp-vulkan.
+
+The server web UI is built offline from pinned npm tarballs listed in
+the .info file; no network access is needed during the build.
+
+x86_64 only. Built with GGML_NATIVE, so the binaries are tuned to the
+build host CPU.

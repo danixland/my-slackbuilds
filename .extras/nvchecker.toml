@@ -196,3 +196,10 @@ source = "github"
 github = "shader-slang/slang"
 use_latest_release = true
 prefix = "v"
+
+["stable-diffusion.cpp-vulkan"]
+source = "github"
+github = "leejet/stable-diffusion.cpp"
+use_latest_release = true
+from_pattern = '^master-(\d+)-.*$'
+to_pattern = '\1'

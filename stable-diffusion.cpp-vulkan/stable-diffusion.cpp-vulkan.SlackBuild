@@ -1,0 +1,149 @@
+#!/bin/bash
+
+# Slackware build script for stable-diffusion.cpp-vulkan
+
+# Copyright 2026 danix <danix@danix.xyz>
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+cd $(dirname $0) ; CWD=$(pwd)
+
+PRGNAM=stable-diffusion.cpp-vulkan
+SRCNAM=stable-diffusion.cpp
+VERSION=${VERSION:-899}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+PKGTYPE=${PKGTYPE:-tgz}
+
+# Upstream tags are master-<build>-<shortcommit>; the submodules are pinned
+# by the commits recorded in the tagged tree. Bump all three together.
+COMMIT=${COMMIT:-28b454b}
+GGMLCOMMIT=${GGMLCOMMIT:-4bf5f6000653b7881d00963cd6ddb665ccd62a8d}
+WEBUICOMMIT=${WEBUICOMMIT:-c4bce3d6b3f236614cca21014f076083b7270ba8}
+SRCVER=master-$VERSION-$COMMIT
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i586 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$( uname -m ) ;;
+  esac
+fi
+
+# The web UI build needs the esbuild-linux-64 binary from npm.
+if [ "$ARCH" != "x86_64" ]; then
+  echo "$ARCH is not supported."
+  exit 1
+fi
+
+if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
+  echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
+  exit 0
+fi
+
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+SLKCFLAGS="-O2 -fPIC"
+LIBDIRSUFFIX="64"
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+rm -rf $SRCNAM-$SRCVER
+tar xvf $CWD/$SRCNAM-$SRCVER.tar.gz
+cd $SRCNAM-$SRCVER
+rmdir ggml examples/server/frontend
+tar xf $CWD/ggml-$GGMLCOMMIT.tar.gz
+mv ggml-$GGMLCOMMIT ggml
+tar xf $CWD/sdcpp-webui-$WEBUICOMMIT.tar.gz -C examples/server
+mv examples/server/sdcpp-webui-$WEBUICOMMIT examples/server/frontend
+chown -R root:root .
+find -L . \
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+
+# Build the server web UI offline. Every npm tarball listed in the .info
+# (the linux-x64 closure of the pnpm lockfile minus typescript/vue-tsc,
+# which only type-check) is unpacked into a flat node_modules; the lockfile
+# has no duplicate package names, so no nesting is needed.
+( cd examples/server/frontend
+  for t in $(sed -n '/^DOWNLOAD_x86_64=/,/"$/p' $CWD/$PRGNAM.info \
+             | grep -o 'https://registry.npmjs.org/[^ "]*'); do
+    name=${t#https://registry.npmjs.org/} ; name=${name%%/-/*}
+    mkdir -p node_modules/$name
+    tar xf $CWD/$(basename $t) -C node_modules/$name --strip-components=1
+  done
+  node node_modules/vite/bin/vite.js build
+  node scripts/build_gen_index_html.js
+)
+
+# GIT_EXE is hidden so the version passed here is not overwritten by an
+# empty 'git describe'; PNPM_EXECUTABLE is hidden so cmake uses the
+# prebuilt header above instead of running pnpm (network) itself.
+mkdir -p build
+cd build
+  cmake .. \
+    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=lib${LIBDIRSUFFIX} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DGIT_EXE=GIT_EXE-NOTFOUND \
+    -DPNPM_EXECUTABLE=PNPM_EXECUTABLE-NOTFOUND \
+    -DSDCPP_BUILD_VERSION=master-$VERSION \
+    -DSDCPP_BUILD_COMMIT=$COMMIT \
+    -DSD_VULKAN=ON \
+    -DSD_WEBP=ON \
+    -DSD_USE_SYSTEM_WEBP=ON \
+    -DSD_WEBM=OFF \
+    -DGGML_NATIVE=ON \
+    -DGGML_BUILD_EXAMPLES=OFF \
+    -DGGML_BUILD_TESTS=OFF \
+    -Wno-dev
+  cmake --build .
+  DESTDIR=$PKG cmake --install .
+cd ..
+
+# ponytail: ship only sd-cli and sd-server. The static libstable-diffusion
+# and the bundled patched ggml it links against would clash with the ggml
+# headers/libs from llama.cpp-vulkan; build SD_BUILD_SHARED_LIBS if a
+# consumer of the library ever shows up.
+rm -rf $PKG/usr/include $PKG/usr/lib${LIBDIRSUFFIX}
+
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a \
+  LICENSE README.md docs \
+  $PKG/usr/doc/$PRGNAM-$VERSION
+cat examples/server/README.md > $PKG/usr/doc/$PRGNAM-$VERSION/README.server.md
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

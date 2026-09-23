@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                           |-----handy-ruler------------------------------------------------------|
+stable-diffusion.cpp-vulkan: stable-diffusion.cpp-vulkan (diffusion inference in C/C++)
+stable-diffusion.cpp-vulkan:
+stable-diffusion.cpp-vulkan: Image and video diffusion model inference in pure C/C++, based on
+stable-diffusion.cpp-vulkan: ggml. Supports SD 1.x/2.x/XL/3.x, FLUX, Wan and more, built with
+stable-diffusion.cpp-vulkan: the Vulkan GPU backend. Ships sd-cli and sd-server (with web UI).
+stable-diffusion.cpp-vulkan:
+stable-diffusion.cpp-vulkan: Home: https://github.com/leejet/stable-diffusion.cpp
+stable-diffusion.cpp-vulkan:
+stable-diffusion.cpp-vulkan:
+stable-diffusion.cpp-vulkan:
+stable-diffusion.cpp-vulkan:
