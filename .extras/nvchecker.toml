@@ -123,12 +123,6 @@ github = "anomalyco/opencode"
 use_latest_release = true
 prefix = "v"
 
-["claude-code-bin"]
-source = "github"
-github = "anthropics/claude-code"
-use_latest_release = true
-prefix = "v"
-
 [mutagen]
 source = "github"
 github = "quodlibet/mutagen"

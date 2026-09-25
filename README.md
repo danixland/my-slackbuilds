@@ -38,7 +38,6 @@ Each package lives in its own top-level subfolder:
 | llama.cpp-vulkan | ✅ | not tested | ❌ | 0.5.0 | 0.5.0 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
 | opencode-bin | ✅ | not tested | ❌ | 1.18.31 | 1.18.31 |
-| claude-code-bin | ✅ | not tested | ❌ | 2.1.282 | 2.1.282 |
 | kvantum-qt6 | ✅ | not tested | ❌ | 1.1.8 | 1.1.8 |
 | kvantum-qt5 | ✅ | not tested | ✅ [kvantum-qt5](https://slackbuilds.org/repository/15.0/system/kvantum-qt5/) | 1.1.8 | 1.1.8 |
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |

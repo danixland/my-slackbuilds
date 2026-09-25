@@ -260,15 +260,6 @@ Each entry carries a `Found` date. Recheck stale entries (roughly >6 months
 old) against current `sbolint`/`sbopkglint`/`test-build` behavior before
 trusting them, since upstream tooling fixes can retire a false positive.
 
-### claude-code-bin: do not strip the bun binary
-
-- Found: 2026-08-15
-- Symptom: `sbopkglint` 20-arch fails with "ELF object(s) not stripped" on
-  `usr/bin/claude`.
-- Cause: the binary is bun-generated; stripping breaks it at runtime.
-- Action: leave it unstripped. The `sbopkglint` failure is expected; do not
-  add a strip pass to the SlackBuild.
-
 ### claude-desktop-bin: OVMF symlinks flagged as broken
 
 - Found: 2026-08-15
