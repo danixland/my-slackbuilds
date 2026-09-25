@@ -5,10 +5,16 @@ recognition (ASR) model, plus NVIDIA Parakeet models.
   - AVX intrinsics support for x86 architectures
   - Mixed F16 / F32 precision
   - Integer quantization support
+  - Vulkan GPU backend
   - OpenVINO encoder support
 
 Installs whisper-cli, whisper-server, whisper-bench, whisper-quantize,
-whisper-vad-speech-segments, parakeet-cli and parakeet-quantize.
+whisper-vad-speech-segments, parakeet-cli and parakeet-quantize, plus
+the SDL2 microphone tools whisper-stream (live transcription),
+whisper-command (voice commands), whisper-talk-llama and whisper-lsp.
+
+The tools decode input audio through ffmpeg, so any format ffmpeg reads
+is accepted, not only WAV, MP3 and FLAC.
 
 OpenVINO support is built in. The encoder must be converted to OpenVINO
 IR format first, see "OpenVINO Support" in the bundled README.md.
