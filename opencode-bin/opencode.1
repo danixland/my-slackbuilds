@@ -1,0 +1,67 @@
+.TH OPENCODE 1 "2025" "opencode" "User Commands"
+.SH NAME
+opencode \- open source AI coding agent for the terminal
+.SH SYNOPSIS
+.B opencode
+[\fIOPTIONS\fR]
+.SH DESCRIPTION
+.B opencode
+is an AI coding agent designed for the terminal. It provides a TUI
+(Terminal User Interface) for interacting with 75+ LLM providers
+including Anthropic Claude, OpenAI, Google Gemini, GitHub Copilot,
+and local models via Ollama.
+.PP
+It uses a client/server architecture allowing the server to run on
+one machine while being driven remotely from another client.
+.SH OPTIONS
+.TP
+.BR \-h ", " \-\-help
+Display help information and exit.
+.TP
+.BR \-v ", " \-\-version
+Print version number and exit.
+.TP
+.BR \-d ", " \-\-debug
+Enable debug logging.
+.TP
+.BR \-c " " \fIDIR\fR ", " \-\-cwd " " \fIDIR\fR
+Set the working directory for the session.
+.TP
+.BR \-p " " \fIPROMPT\fR ", " \-\-print " " \fIPROMPT\fR
+Run non-interactively with the given prompt and print the response,
+then exit. Useful for scripting and automation.
+.TP
+.BR \-f " " \fIFORMAT\fR ", " \-\-format " " \fIFORMAT\fR
+Output format when using \fB\-p\fR. Options: \fBtext\fR (default), \fBjson\fR.
+.TP
+.BR \-q ", " \-\-quiet
+Suppress the spinner animation. Useful when running from scripts.
+.SH ENVIRONMENT
+.TP
+.B OPENCODE_INSTALL_DIR
+Override the binary installation directory used by the install script.
+.TP
+.B XDG_BIN_DIR
+XDG Base Directory Specification compliant binary path.
+.SH FILES
+.TP
+.I ~/.config/opencode/
+User configuration directory.
+.TP
+.I ~/.local/share/opencode/auth.json
+Stored authentication credentials.
+.SH TUI COMMANDS
+Inside the TUI, the following slash commands are available:
+.TP
+.B /connect
+Configure and authenticate an LLM provider.
+.TP
+.B /models
+Switch between available models.
+.SH SEE ALSO
+Full documentation at \fIhttps://opencode.ai/docs\fR
+.SH AUTHORS
+Developed by the Anomaly team. See \fIhttps://github.com/anomalyco/opencode\fR
+for contributors.
+.SH LICENSE
+MIT License.

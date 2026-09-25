@@ -117,6 +117,12 @@ to_pattern = ""
 source = "cmd"
 cmd = "curl -fsSL https://downloads.claude.ai/claude-desktop/apt/stable/dists/stable/main/binary-amd64/Packages | awk '/^Version:/{print $2}' | sort -V | tail -1"
 
+[opencode-bin]
+source = "github"
+github = "anomalyco/opencode"
+use_latest_release = true
+prefix = "v"
+
 ["claude-code-bin"]
 source = "github"
 github = "anthropics/claude-code"
