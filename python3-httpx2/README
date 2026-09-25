@@ -1,0 +1,10 @@
+httpx2 is a fully featured HTTP client for Python, with sync and async
+APIs. It is the maintained successor of httpx, installable alongside it.
+
+It installs the upstream pure-Python wheel: the sdist cannot be built
+without uv-dynamic-versioning, which is not packaged.
+
+The httpx2 command line tool needs the optional click, python3-rich and
+python3-pygments packages. The library itself does not.
+
+Requires Python 3.10 or newer, so it does not build on Slackware 15.0.
