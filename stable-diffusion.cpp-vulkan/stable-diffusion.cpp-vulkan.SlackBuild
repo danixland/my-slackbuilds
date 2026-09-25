@@ -26,14 +26,14 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=stable-diffusion.cpp-vulkan
 SRCNAM=stable-diffusion.cpp
-VERSION=${VERSION:-899}
+VERSION=${VERSION:-913}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
 
 # Upstream tags are master-<build>-<shortcommit>; the submodules are pinned
 # by the commits recorded in the tagged tree. Bump all three together.
-COMMIT=${COMMIT:-28b454b}
+COMMIT=${COMMIT:-b167b94}
 GGMLCOMMIT=${GGMLCOMMIT:-4bf5f6000653b7881d00963cd6ddb665ccd62a8d}
 WEBUICOMMIT=${WEBUICOMMIT:-c4bce3d6b3f236614cca21014f076083b7270ba8}
 SRCVER=master-$VERSION-$COMMIT
