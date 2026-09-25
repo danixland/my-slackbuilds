@@ -5,22 +5,6 @@ Personal collection of SlackBuild scripts maintained by Danilo, compatible with
 
 ---
 
-## Core Rules
-
-1. **Ask before acting.** If anything about the task is ambiguous — target version,
-   which package, whether to commit — stop and ask. Do not infer intent and proceed.
-2. **Use available skills.** For git operations, commits, PRs, and any task covered
-   by a skill, invoke the relevant skill. Do not improvise a workflow that a skill
-   already defines.
-3. **One package per task.** Never modify multiple packages in a single operation
-   unless explicitly instructed.
-4. **Never skip lint.** Every change must pass `sbolint` before committing. No
-   exceptions.
-5. **Never commit without being asked.** Complete all file edits and verification
-   steps, then wait for explicit instruction to commit.
-
----
-
 ## Repository Layout
 
 Each package lives in its own top-level subfolder:
@@ -34,6 +18,9 @@ Each package lives in its own top-level subfolder:
 ├── <package-name>.desktop      # (optional) Desktop entry for GUI apps
 └── [...]                       # Other optional files
 ```
+
+Maintainer tooling (git hooks, the upstream sweep, test builds) is kept
+outside this repo, in the maintainer's private workspace.
 
 Root-level files you may need to edit:
 
@@ -65,27 +52,23 @@ Set `MD5SUM` to a placeholder (e.g. `"placeholder"`) — it will be fixed in the
 
 ### Step 2 — Fix the checksum
 
-Run `sbofixinfo` from inside the package directory:
+`sbofixinfo` does not fix checksums, it only normalizes `.info` formatting.
+The checksum loop is `sbodl`:
 
 ```bash
-cd <package-name> && sbofixinfo
-```
-
-If `sbofixinfo` reports no changes (common when the checksum is a placeholder rather
-than a stale real value), use the two-pass `sbodl` procedure instead:
-
-```bash
-# Pass 1 — downloads the source; fails because MD5SUM is wrong/placeholder
+# Pass 1: downloads the source and prints
+#   WARN: md5sum doesn't match ... got: <new>
 cd <package-name> && sbodl
 
-# Compute the real checksum from the downloaded file
-md5sum <package-name>-<version>.tar.gz   # adjust filename as needed
+# Put the got: value into MD5SUM in the .info file
 
-# Update MD5SUM in the .info file with the value from the command above
-
-# Pass 2 — verifies the checksum; must report "md5sum matches OK"
+# Pass 2: must report "md5sum matches OK"
 cd <package-name> && sbodl
 ```
+
+For a PyPI bump the hash-path `DOWNLOAD` URL also changes: take the sdist URL
+and md5 from `https://pypi.org/pypi/<pkg>/<ver>/json` and set both fields,
+then run `sbodl`.
 
 Do not proceed past this step until `sbodl` reports `md5sum matches OK`.
 
@@ -123,7 +106,7 @@ Then proceed:
    `<prgnam>.SlackBuild`, `<prgnam>.info`, `README`, `slack-desc`
 2. Follow the SlackBuild scripting rules below exactly.
 3. Add an entry for the package in `.extras/nvchecker.toml`.
-4. Run `sbofixinfo`, then `sbodl` (two-pass if needed), then `sbolint`.
+4. Run `sbofixinfo`, then `sbodl` (two-pass, see above), then `sbolint`.
 5. Report results and wait for commit instruction.
 
 ---
@@ -209,7 +192,10 @@ Source: https://slackware.uk/~urchlay/repos/sbo-maintainer-tools
 | `sbopkglint` | Lint the built package |
 | `sbofixinfo` | Auto-fix common `.info` file issues |
 | `sbodl` | Download sources and verify `MD5SUM`/`SHA256SUM` from `.info` |
-| `pre-commit-sbolint` | Git pre-commit hook — blocks commits that fail `sbolint` |
+
+Run `sbolint` on every changed package before committing. A `pre-commit`
+wrapper that does it automatically is available from
+https://slackware.uk/~urchlay/repos/sbostuff.
 
 ---
 
@@ -222,8 +208,17 @@ Example for a GitHub-hosted package:
 [package-name]
 source = "github"
 github = "owner/repo"
-use_max_tag = true
+use_latest_release = true
 ```
+
+Prefer `use_latest_release` (hits `releases/latest`, lenient) over
+`use_max_tag` (hits `git/refs/tags`, tightly rate-limited); use `use_max_tag`
+only for repos that tag but don't cut Releases.
+
+The file has no `[__config__]`. Do not run it as-is against GitHub: the
+anonymous API budget (60 req/h) runs out and later stanzas 403. Run it from a
+throwaway copy with a `[__config__]` that adds a GitHub token keyfile, and
+probe single stanzas with `nvchecker -c <cfg> -e <name>`.
 
 When adding or updating a package, verify the entry exists and is correct.
 
@@ -241,59 +236,12 @@ to git. Before any `git add`, run from the repo root:
 find . -type l -delete
 ```
 
-### Git hook setup
-
-Both hooks are tracked in the `.extras/hooks/` directory. Install them after cloning:
-
-```bash
-cp .extras/hooks/pre-commit .git/hooks/pre-commit
-cp .extras/hooks/post-commit .git/hooks/post-commit
-chmod +x .git/hooks/pre-commit .git/hooks/post-commit
-```
-
-| Hook | Trigger | Purpose |
-|------|---------|---------|
-| `pre-commit` | Before every commit | Runs `sbolint` on staged packages; blocks commit on errors. Also checks for staged source archives: symlinks are auto-removed, real files block the commit. |
-| `post-commit` | After every commit | Offers to create a `SBo/<pkg>.tar.gz` archive for submission |
-
-The pre-commit hook runs `sbolint` automatically. If it blocks the commit, fix
-the reported errors and retry — do not bypass with `SBOLINT=no` unless the user
-explicitly instructs it.
-
-The post-commit hook may prompt to create an SBo archive. This is interactive and
-may fail in non-TTY environments — that failure is harmless and can be ignored.
-
 Commit conventions:
 - One commit per package add or update.
 - Message format:
   - Add: `<package-name>: add version X.Y.Z`
   - Update: `<package-name>: update to X.Y.Z`
   - Fix: `<package-name>: fix <short description>`
-
----
-
-## What Requires User Confirmation
-
-Stop and ask before doing any of the following:
-
-- Committing or pushing changes
-- Modifying files in more than one package directory
-- Deleting any file
-- Bypassing the pre-commit hook (`SBOLINT=no`)
-- Adding or removing entries in `.extras/nvchecker.toml`
-- Any action not covered by the workflows above
-
----
-
-## Running Test Builds
-
-The general rule is: **never run builds directly.** Building is the user's
-responsibility.
-
-The one exception is the `test-build-slackbuild` skill, which builds the package
-in a Docker container via `sbo-dockerbuild` without touching the host system.
-Use it to verify that a SlackBuild completes successfully, especially for new
-packages or after significant changes.
 
 ---
 
@@ -336,7 +284,7 @@ trusting them, since upstream tooling fixes can retire a false positive.
   commit hash.
 - Action: no longer applies. Upstream switched to versioned releases, so the
   DOWNLOAD is now `archive/refs/tags/v<X.Y.Z>/...` and `sbolint` passes
-  clean. The `SBOLINT=no` exception to Core Rule 4 is withdrawn: commit
+  clean. The `SBOLINT=no` exception to the lint-before-commit rule is withdrawn: commit
   normally. Kept here so the old exception is not reintroduced from memory.
 
 ### test-build needs --local-deps for in-repo sibling deps

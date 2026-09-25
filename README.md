@@ -97,7 +97,7 @@ Each package lives in its own top-level subfolder:
 
 ```bash
 # Clone the repository
-git clone https://github.com/danix/my-slackbuilds.git
+git clone https://github.com/danixland/my-slackbuilds.git
 cd my-slackbuilds
 
 # Download the source and verify checksums
@@ -120,20 +120,12 @@ Check each package's `README` for dependencies and any special build instruction
 
 ---
 
-## Git Hooks
+## Contributing
 
-Two hooks are included in `.extras/hooks/`. Install them after cloning:
-
-```bash
-cp .extras/hooks/pre-commit .git/hooks/pre-commit
-cp .extras/hooks/post-commit .git/hooks/post-commit
-chmod +x .git/hooks/pre-commit .git/hooks/post-commit
-```
-
-| Hook | Purpose |
-|------|---------|
-| `pre-commit` | Runs [`sbolint`](https://slackware.uk/~urchlay/repos/sbo-maintainer-tools) on staged packages before each commit. Also guards against staged source archives: symlinks are auto-removed silently, real archive files block the commit and list the offenders. |
-| `post-commit` | After each commit, offers to create a `SBo/<pkg>.tar.gz` archive ready for submission to SlackBuilds.org |
+Run [`sbolint`](https://slackware.uk/~urchlay/repos/sbo-maintainer-tools) on
+every changed package before sending a patch or pull request, and never commit
+downloaded source archives or the symlinks `sbodl` leaves in package
+directories.
 
 ---
 
