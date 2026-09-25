@@ -5,7 +5,7 @@ recognition (ASR) model, plus NVIDIA Parakeet models.
   - AVX intrinsics support for x86 architectures
   - Mixed F16 / F32 precision
   - Integer quantization support
-  - Vulkan GPU backend
+  - Vulkan and OpenVINO GPU backends
   - OpenVINO encoder support
 
 Installs whisper-cli, whisper-server, whisper-bench, whisper-quantize,
@@ -18,5 +18,9 @@ is accepted, not only WAV, MP3 and FLAC.
 
 OpenVINO support is built in. The encoder must be converted to OpenVINO
 IR format first, see "OpenVINO Support" in the bundled README.md.
+
+Both GPU backends are built in; whisper uses the first GPU device it
+finds. Pick one with whisper-cli -dev N (the startup log lists the
+devices) and compare the timings it prints at exit.
 
 OpenBLAS is autodetected: if installed, it is used for the BLAS backend.
