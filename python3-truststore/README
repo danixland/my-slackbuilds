@@ -1,0 +1,5 @@
+truststore verifies certificates using the operating system's native
+trust store instead of a bundled CA file. On Linux it reads the system
+OpenSSL certificate store.
+
+Requires Python 3.10 or newer, so it does not build on Slackware 15.0.
