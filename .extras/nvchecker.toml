@@ -208,3 +208,9 @@ pypi = "httpcore2"
 [python3-httpx2]
 source = "pypi"
 pypi = "httpx2"
+
+["whisper.cpp"]
+source = "github"
+github = "ggml-org/whisper.cpp"
+use_latest_release = true
+prefix = "v"

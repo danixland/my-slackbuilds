@@ -1,0 +1,16 @@
+High-performance inference of OpenAI's Whisper automatic speech
+recognition (ASR) model, plus NVIDIA Parakeet models.
+
+  - Plain C/C++ implementation without dependencies
+  - AVX intrinsics support for x86 architectures
+  - Mixed F16 / F32 precision
+  - Integer quantization support
+  - OpenVINO encoder support
+
+Installs whisper-cli, whisper-server, whisper-bench, whisper-quantize,
+whisper-vad-speech-segments, parakeet-cli and parakeet-quantize.
+
+OpenVINO support is built in. The encoder must be converted to OpenVINO
+IR format first, see "OpenVINO Support" in the bundled README.md.
+
+OpenBLAS is autodetected: if installed, it is used for the BLAS backend.
