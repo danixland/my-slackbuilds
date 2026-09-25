@@ -34,40 +34,45 @@ Each package lives in its own top-level subfolder:
 | Package | -current | 15.0 | SBo | Version | Latest |
 |---------|----------|------|-----|---------|--------|
 | hstr | ✅ | not tested | ✅ [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.2 | 3.2 |
-| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.158 | 1.0.158 |
-| llama.cpp-vulkan | ✅ | not tested | ❌ | 0.4.1 | 0.4.1 |
+| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.159 | 1.0.159 |
+| llama.cpp-vulkan | ✅ | not tested | ❌ | 0.5.0 | 0.5.0 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
-| claude-code-bin | ✅ | not tested | ❌ | 2.1.278 | 2.1.278 |
+| claude-code-bin | ✅ | not tested | ❌ | 2.1.282 | 2.1.282 |
 | kvantum-qt6 | ✅ | not tested | ❌ | 1.1.8 | 1.1.8 |
 | kvantum-qt5 | ✅ | not tested | ✅ [kvantum-qt5](https://slackbuilds.org/repository/15.0/system/kvantum-qt5/) | 1.1.8 | 1.1.8 |
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
 | mutagen | ✅ | not tested | ✅ [mutagen](https://slackbuilds.org/repository/15.0/development/mutagen/) | 1.48.1 | 1.48.1 |
 | solvespace | ✅ | not tested | ❌ | 3.2 | 3.2 |
-| gamescope | ✅ | not tested | ✅ [gamescope](https://slackbuilds.org/repository/15.0/system/gamescope/) | 3.16.29 | 3.16.29 |
+| gamescope | ✅ | not tested | ✅ [gamescope](https://slackbuilds.org/repository/15.0/system/gamescope/) | 3.16.30 | 3.16.30 |
 | nvchecker | ✅ | not tested | ❌ | 2.22 | 2.22 |
 | python3-structlog | ✅ | not tested | ❌ | 26.1.0 | 26.1.0 |
-| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.11.11 | 4.11.11 |
+| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.11.13 | 4.11.13 |
 | python3-awesomeversion | ✅ | not tested | ❌ | 25.8.0 | 25.8.0 |
 | python3-fsspec | ✅ | not tested | ❌ | 2026.9.0 | 2026.9.0 |
 | python3-packaging | ✅ | not tested | ❌ | 26.3 | 26.3 |
-| python3-annotated-doc | ✅ | not tested | ❌ | 0.0.5 | 0.0.5 |
-| python3-typer | ✅ | not tested | ❌ | 0.27.2 | 0.27.2 |
-| python3-huggingface_hub | ✅ | not tested | ❌ | 1.32.0 | 1.32.0 |
+| python3-huggingface_hub | ✅ | not tested | ❌ | 2.0.0 | 2.0.0 |
 | click | ✅ | not tested | ✅ [click](https://slackbuilds.org/repository/15.0/python/click/) | 8.5.0 | 8.5.0 |
 | playwright-cli | ✅ | not tested | ❌ | 0.1.21 | 0.1.21 |
 | firefly-cli | ✅ | not tested | ❌ | 0.5.0 | 0.5.0 |
 | gitea-cli | ✅ | ✅ | ❌ | 0.16.0 | 0.16.0 |
-| megasync-bin | ✅ | ✅ | ❌ | 6.5.1.0 | 6.5.1.0 |
-| claude-desktop-bin | ✅ | ✅ | ❌ | 2.2553.1 | 2.2553.1 |
+| megasync-bin | ✅ | ✅ | ❌ | 6.6.2.0 | 6.6.2.0 |
+| claude-desktop-bin | ✅ | ✅ | ❌ | 2.7032.0 | 2.7032.0 |
 | hyprsunset-qt | ✅ | not tested | ❌ | 0.1.1 | 0.1.1 |
 | python3-pathvalidate | ✅ | not tested | ❌ | 3.3.1 | 3.3.1 |
 | python3-onnxruntime | ✅ | not tested | ❌ | 1.30.0 | 1.30.0 |
 | piper-tts | ✅ | not tested | ❌ | 1.8.0 | 1.8.0 |
 | edge-tts | ✅ | not tested | ❌ | 7.2.8 | 7.2.8 |
 | qtmaildir | ✅ | not tested | ❌ | 0.29.0 | 0.29.0 |
-| typora-bin | ✅ | not tested | ❌ | 1.14.9 | 1.14.9 |
+| typora-bin | ✅ | not tested | ❌ | 1.14.9 | 1.14.10 |
 | quickshell | ✅ | ❌ | ❌ | 0.3.1 | 0.3.1 |
 | pcsx2 | ✅ | not tested | ❌ | 2.8.2 | 2.8.2 |
+| kitty | ✅ | not tested | ✅ [kitty](https://slackbuilds.org/repository/15.0/system/kitty/) | 0.49.1 | 0.49.1 |
+| openvino | ✅ | not tested | ✅ [openvino](https://slackbuilds.org/repository/15.0/libraries/openvino/) | 2026.4.0 | 2026.4.0 |
+| python3-httpcore2 | ✅ | ❌ | ❌ | 2.13.1 | 2.13.1 |
+| python3-httpx2 | ✅ | ❌ | ❌ | 2.13.1 | 2.13.1 |
+| python3-truststore | ✅ | ❌ | ❌ | 0.10.4 | 0.10.4 |
+| slang-bin | ✅ | not tested | ❌ | 2026.18.2 | 2026.18.2 |
+| stable-diffusion.cpp-vulkan | ✅ | not tested | ❌ | 913 | 913 |
 
 > **Note on `quickshell`:** Slackware 15.0 ships Qt5 only, so this package is
 > **Slackware64-current only**. It also relies on private Qt APIs and must be
