@@ -204,3 +204,15 @@ github = "leejet/stable-diffusion.cpp"
 use_latest_release = true
 from_pattern = '^master-(\d+)-.*$'
 to_pattern = '\1'
+
+[python3-truststore]
+source = "pypi"
+pypi = "truststore"
+
+[python3-httpcore2]
+source = "pypi"
+pypi = "httpcore2"
+
+[python3-httpx2]
+source = "pypi"
+pypi = "httpx2"
