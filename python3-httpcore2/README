@@ -1,0 +1,7 @@
+httpcore2 is a minimal low-level HTTP client, the transport layer used
+by httpx2. It is the maintained successor of httpcore.
+
+It installs the upstream pure-Python wheel: the sdist cannot be built
+without uv-dynamic-versioning, which is not packaged.
+
+Requires Python 3.10 or newer, so it does not build on Slackware 15.0.

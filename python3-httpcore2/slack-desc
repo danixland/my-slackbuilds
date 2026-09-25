@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                 |-----handy-ruler------------------------------------------------------|
+python3-httpcore2: python3-httpcore2 (minimal low-level HTTP client)
+python3-httpcore2:
+python3-httpcore2: httpcore2 is a minimal low-level HTTP client, the transport
+python3-httpcore2: layer used by httpx2.
+python3-httpcore2:
+python3-httpcore2: Homepage: https://github.com/pydantic/httpx2
+python3-httpcore2:
+python3-httpcore2:
+python3-httpcore2:
+python3-httpcore2:
+python3-httpcore2:
