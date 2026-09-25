@@ -73,7 +73,7 @@ Each package lives in its own top-level subfolder:
 | python3-truststore | ✅ | ❌ | ❌ | 0.10.4 | 0.10.4 |
 | slang-bin | ✅ | not tested | ❌ | 2026.18.2 | 2026.18.2 |
 | stable-diffusion.cpp-vulkan | ✅ | not tested | ❌ | 913 | 913 |
-| whisper.cpp | ✅ | not tested | ✅ [whisper.cpp](https://slackbuilds.org/repository/15.0/development/whisper.cpp/) | 1.9.4 | 1.9.4 |
+| whisper.cpp | ✅ | ❌ | ✅ [whisper.cpp](https://slackbuilds.org/repository/15.0/development/whisper.cpp/) | 1.9.4 | 1.9.4 |
 
 > **Note on `quickshell`:** Slackware 15.0 ships Qt5 only, so this package is
 > **Slackware64-current only**. It also relies on private Qt APIs and must be
