@@ -3,6 +3,11 @@
 Personal collection of SlackBuild scripts maintained by Danilo, compatible with
 [SlackBuilds.org (SBo)](https://slackbuilds.org) conventions.
 
+**Maintainer workspace:** if this repo is checked out inside the maintainer
+workspace (a parent directory holding `AGENTS.md`, `sweep.sh` and `hooks/`),
+read `../AGENTS.md` first. It holds the operational workflow: git hooks, the
+upstream sweep, test builds, and delivery to SBo.
+
 ---
 
 ## Repository Layout
