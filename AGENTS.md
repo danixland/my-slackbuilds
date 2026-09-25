@@ -238,7 +238,7 @@ directory pointing to downloaded source archives. These must never be committed
 to git. Before any `git add`, run from the repo root:
 
 ```bash
-find . -type l -delete
+find . -type l -not -path './.git/*' -delete
 ```
 
 Commit conventions:
