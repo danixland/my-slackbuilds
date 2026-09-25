@@ -190,6 +190,7 @@ use_latest_release = true
 source = "github"
 github = "PCSX2/pcsx2"
 use_latest_release = true
+prefix = "v"
 
 [slang-bin]
 source = "github"
