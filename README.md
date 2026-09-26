@@ -58,7 +58,6 @@ Each package lives in its own top-level subfolder:
 | megasync-bin | ✅ | ✅ | ❌ | 6.6.2.0 | 6.6.2.0 |
 | claude-desktop-bin | ✅ | ✅ | ❌ | 2.7032.0 | 2.7032.0 |
 | hyprsunset-qt | ✅ | not tested | ❌ | 0.1.1 | 0.1.1 |
-| python3-pathvalidate | ✅ | not tested | ❌ | 3.3.1 | 3.3.1 |
 | python3-onnxruntime | ✅ | not tested | ❌ | 1.30.0 | 1.30.0 |
 | edge-tts | ✅ | not tested | ❌ | 7.2.8 | 7.2.8 |
 | qtmaildir | ✅ | not tested | ❌ | 0.29.0 | 0.29.0 |
