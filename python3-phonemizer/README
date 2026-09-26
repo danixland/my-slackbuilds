@@ -1,0 +1,10 @@
+phonemizer is a Python library and command line tool (phonemize) that
+converts text into phonetic transcriptions, for many languages. It is
+used by text to speech engines such as kokoro-onnx.
+
+Of its backends, this package targets espeak-ng, found at runtime via
+the system libespeak-ng. The festival backend works if festival is
+installed. The optional segments backend is not packaged.
+
+To use a different espeak-ng library, set PHONEMIZER_ESPEAK_LIBRARY to
+its path.

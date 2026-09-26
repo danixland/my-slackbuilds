@@ -150,6 +150,10 @@ pypi = "pathvalidate"
 source = "pypi"
 pypi = "dlinfo"
 
+[python3-phonemizer]
+source = "pypi"
+pypi = "phonemizer"
+
 [python3-onnxruntime]
 source = "pypi"
 pypi = "onnxruntime"

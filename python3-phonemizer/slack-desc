@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                  |-----handy-ruler------------------------------------------------------|
+python3-phonemizer: python3-phonemizer (text to phones converter)
+python3-phonemizer:
+python3-phonemizer: phonemizer converts text into phonetic transcriptions for many
+python3-phonemizer: languages, using espeak-ng or festival as backend. It provides a
+python3-phonemizer: Python API and the phonemize command line tool.
+python3-phonemizer:
+python3-phonemizer: Homepage: https://github.com/bootphon/phonemizer
+python3-phonemizer:
+python3-phonemizer:
+python3-phonemizer:
+python3-phonemizer:
