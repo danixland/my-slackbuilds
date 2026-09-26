@@ -59,6 +59,9 @@ Each package lives in its own top-level subfolder:
 | claude-desktop-bin | ✅ | ✅ | ❌ | 2.7032.0 | 2.7032.0 |
 | hyprsunset-qt | ✅ | not tested | ❌ | 0.1.1 | 0.1.1 |
 | python3-onnxruntime | ✅ | not tested | ❌ | 1.30.0 | 1.30.0 |
+| python3-dlinfo | ✅ | not tested | ❌ | 2.0.0 | 2.0.0 |
+| python3-phonemizer | ✅ | not tested | ❌ | 3.4.0 | 3.4.0 |
+| python3-kokoro-onnx | ✅ | ❌ | ❌ | 0.6.1 | 0.6.1 |
 | edge-tts | ✅ | not tested | ❌ | 7.2.8 | 7.2.8 |
 | qtmaildir | ✅ | not tested | ❌ | 0.29.0 | 0.29.0 |
 | typora-bin | ✅ | not tested | ❌ | 1.14.9 | 1.14.10 |
@@ -76,6 +79,9 @@ Each package lives in its own top-level subfolder:
 > **Note on `quickshell`:** Slackware 15.0 ships Qt5 only, so this package is
 > **Slackware64-current only**. It also relies on private Qt APIs and must be
 > rebuilt after every Qt update, or it will crash from ABI mismatches.
+
+> **Note on `python3-kokoro-onnx`:** it requires Python 3.10 or newer, and
+> Slackware 15.0 ships 3.9, so it is **Slackware64-current only**.
 
 > **Note on `kvantum-qt5`:** the official SBo build lags several releases behind
 > upstream (1.1.2 vs 1.1.8), so this repo ships an updated build. It provides the
