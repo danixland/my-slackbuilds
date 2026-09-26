@@ -154,6 +154,10 @@ pypi = "dlinfo"
 source = "pypi"
 pypi = "phonemizer"
 
+[python3-kokoro-onnx]
+source = "pypi"
+pypi = "kokoro-onnx"
+
 [python3-onnxruntime]
 source = "pypi"
 pypi = "onnxruntime"

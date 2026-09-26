@@ -1,0 +1,15 @@
+kokoro-onnx is a Python library for text to speech with the Kokoro-82M
+model, run through onnxruntime. It supports several languages, among
+them English, Italian, French, Spanish, Portuguese, Japanese and
+Chinese.
+
+Upstream depends on espeakng-loader, a wheel with its own copy of
+libespeak-ng. This package drops it and uses the system espeak-ng
+(/usr/share/espeak-ng-data and libespeak-ng.so.1) by default. An
+EspeakConfig passed to Kokoro still overrides both paths.
+
+The model and voices are not included. Download kokoro-v1.0.onnx and
+voices-v1.0.bin from the model-files-v1.0 release on the kokoro-onnx
+GitHub page, and pass their paths to Kokoro().
+
+Requires Python 3.10 or newer, so it does not build on Slackware 15.0.
