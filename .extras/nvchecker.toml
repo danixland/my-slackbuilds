@@ -146,6 +146,10 @@ regex = "<h2>([0-9]+\\.[0-9]+\\.[0-9]+)</h2>"
 source = "pypi"
 pypi = "pathvalidate"
 
+[python3-dlinfo]
+source = "pypi"
+pypi = "dlinfo"
+
 [python3-onnxruntime]
 source = "pypi"
 pypi = "onnxruntime"

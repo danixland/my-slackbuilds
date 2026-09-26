@@ -1,0 +1,9 @@
+dlinfo is a Python wrapper for the dlinfo(3) function of the C library.
+Given a library loaded with ctypes, it returns the absolute path the
+dynamic linker actually resolved it to.
+
+It is a dependency of python3-phonemizer, which uses it to locate the
+espeak-ng shared library.
+
+This package builds from the PyPI source distribution. It has no
+external dependencies.

@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+              |-----handy-ruler------------------------------------------------------|
+python3-dlinfo: python3-dlinfo (Python wrapper for libc's dlinfo)
+python3-dlinfo:
+python3-dlinfo: dlinfo wraps the dlinfo(3) function of the C library. Given a
+python3-dlinfo: library loaded with ctypes, it returns the absolute path the dynamic
+python3-dlinfo: linker resolved it to.
+python3-dlinfo:
+python3-dlinfo: Homepage: https://github.com/fphammerle/python-dlinfo
+python3-dlinfo:
+python3-dlinfo:
+python3-dlinfo:
+python3-dlinfo:
