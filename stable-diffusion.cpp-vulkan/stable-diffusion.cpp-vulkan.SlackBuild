@@ -84,6 +84,10 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+# Runtime LoKr assumed 2D linear inputs; Krea2 feeds [q, tokens, batch]
+# and every LoKr LoRA aborted on a reshape assert. Not upstream yet.
+patch -p1 < $CWD/patches/lokr-nd-input.patch
+
 # Build the server web UI offline. Every npm tarball listed in the .info
 # (the linux-x64 closure of the pnpm lockfile minus typescript/vue-tsc,
 # which only type-check) is unpacked into a flat node_modules; the lockfile
