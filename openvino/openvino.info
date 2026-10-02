@@ -1,9 +1,9 @@
 PRGNAM="openvino"
-VERSION="2026.4.0"
+VERSION="2026.4.1"
 HOMEPAGE="https://github.com/openvinotoolkit/openvino/"
 DOWNLOAD="UNSUPPORTED"
 MD5SUM=""
-DOWNLOAD_x86_64="https://github.com/openvinotoolkit/openvino/archive/2026.4.0/openvino-2026.4.0.tar.gz \
+DOWNLOAD_x86_64="https://github.com/openvinotoolkit/openvino/archive/2026.4.1/openvino-2026.4.1.tar.gz \
           https://github.com/openvinotoolkit/mlas/archive/d1bc25ec4660cddd87804fcf03b2411b5dfb2e94/mlas-d1bc25ec4660cddd87804fcf03b2411b5dfb2e94.tar.gz \
           https://github.com/openvinotoolkit/oneDNN/archive/1289c3b65dd6a119a5ed12a816517d9c3a21d81b/oneDNN-1289c3b65dd6a119a5ed12a816517d9c3a21d81b.tar.gz \
           https://github.com/oneapi-src/oneDNN/archive/a3d459721b72c3a9d2685b46c03dafee7af0f25c/oneDNN-a3d459721b72c3a9d2685b46c03dafee7af0f25c.tar.gz \
@@ -13,7 +13,7 @@ DOWNLOAD_x86_64="https://github.com/openvinotoolkit/openvino/archive/2026.4.0/op
           https://github.com/protocolbuffers/protobuf/archive/d6511091a0cab1ad13f676a02676ad2a0e5eb9ae/protobuf-d6511091a0cab1ad13f676a02676ad2a0e5eb9ae.tar.gz \
           https://github.com/abseil/abseil-cpp/archive/4a2c63365eff8823a5221db86ef490e828306f9d/abseil-cpp-4a2c63365eff8823a5221db86ef490e828306f9d.tar.gz \
           https://github.com/herumi/xbyak/archive/431abd865e70a46d56f5aa0e1f87572decb60169/xbyak-431abd865e70a46d56f5aa0e1f87572decb60169.tar.gz"
-MD5SUM_x86_64="960ed31f149ffd06133890e46b41d6bc \
+MD5SUM_x86_64="ee2091a98c073f30277649a27ba83a85 \
         0e87473410db355fd9251a2e1337dc32 \
         e0952ce53444fdb08d25d2e208117466 \
         3e70bab35aac394d34431f03847578ad \

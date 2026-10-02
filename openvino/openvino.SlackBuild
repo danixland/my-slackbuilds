@@ -26,7 +26,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=openvino
-VERSION=${VERSION:-2026.4.0}
+VERSION=${VERSION:-2026.4.1}
 # All bundled deps are pinned to the exact commit openvino references at this
 # tag (its git submodule gitlinks), downloaded as archive/<sha> tarballs.
 COMMIT_MLAS=d1bc25ec4660cddd87804fcf03b2411b5dfb2e94
