@@ -216,3 +216,9 @@ source = "github"
 github = "ggml-org/whisper.cpp"
 use_latest_release = true
 prefix = "v"
+
+[ttf-nerd-fonts]
+source = "github"
+github = "ryanoasis/nerd-fonts"
+use_latest_release = true
+prefix = "v"

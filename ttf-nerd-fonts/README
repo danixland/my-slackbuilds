@@ -1,0 +1,44 @@
+Nerd Fonts patches developer targeted fonts with a high number of
+glyphs (icons) from popular sets such as Font Awesome, Devicons,
+Octicons, Material Design and the Powerline symbols.
+
+By default this builds every patched family upstream releases, in
+all three variants, into /usr/share/fonts/nerd-fonts/<Family>/.
+That is a large package: about 600MB of downloads and several GB
+installed. Two variables trim it at build time (all sources are
+still listed in the .info, download only the ones you need):
+
+  FAMILIES  space separated family names, default all of them
+  VARIANTS  any of NerdFont, NerdFontMono, NerdFontPropo,
+            default all three
+
+    FAMILIES="Hack JetBrainsMono" VARIANTS=NerdFontMono \
+      ./ttf-nerd-fonts.SlackBuild
+
+A build with a single family is named after it, e.g.
+FAMILIES=FiraCode produces ttf-nerd-fonts-firacode, so families can
+be installed as separate packages side by side. Do not install a
+multi-family package together with single-family ones holding the
+same family, they ship the same files.
+
+Available families (names are case sensitive):
+
+  0xProto 3270 AdwaitaMono Agave AnnotationMono AnonymousPro
+  Arimo AtkinsonHyperlegibleMono AurulentSansMono BigBlueTerminal
+  BitstreamVeraSansMono CascadiaCode CascadiaMono CodeNewRoman
+  ComicShannsMono CommitMono Cousine D2Coding DaddyTimeMono
+  DejaVuSansMono DepartureMono DroidSansMono EnvyCodeR
+  FantasqueSansMono FiraCode FiraMono GeistMono Go-Mono Gohu
+  GoogleSansCode Hack Hasklig HeavyData Hermit iA-Writer
+  IBMPlexMono Inconsolata InconsolataGo InconsolataLGC
+  IntelOneMono Iosevka IosevkaTerm IosevkaTermSlab JetBrainsMono
+  Lekton LiberationMono Lilex MartianMono Meslo Monaspace Monofur
+  Monoid Mononoki MPlus Noto OpenDyslexic Overpass ProFont
+  ProggyClean Recursive RobotoMono ShareTechMono SourceCodePro
+  SpaceMono Terminus Tinos Ubuntu UbuntuMono UbuntuSans
+  VictorMono ZedMono
+
+Arimo, HeavyData, Tinos and Ubuntu have no NerdFontMono variant.
+
+The symbols-only font is not included, it is available separately
+as ttf-nerd-fonts-symbols.

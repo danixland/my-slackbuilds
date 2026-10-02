@@ -1,0 +1,133 @@
+#!/bin/bash
+
+# Slackware build script for ttf-nerd-fonts
+
+# Copyright 2026 danix <danix@danix.xyz>
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+cd $(dirname $0) ; CWD=$(pwd)
+
+PRGNAM=ttf-nerd-fonts
+VERSION=${VERSION:-3.5.1}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+PKGTYPE=${PKGTYPE:-tgz}
+
+ARCH=noarch
+
+# Every family tarball listed in the .info DOWNLOAD, keep the two in sync.
+# NerdFontsSymbolsOnly is left out on purpose: SBo ships it as
+# ttf-nerd-fonts-symbols.
+ALL_FAMILIES="
+  0xProto 3270 AdwaitaMono Agave AnnotationMono AnonymousPro
+  Arimo AtkinsonHyperlegibleMono AurulentSansMono BigBlueTerminal
+  BitstreamVeraSansMono CascadiaCode CascadiaMono CodeNewRoman
+  ComicShannsMono CommitMono Cousine D2Coding DaddyTimeMono
+  DejaVuSansMono DepartureMono DroidSansMono EnvyCodeR
+  FantasqueSansMono FiraCode FiraMono GeistMono Go-Mono Gohu
+  GoogleSansCode Hack Hasklig HeavyData Hermit iA-Writer
+  IBMPlexMono Inconsolata InconsolataGo InconsolataLGC
+  IntelOneMono Iosevka IosevkaTerm IosevkaTermSlab JetBrainsMono
+  Lekton LiberationMono Lilex MartianMono Meslo Monaspace Monofur
+  Monoid Mononoki MPlus Noto OpenDyslexic Overpass ProFont
+  ProggyClean Recursive RobotoMono ShareTechMono SourceCodePro
+  SpaceMono Terminus Tinos Ubuntu UbuntuMono UbuntuSans
+  VictorMono ZedMono
+"
+FAMILIES=${FAMILIES:-$ALL_FAMILIES}
+VARIANTS=${VARIANTS:-NerdFont NerdFontMono NerdFontPropo}
+
+for fam in $FAMILIES; do
+  case " $(echo $ALL_FAMILIES) " in
+    *" $fam "*) ;;
+    *) echo "Unknown family: $fam (see README for the list)" ; exit 1 ;;
+  esac
+done
+for v in $VARIANTS; do
+  case $v in
+    NerdFont|NerdFontMono|NerdFontPropo) ;;
+    *) echo "Unknown variant: $v (NerdFont, NerdFontMono, NerdFontPropo)" ; exit 1 ;;
+  esac
+done
+
+# A single-family build is named after its family, e.g. ttf-nerd-fonts-hack,
+# so several families can be installed as separate packages.
+PKGNAM=$PRGNAM
+if [ $(echo $FAMILIES | wc -w) -eq 1 ]; then
+  PKGNAM=$PRGNAM-$(echo $FAMILIES | tr 'A-Z' 'a-z')
+fi
+
+if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
+  echo "$PKGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
+  exit 0
+fi
+
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+FONTDIR=/usr/share/fonts/nerd-fonts
+DOCDIR=/usr/doc/$PKGNAM-$VERSION
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+rm -rf $PRGNAM-$VERSION
+mkdir $PRGNAM-$VERSION
+cd $PRGNAM-$VERSION
+for fam in $FAMILIES; do
+  mkdir $fam
+  tar xvf $CWD/$fam.tar.xz -C $fam
+done
+chown -R root:root .
+find -L . \
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \+ -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \+
+
+# Tarballs are flat: fonts named <Name>{NerdFont,NerdFontMono,NerdFontPropo}-*,
+# plus a README.md and license file(s), which go to the docs.
+for fam in $FAMILIES; do
+  mkdir -p $PKG$FONTDIR/$fam $PKG$DOCDIR/$fam
+  for v in $VARIANTS; do
+    find $fam -type f -name "*$v-*" -exec install -m 0644 -t $PKG$FONTDIR/$fam {} +
+  done
+  find $fam -type f ! -name '*.ttf' ! -name '*.otf' \
+    -exec install -m 0644 -t $PKG$DOCDIR/$fam {} +
+done
+
+# Not every family ships every variant (Arimo has no NerdFontMono, ...).
+find $PKG$FONTDIR -type d -empty -delete
+if [ ! -d $PKG$FONTDIR ]; then
+  echo "No fonts matched FAMILIES='$FAMILIES' VARIANTS='$VARIANTS'"
+  exit 1
+fi
+
+cat $CWD/$PRGNAM.SlackBuild > $PKG$DOCDIR/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/install
+sed "s/^$PRGNAM:/$PKGNAM:/" $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PKGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

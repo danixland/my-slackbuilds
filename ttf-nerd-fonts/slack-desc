@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+              |-----handy-ruler------------------------------------------------------|
+ttf-nerd-fonts: ttf-nerd-fonts (patched developer fonts with icon glyphs)
+ttf-nerd-fonts:
+ttf-nerd-fonts: Nerd Fonts patches popular programming fonts with a large set of
+ttf-nerd-fonts: extra glyphs (icons) from Font Awesome, Devicons, Octicons,
+ttf-nerd-fonts: Material Design, Powerline and others.
+ttf-nerd-fonts:
+ttf-nerd-fonts: This package collects the patched font families, in the Nerd Font,
+ttf-nerd-fonts: Nerd Font Mono and Nerd Font Propo variants. A build limited to a
+ttf-nerd-fonts: single family is named after it, e.g. ttf-nerd-fonts-hack.
+ttf-nerd-fonts:
+ttf-nerd-fonts: Homepage: https://www.nerdfonts.com/
