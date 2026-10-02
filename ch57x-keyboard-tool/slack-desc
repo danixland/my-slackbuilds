@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                   |-----handy-ruler------------------------------------------------------|
+ch57x-keyboard-tool: ch57x-keyboard-tool (program CH57x USB macro keypads)
+ch57x-keyboard-tool:
+ch57x-keyboard-tool: Utility to program cheap Chinese USB macro keypads with keys and
+ch57x-keyboard-tool: rotary knobs. Bindings are written in a YAML file and uploaded to
+ch57x-keyboard-tool: the device, which then acts as a plain USB keyboard.
+ch57x-keyboard-tool:
+ch57x-keyboard-tool: Homepage: https://github.com/kriomant/ch57x-keyboard-tool
+ch57x-keyboard-tool:
+ch57x-keyboard-tool:
+ch57x-keyboard-tool:
+ch57x-keyboard-tool:

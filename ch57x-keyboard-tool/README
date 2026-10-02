@@ -1,0 +1,10 @@
+ch57x-keyboard-tool is a utility to program the cheap Chinese USB
+macro keypads with keys and rotary knobs, built on the CH57x chip
+(USB ID 1189:8840, 1189:8842, 1189:8850, 1189:8890).
+
+Key and knob bindings are described in a YAML file and uploaded to the
+device, which then works as a plain USB keyboard with no daemon.
+See /usr/doc/ch57x-keyboard-tool-*/example-mapping.yaml.
+
+A udev rule is installed so the logged-in user can program the keypad
+without root. Replug the device after installing.
