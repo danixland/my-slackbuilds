@@ -228,3 +228,8 @@ source = "github"
 github = "kriomant/ch57x-keyboard-tool"
 use_latest_release = true
 prefix = "v"
+
+[ak820-ctl]
+# no tags or releases upstream, tracks latest commit date (YYYYMMDD.HHMMSS)
+source = "github"
+github = "gohv/EPOMAKER-Ajazz-AK820-Pro"

@@ -1,0 +1,20 @@
+ak820-ctl controls the Ajazz (EPOMAKER) AK820 Pro keyboard on Linux,
+replacing the Windows-only vendor software. It sets the 20 lighting
+modes (color, rainbow, brightness, speed, direction), the sleep timer,
+and syncs the system time to the keyboard's TFT clock.
+
+Two programs are installed: the ak820-ctl command line tool and the
+ak820-gui control panel.
+
+The keyboard must be connected with the USB-C cable (USB ID 0c45:8009),
+the 2.4G dongle and Bluetooth are not supported. A udev rule is
+installed so the logged-in user can control it without root. Replug
+the keyboard after installing.
+
+rc.ak820-lcd runs "ak820-ctl lcd", which shows the time and CPU/GPU
+temperature on the keyboard's screen. It is not enabled by default:
+
+  chmod +x /etc/rc.d/rc.ak820-lcd
+  /etc/rc.d/rc.ak820-lcd start
+
+See the script's header to start it at boot. Errors go to syslog.

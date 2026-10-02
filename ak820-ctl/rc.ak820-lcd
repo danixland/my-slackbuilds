@@ -1,0 +1,57 @@
+#!/bin/sh
+#
+# /etc/rc.d/rc.ak820-lcd: show CPU/GPU temperature and time on the
+# Ajazz AK820 Pro TFT screen.
+#
+# To start at boot, make this script executable and add to /etc/rc.d/rc.local:
+#   [ -x /etc/rc.d/rc.ak820-lcd ] && /etc/rc.d/rc.ak820-lcd start
+# and to /etc/rc.d/rc.local_shutdown:
+#   [ -x /etc/rc.d/rc.ak820-lcd ] && /etc/rc.d/rc.ak820-lcd stop
+
+PIDFILE=/var/run/ak820-lcd.pid
+# Extra options for "ak820-ctl lcd", e.g. "--interval 5 --max-interval 60".
+LCD_OPTS=""
+
+running() {
+  [ -r $PIDFILE ] && kill -0 $(cat $PIDFILE) 2>/dev/null
+}
+
+start() {
+  if running ; then
+    echo "ak820-lcd is already running."
+    return
+  fi
+  echo "Starting ak820-lcd."
+  # ak820-ctl exits when the keyboard is unplugged or the upload fails, so
+  # restart it in a loop. setsid makes the loop a process group leader,
+  # which lets stop() kill the loop and ak820-ctl together. Progress
+  # output goes to /dev/null, errors to syslog.
+  setsid /bin/sh -c "while : ; do
+    /usr/bin/ak820-ctl lcd $LCD_OPTS 2>&1 >/dev/null | /usr/bin/logger -t ak820-lcd
+    sleep 30
+  done" </dev/null >/dev/null 2>&1 &
+  echo $! > $PIDFILE
+}
+
+stop() {
+  if running ; then
+    echo "Stopping ak820-lcd."
+    kill -- -$(cat $PIDFILE)
+  fi
+  rm -f $PIDFILE
+}
+
+case "$1" in
+  start) start ;;
+  stop) stop ;;
+  restart) stop ; sleep 1 ; start ;;
+  status)
+    if running ; then
+      echo "ak820-lcd is running."
+    else
+      echo "ak820-lcd is stopped."
+      exit 1
+    fi
+    ;;
+  *) echo "usage: $0 start|stop|restart|status" ; exit 1 ;;
+esac
