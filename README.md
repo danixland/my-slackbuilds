@@ -34,47 +34,48 @@ Each package lives in its own top-level subfolder:
 | Package | -current | 15.0 | SBo | Version | Latest |
 |---------|----------|------|-----|---------|--------|
 | hstr | ✅ | not tested | ✅ [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.2 | 3.2 |
-| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.159 | 1.0.159 |
-| llama.cpp-vulkan | ✅ | not tested | ❌ | 0.5.0 | 0.5.0 |
+| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.161 | 1.0.161 |
+| llama.cpp-vulkan | ✅ | not tested | ❌ | 0.6.0 | 0.6.0 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
-| opencode-bin | ✅ | not tested | ❌ | 1.18.32 | 1.18.32 |
+| opencode-bin | ✅ | not tested | ❌ | 1.19.0 | 1.19.0 |
+| opencode2-bin | ✅ | not tested | ❌ | 2.0.28 | 2.0.28 |
 | kvantum-qt6 | ✅ | not tested | ❌ | 1.1.8 | 1.1.8 |
 | kvantum-qt5 | ✅ | not tested | ✅ [kvantum-qt5](https://slackbuilds.org/repository/15.0/system/kvantum-qt5/) | 1.1.8 | 1.1.8 |
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
 | mutagen | ✅ | not tested | ✅ [mutagen](https://slackbuilds.org/repository/15.0/development/mutagen/) | 1.48.1 | 1.48.1 |
 | solvespace | ✅ | not tested | ❌ | 3.2 | 3.2 |
-| gamescope | ✅ | not tested | ✅ [gamescope](https://slackbuilds.org/repository/15.0/system/gamescope/) | 3.16.30 | 3.16.30 |
+| gamescope | ✅ | not tested | ✅ [gamescope](https://slackbuilds.org/repository/15.0/system/gamescope/) | 3.16.31 | 3.16.31 |
 | nvchecker | ✅ | not tested | ❌ | 2.22 | 2.22 |
 | python3-structlog | ✅ | not tested | ❌ | 26.1.0 | 26.1.0 |
-| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.11.13 | 4.11.13 |
+| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.13.0 | 4.13.0 |
 | python3-awesomeversion | ✅ | not tested | ❌ | 25.8.0 | 25.8.0 |
 | python3-fsspec | ✅ | not tested | ❌ | 2026.9.0 | 2026.9.0 |
 | python3-packaging | ✅ | not tested | ❌ | 26.3 | 26.3 |
-| python3-huggingface_hub | ✅ | not tested | ❌ | 2.0.0 | 2.0.0 |
+| python3-huggingface_hub | ✅ | not tested | ❌ | 2.2.0 | 2.2.0 |
 | click | ✅ | not tested | ✅ [click](https://slackbuilds.org/repository/15.0/python/click/) | 8.5.0 | 8.5.0 |
-| playwright-cli | ✅ | not tested | ❌ | 0.1.21 | 0.1.21 |
+| playwright-cli | ✅ | not tested | ❌ | 0.1.22 | 0.1.22 |
 | firefly-cli | ✅ | not tested | ❌ | 0.5.0 | 0.5.0 |
 | gitea-cli | ✅ | ✅ | ❌ | 0.16.0 | 0.16.0 |
 | megasync-bin | ✅ | ✅ | ❌ | 6.6.2.0 | 6.6.2.0 |
-| claude-desktop-bin | ✅ | ✅ | ❌ | 2.7032.0 | 2.7032.0 |
+| claude-desktop-bin | ✅ | ✅ | ❌ | 2.31226.1 | 2.31226.1 |
 | hyprsunset-qt | ✅ | not tested | ❌ | 0.1.1 | 0.1.1 |
-| python3-onnxruntime | ✅ | not tested | ❌ | 1.30.0 | 1.30.0 |
+| python3-onnxruntime | ✅ | not tested | ❌ | 1.31.0 | 1.31.0 |
 | python3-dlinfo | ✅ | not tested | ❌ | 2.0.0 | 2.0.0 |
 | python3-phonemizer | ✅ | not tested | ❌ | 3.4.0 | 3.4.0 |
 | python3-kokoro-onnx | ✅ | ❌ | ❌ | 0.6.1 | 0.6.1 |
 | edge-tts | ✅ | not tested | ❌ | 7.2.8 | 7.2.8 |
-| qtmaildir | ✅ | not tested | ❌ | 0.29.0 | 0.29.0 |
+| qtmaildir | ✅ | not tested | ❌ | 0.29.0 | 0.30.0 |
 | typora-bin | ✅ | not tested | ❌ | 1.14.9 | 1.14.10 |
-| quickshell | ✅ | ❌ | ❌ | 0.3.1 | 0.3.1 |
+| quickshell | ✅ | ❌ | ❌ | 0.3.2 | 0.3.2 |
 | pcsx2 | ✅ | not tested | ❌ | 2.8.2 | 2.8.2 |
-| kitty | ✅ | not tested | ✅ [kitty](https://slackbuilds.org/repository/15.0/system/kitty/) | 0.49.1 | 0.49.1 |
-| openvino | ✅ | not tested | ✅ [openvino](https://slackbuilds.org/repository/15.0/libraries/openvino/) | 2026.4.0 | 2026.4.0 |
+| kitty | ✅ | not tested | ✅ [kitty](https://slackbuilds.org/repository/15.0/system/kitty/) | 0.49.2 | 0.49.2 |
+| openvino | ✅ | not tested | ✅ [openvino](https://slackbuilds.org/repository/15.0/libraries/openvino/) | 2026.4.1 | 2026.4.1 |
 | python3-httpcore2 | ✅ | ❌ | ❌ | 2.13.1 | 2.13.1 |
 | python3-httpx2 | ✅ | ❌ | ❌ | 2.13.1 | 2.13.1 |
-| python3-truststore | ✅ | ❌ | ❌ | 0.10.4 | 0.10.4 |
-| slang-bin | ✅ | not tested | ❌ | 2026.18.2 | 2026.18.2 |
-| stable-diffusion.cpp-vulkan | ✅ | not tested | ❌ | 913 | 913 |
-| whisper.cpp | ✅ | ❌ | ✅ [whisper.cpp](https://slackbuilds.org/repository/15.0/development/whisper.cpp/) | 1.9.4 | 1.9.4 |
+| python3-truststore | ✅ | ❌ | ❌ | 0.10.5 | 0.10.5 |
+| slang-bin | ✅ | not tested | ❌ | 2026.19 | 2026.19 |
+| stable-diffusion.cpp-vulkan | ✅ | not tested | ❌ | 959 | 959 |
+| whisper.cpp | ✅ | ❌ | ✅ [whisper.cpp](https://slackbuilds.org/repository/15.0/development/whisper.cpp/) | 1.9.5 | 1.9.5 |
 | ttf-nerd-fonts | ✅ | ✅ | ❌ | 3.5.1 | 3.5.1 |
 | ch57x-keyboard-tool | ✅ | ✅ | ❌ | 1.7.0 | 1.7.0 |
 | ak820-ctl | ✅ | not tested | ❌ | 0.1.0+git20260414 | 0.1.0+git20260414 |
