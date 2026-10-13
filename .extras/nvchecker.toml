@@ -123,6 +123,10 @@ github = "anomalyco/opencode"
 use_latest_release = true
 prefix = "v"
 
+[opencode2-bin]
+source = "npm"
+npm = "@opencode/cli"
+
 [mutagen]
 source = "github"
 github = "quodlibet/mutagen"
