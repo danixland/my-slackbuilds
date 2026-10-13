@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Launch OpenCode 2.0 with its own config and data directories, so it does
+# not read or write the v1 opencode package's ~/.config/opencode and
+# ~/.local/share/opencode. Edit the two paths below to relocate them.
+export XDG_CONFIG_HOME="$HOME/.config/opencode2"
+export XDG_DATA_HOME="$HOME/.local/share/opencode2"
+
+exec /usr/libexec/opencode2/opencode "$@"

@@ -67,7 +67,12 @@ find -L . \
 # commands; this package ships it as `opencode2` so it can coexist with the
 # v1 `opencode-bin` package. No stripping: the binary is bun-generated and
 # stripping renders it unusable.
-install -D -m 0755 package/bin/opencode $PKG/usr/bin/opencode2
+#
+# The real binary goes under /usr/libexec and /usr/bin/opencode2 is a small
+# wrapper that points XDG_CONFIG_HOME/XDG_DATA_HOME at opencode2-specific
+# directories, keeping its config and state out of the v1 opencode folders.
+install -D -m 0755 package/bin/opencode $PKG/usr/libexec/opencode2/opencode
+install -D -m 0755 $CWD/opencode2 $PKG/usr/bin/opencode2
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/README > $PKG/usr/doc/$PRGNAM-$VERSION/README

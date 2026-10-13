@@ -12,12 +12,11 @@ The binary is compiled with Bun and is self-contained (no runtime
 dependencies). The default build targets glibc x86_64 with AVX2. On a
 CPU without AVX2, use the `-baseline` variant instead.
 
-OpenCode v1 and v2 share the same configuration and state directories
-(`~/.config/opencode`, `~/.local/share/opencode`). To test 2.0 without
-touching the v1 state, run it with an isolated XDG environment, e.g.:
-
-  XDG_CONFIG_HOME=~/.config/opencode2 \
-  XDG_DATA_HOME=~/.local/share/opencode2 \
-  opencode2
+OpenCode v1 and v2 would otherwise share the same configuration and
+state directories (`~/.config/opencode`, `~/.local/share/opencode`).
+The `opencode2` command is therefore a wrapper that launches the real
+binary with `XDG_CONFIG_HOME` and `XDG_DATA_HOME` pointed at
+`~/.config/opencode2` and `~/.local/share/opencode2`, keeping 2.0's
+config and state separate from the v1 package.
 
 Homepage: https://opencode.ai
