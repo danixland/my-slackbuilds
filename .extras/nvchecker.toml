@@ -243,3 +243,9 @@ source = "github"
 github = "storytold/photocraft"
 use_latest_release = true
 prefix = "v"
+
+[lightcraft-bin]
+source = "github"
+github = "storytold/lightcraft"
+use_latest_release = true
+prefix = "v"

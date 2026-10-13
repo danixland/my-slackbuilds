@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+              |-----handy-ruler------------------------------------------------------|
+lightcraft-bin: lightcraft-bin (non-destructive raw photo library)
+lightcraft-bin:
+lightcraft-bin: LightCraft is a pure-Rust, non-destructive photo library and
+lightcraft-bin: raw developer (a clean-room Lightroom reimplementation). It
+lightcraft-bin: edits in a scene-referred 32-bit float pipeline, accelerated
+lightcraft-bin: on the GPU via wgpu with a CPU fallback, and keeps a local,
+lightcraft-bin: account-free catalog. It includes lightcraft-cli, the
+lightcraft-bin: headless CLI and MCP server.
+lightcraft-bin:
+lightcraft-bin: Homepage: https://getartcraft.com/apps/lightcraft
+lightcraft-bin:

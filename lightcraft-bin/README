@@ -1,0 +1,18 @@
+LightCraft is an open-source, non-destructive photo library and raw
+developer written in pure Rust: a clean-room reimplementation of the
+Lightroom workflow. It edits through a scene-referred, wide-gamut,
+32-bit float pipeline (GPU-accelerated via wgpu, with a CPU fallback),
+decodes its own raw formats and keeps a local, account-free catalog.
+The package also ships lightcraft-cli, the headless command-line and
+MCP server.
+
+This package repacks the upstream prebuilt x86_64 binary from the
+release tarball. It needs glibc 2.35 or newer, so it targets Slackware
+-current rather than 15.0.
+
+Window-system and GPU libraries (X11/xcb, libxkbcommon, wayland, Vulkan
+or EGL) are loaded at runtime and are all part of a full Slackware
+install. On Wayland, XWayland is used by default; set
+LIGHTCRAFT_WAYLAND=1 for native Wayland.
+
+Upstream marks LightCraft as alpha and moving fast.
