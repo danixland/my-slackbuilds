@@ -1,0 +1,15 @@
+PhotoCraft is an open-source, native image editor written in Rust,
+with familiar professional tools: layers, masks, adjustment layers,
+layer styles, type and brushes. It opens and saves layered PSD/PSB
+files, works on 8/16/32-bit documents and composites on the GPU via
+wgpu. The package also ships photocraft-cli, a headless converter and
+command runner.
+
+This package repacks the upstream prebuilt x86_64 binary. It needs
+glibc 2.35 or newer, so it runs on Slackware -current, not 15.0.
+
+Window-system and GPU libraries (X11/xcb, libxkbcommon, wayland,
+Vulkan or EGL) are loaded at runtime and are all part of a full
+Slackware install.
+
+Upstream marks PhotoCraft as early alpha.

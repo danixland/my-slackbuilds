@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+              |-----handy-ruler------------------------------------------------------|
+photocraft-bin: photocraft-bin (native image editor, written in Rust)
+photocraft-bin:
+photocraft-bin: PhotoCraft is an open-source image editor with layers, masks,
+photocraft-bin: adjustment layers, layer styles, type and brushes. It opens and
+photocraft-bin: saves layered PSD/PSB files, handles 8/16/32-bit documents and
+photocraft-bin: composites on the GPU via wgpu (Vulkan or EGL).
+photocraft-bin: Includes photocraft-cli, a headless converter and command runner.
+photocraft-bin:
+photocraft-bin: This package repacks the upstream x86_64 binary release.
+photocraft-bin:
+photocraft-bin: Homepage: https://getartcraft.com/apps/photocraft

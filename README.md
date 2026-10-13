@@ -78,6 +78,7 @@ Each package lives in its own top-level subfolder:
 | ttf-nerd-fonts | ✅ | ✅ | ❌ | 3.5.1 | 3.5.1 |
 | ch57x-keyboard-tool | ✅ | ✅ | ❌ | 1.7.0 | 1.7.0 |
 | ak820-ctl | ✅ | not tested | ❌ | 0.1.0+git20260414 | 0.1.0+git20260414 |
+| photocraft-bin | ✅ | ❌ | ❌ | 0.8.2 | 0.8.2 |
 
 > **Note on `quickshell`:** Slackware 15.0 ships Qt5 only, so this package is
 > **Slackware64-current only**. It also relies on private Qt APIs and must be
