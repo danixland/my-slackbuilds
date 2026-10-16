@@ -94,6 +94,11 @@ Each package lives in its own top-level subfolder:
 > Qt5 style plugin only (`libkvantum.so`); the kvantummanager GUI and bundled
 > themes come from the `kvantum-qt6` package, which upstream now builds Qt6-only.
 
+> **Note on `opencode-bin` / `opencode2-bin`:** v1 and v2 both install the
+> `opencode` binary and use the same config and state directories
+> (`~/.config/opencode`, `~/.local/share/opencode`), so the two packages
+> conflict; install one or the other, not both.
+
 ---
 
 ## Usage
