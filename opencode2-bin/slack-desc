@@ -11,9 +11,9 @@ opencode2-bin:
 opencode2-bin: OpenCode 2.0 is the next release line of the terminal AI coding
 opencode2-bin: agent, supporting 75+ LLM providers including Claude, OpenAI,
 opencode2-bin: Gemini, GitHub Copilot, and local models via Ollama.
-opencode2-bin: The binary is installed as `opencode2` and is bundled with Bun
-opencode2-bin: as a self-contained executable, so it can coexist with the v1
-opencode2-bin: opencode-bin package.
+opencode2-bin:
+opencode2-bin:
+opencode2-bin:
 opencode2-bin:
 opencode2-bin: Homepage: https://opencode.ai
 opencode2-bin:

@@ -2,21 +2,18 @@ opencode2-bin packages the OpenCode 2.0 release line, an open source AI
 coding agent for the terminal.
 
 This package ships the self-contained binary built by upstream and
-installs it as `opencode2`, so it can coexist with the v1
-`opencode-bin` package (which provides `opencode`). Upstream publishes
-the 2.0 line only to the npm registry as `@opencode/cli-linux-x64`;
-there is no GitHub release tarball for it, so this package repacks
-that npm artifact.
+installs it as `opencode`. Upstream publishes the 2.0 line only to the
+npm registry as `@opencode/cli-linux-x64`; there is no GitHub release
+tarball for it, so this package repacks that npm artifact.
 
 The binary is compiled with Bun and is self-contained (no runtime
 dependencies). The default build targets glibc x86_64 with AVX2. On a
 CPU without AVX2, use the `-baseline` variant instead.
 
-OpenCode v1 and v2 would otherwise share the same configuration and
-state directories (`~/.config/opencode`, `~/.local/share/opencode`).
-The `opencode2` command is therefore a wrapper that launches the real
-binary with `XDG_CONFIG_HOME` and `XDG_DATA_HOME` pointed at
-`~/.config/opencode2` and `~/.local/share/opencode2`, keeping 2.0's
-config and state separate from the v1 package.
+OpenCode v1 and v2 use the same configuration and state directories
+(`~/.config/opencode`, `~/.local/share/opencode`), and both the v1
+`opencode-bin` package and this one install the binary as `opencode`.
+The two packages therefore conflict; install one or the other, not both,
+and back up your configuration before switching versions.
 
 Homepage: https://opencode.ai

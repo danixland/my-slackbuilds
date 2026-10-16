@@ -63,16 +63,10 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 # The npm tarball ships one self-contained bun-compiled binary under
-# bin/opencode. Upstream exposes it as both the `opencode` and `opencode2`
-# commands; this package ships it as `opencode2` so it can coexist with the
-# v1 `opencode-bin` package. No stripping: the binary is bun-generated and
+# bin/opencode. Upstream exposes it as `opencode`; this package ships it
+# under the same name. No stripping: the binary is bun-generated and
 # stripping renders it unusable.
-#
-# The real binary goes under /usr/libexec and /usr/bin/opencode2 is a small
-# wrapper that points XDG_CONFIG_HOME/XDG_DATA_HOME at opencode2-specific
-# directories, keeping its config and state out of the v1 opencode folders.
-install -D -m 0755 package/bin/opencode $PKG/usr/libexec/opencode2/opencode
-install -D -m 0755 $CWD/opencode2 $PKG/usr/bin/opencode2
+install -D -m 0755 package/bin/opencode $PKG/usr/bin/opencode
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/README > $PKG/usr/doc/$PRGNAM-$VERSION/README
