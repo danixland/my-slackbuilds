@@ -81,6 +81,7 @@ Each package lives in its own top-level subfolder:
 | ak820-ctl | ✅ | not tested | ❌ | 0.1.0+git20260414 | 0.1.0+git20260414 |
 | photocraft-bin | ✅ | ❌ | ❌ | 0.8.2 | 0.8.2 |
 | lightcraft-bin | ✅ | ❌ | ❌ | 0.7.1 | 0.7.1 |
+| android-tools | ✅ | ❌ | ✅ [android-tools](https://slackbuilds.org/repository/15.0/development/android-tools/) | 37.0.0 | 37.0.0p1 |
 
 > **Note on `quickshell`:** Slackware 15.0 ships Qt5 only, so this package is
 > **Slackware64-current only**. It also relies on private Qt APIs and must be

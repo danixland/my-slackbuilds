@@ -249,3 +249,8 @@ source = "github"
 github = "storytold/lightcraft"
 use_latest_release = true
 prefix = "v"
+
+[android-tools]
+source = "github"
+github = "nmeum/android-tools"
+use_latest_release = true
