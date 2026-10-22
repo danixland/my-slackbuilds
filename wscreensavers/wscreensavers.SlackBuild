@@ -82,6 +82,10 @@ find -L . \
 # Upstream's "make build" runs "npm install"; call vite directly instead.
 ( cd frontend && npm_config_offline=true npm run build )
 
+# /usr/bin/go is gccgo (too old for go.mod); google-go-lang puts the real
+# toolchain first in PATH only via profile.d, which build shells skip.
+. /etc/profile.d/go.sh
+
 # Fully offline: vendored modules only, no proxy, no toolchain download.
 export GOPATH="$(pwd)/.gocache"
 export GOPROXY=off
