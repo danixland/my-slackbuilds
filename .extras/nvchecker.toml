@@ -254,3 +254,9 @@ prefix = "v"
 source = "github"
 github = "nmeum/android-tools"
 use_latest_release = true
+
+[wscreensavers]
+source = "github"
+github = "chrisfair/wscreensavers"
+use_latest_release = true
+prefix = "v"

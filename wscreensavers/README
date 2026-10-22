@@ -1,0 +1,27 @@
+WScreenSavers is a native Wayland screensaver, lock screen and live
+wallpaper suite. It ships 23 WebGL/Canvas savers, runs the stock
+XScreenSaver hacks through Xvfb, locks the screen with PAM (or hands
+off to hyprlock/swaylock) and can run any saver as an animated
+wallpaper on wlroots compositors (Hyprland, Sway, River, Wayfire) and
+KDE.
+
+This SlackBuild targets Slackware -current, which ships Go, nodejs,
+gtk-layer-shell, PAM, xscreensaver and Xvfb. It builds offline from a
+vendor tarball holding the Go modules and the frontend's npm packages,
+so it is x86_64 only.
+
+Upstream ships a systemd user unit, which is not installed. Start the
+idle daemon from your compositor's autostart, e.g. in Hyprland:
+
+  exec-once = WEBKIT_DISABLE_DMABUF_RENDERER=1 wscreensavers --daemon
+
+Optional: wlr-randr (multi-monitor detection on wlroots), hyprlock or
+swaylock (external lock providers), rss-glx (more 3D savers).
+
+Upstream shows a support reminder at startup. Delete
+/usr/share/wscreensavers/nag to disable it; package upgrades restore
+it.
+
+The Noctalia plugin sources are installed to
+/usr/share/wscreensavers/noctalia-plugins/wscreensavers. Copy that
+directory to ~/.config/noctalia/plugins/ to use it.
