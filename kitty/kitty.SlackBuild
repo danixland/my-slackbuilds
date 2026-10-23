@@ -8,6 +8,8 @@
 
 # Licensed under the WTFPL. See http://www.wtfpl.net/txt/copying/ for details.
 
+# 20261023 danix: source /etc/profile.d/go.sh so the build uses
+#                 google-go-lang instead of gcc-go's gccgo /usr/bin/go.
 # 20260922 danix: update for v0.49.0, fetch sources from upstream GitHub
 #                 releases, drop librsync from REQUIRES (upstream now uses
 #                 its own rsync implementation with libxxhash, which ships
@@ -76,6 +78,10 @@ find -L .  -perm /111 -a \! -perm 755 -a -exec chmod 755 {} \+ -o \
 # choices have -O2.
 
 sed -i 's,-O3,-O2,g' setup.py
+
+# gcc-go installs a gccgo /usr/bin/go (go1.18) that can't parse kitty's
+# go.mod; google-go-lang's profile script puts the real toolchain first.
+[ -r /etc/profile.d/go.sh ] && . /etc/profile.d/go.sh
 
 # The -Wl,-s makes the linker strip the binaries.
 # --ignore-compiler-warnings is needed to turn off -Werror.
