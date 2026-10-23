@@ -34,54 +34,53 @@ Each package lives in its own top-level subfolder:
 | Package | -current | 15.0 | SBo | Version | Latest |
 |---------|----------|------|-----|---------|--------|
 | hstr | ✅ | not tested | ✅ [hstr](https://slackbuilds.org/repository/15.0/system/hstr/) | 3.2 | 3.2 |
-| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.161 | 1.0.161 |
-| llama.cpp-vulkan | ✅ | not tested | ❌ | 0.6.0 | 0.6.0 |
+| discord | ✅ | not tested | ✅ [discord](https://slackbuilds.org/repository/15.0/network/discord/) | 1.0.166 | 1.0.166 |
+| llama.cpp-vulkan | ✅ | not tested | ❌ | 0.7.0 | 0.7.0 |
 | qarma | ✅ | not tested | ❌ | 1.1.1 | 1.1.1 |
-| opencode-bin | ✅ | not tested | ❌ | 1.19.0 | 1.19.0 |
-| opencode2-bin | ✅ | not tested | ❌ | 2.0.28 | 2.0.28 |
+| opencode2-bin | ✅ | not tested | ❌ | 2.1.3 | 2.1.3 |
 | kvantum-qt6 | ✅ | not tested | ❌ | 1.1.8 | 1.1.8 |
 | kvantum-qt5 | ✅ | not tested | ✅ [kvantum-qt5](https://slackbuilds.org/repository/15.0/system/kvantum-qt5/) | 1.1.8 | 1.1.8 |
 | gitleaks | ✅ | not tested | ❌ | 8.30.1 | 8.30.1 |
 | mutagen | ✅ | not tested | ✅ [mutagen](https://slackbuilds.org/repository/15.0/development/mutagen/) | 1.48.1 | 1.48.1 |
-| solvespace | ✅ | not tested | ❌ | 3.2 | 3.2 |
+| solvespace | ✅ | not tested | ❌ | 3.3 | 3.3 |
 | gamescope | ✅ | not tested | ✅ [gamescope](https://slackbuilds.org/repository/15.0/system/gamescope/) | 3.16.31 | 3.16.31 |
 | nvchecker | ✅ | not tested | ❌ | 2.22 | 2.22 |
 | python3-structlog | ✅ | not tested | ❌ | 26.1.0 | 26.1.0 |
-| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.13.0 | 4.13.0 |
+| python3-platformdirs | ✅ | not tested | ✅ [python3-platformdirs](https://slackbuilds.org/repository/15.0/python/python3-platformdirs/) | 4.13.5 | 4.13.5 |
 | python3-awesomeversion | ✅ | not tested | ❌ | 25.8.0 | 25.8.0 |
 | python3-fsspec | ✅ | not tested | ❌ | 2026.9.0 | 2026.9.0 |
 | python3-packaging | ✅ | not tested | ❌ | 26.3 | 26.3 |
 | python3-huggingface_hub | ✅ | not tested | ❌ | 2.2.0 | 2.2.0 |
 | click | ✅ | not tested | ✅ [click](https://slackbuilds.org/repository/15.0/python/click/) | 8.5.0 | 8.5.0 |
 | playwright-cli | ✅ | not tested | ❌ | 0.1.22 | 0.1.22 |
-| firefly-cli | ✅ | not tested | ❌ | 0.5.0 | 0.5.0 |
+| firefly-cli | ✅ | not tested | ❌ | 0.6.0 | 0.6.0 |
 | gitea-cli | ✅ | ✅ | ❌ | 0.16.0 | 0.16.0 |
 | megasync-bin | ✅ | ✅ | ❌ | 6.6.2.0 | 6.6.2.0 |
-| claude-desktop-bin | ✅ | ✅ | ❌ | 2.31226.1 | 2.31226.1 |
+| claude-desktop-bin | ✅ | ✅ | ❌ | 3.6556.2 | 3.6556.2 |
 | hyprsunset-qt | ✅ | not tested | ❌ | 0.1.1 | 0.1.1 |
 | python3-onnxruntime | ✅ | not tested | ❌ | 1.31.0 | 1.31.0 |
 | python3-dlinfo | ✅ | not tested | ❌ | 2.0.0 | 2.0.0 |
 | python3-phonemizer | ✅ | not tested | ❌ | 3.4.0 | 3.4.0 |
 | python3-kokoro-onnx | ✅ | ❌ | ❌ | 0.6.1 | 0.6.1 |
-| edge-tts | ✅ | not tested | ❌ | 7.2.8 | 7.2.8 |
+| edge-tts | ✅ | not tested | ❌ | 7.3.1 | 7.3.1 |
 | qtmaildir | ✅ | not tested | ❌ | 0.29.0 | 0.30.0 |
 | typora-bin | ✅ | not tested | ❌ | 1.14.9 | 1.14.10 |
 | quickshell | ✅ | ❌ | ❌ | 0.3.2 | 0.3.2 |
 | pcsx2 | ✅ | not tested | ❌ | 2.8.2 | 2.8.2 |
 | kitty | ✅ | not tested | ✅ [kitty](https://slackbuilds.org/repository/15.0/system/kitty/) | 0.49.2 | 0.49.2 |
 | openvino | ✅ | not tested | ✅ [openvino](https://slackbuilds.org/repository/15.0/libraries/openvino/) | 2026.4.1 | 2026.4.1 |
-| python3-httpcore2 | ✅ | ❌ | ❌ | 2.13.1 | 2.13.1 |
-| python3-httpx2 | ✅ | ❌ | ❌ | 2.13.1 | 2.13.1 |
+| python3-httpcore2 | ✅ | ❌ | ❌ | 2.16.0 | 2.16.0 |
+| python3-httpx2 | ✅ | ❌ | ❌ | 2.16.0 | 2.16.0 |
 | python3-truststore | ✅ | ❌ | ❌ | 0.10.5 | 0.10.5 |
-| slang-bin | ✅ | not tested | ❌ | 2026.19 | 2026.19 |
-| stable-diffusion.cpp-vulkan | ✅ | not tested | ❌ | 959 | 959 |
+| slang-bin | ✅ | not tested | ❌ | 2026.20 | 2026.20 |
+| stable-diffusion.cpp-vulkan | ✅ | not tested | ❌ | 995 | 995 |
 | whisper.cpp | ✅ | ❌ | ✅ [whisper.cpp](https://slackbuilds.org/repository/15.0/development/whisper.cpp/) | 1.9.5 | 1.9.5 |
 | ttf-nerd-fonts | ✅ | ✅ | ❌ | 3.5.1 | 3.5.1 |
 | ch57x-keyboard-tool | ✅ | ✅ | ❌ | 1.7.0 | 1.7.0 |
 | ak820-ctl | ✅ | not tested | ❌ | 0.1.0+git20260414 | 0.1.0+git20260414 |
-| photocraft-bin | ✅ | ❌ | ❌ | 0.8.2 | 0.8.2 |
-| lightcraft-bin | ✅ | ❌ | ❌ | 0.7.1 | 0.7.1 |
-| android-tools | ✅ | ❌ | ✅ [android-tools](https://slackbuilds.org/repository/15.0/development/android-tools/) | 37.0.0 | 37.0.0p1 |
+| photocraft-bin | ✅ | ❌ | ❌ | 0.14.0 | 0.14.0 |
+| lightcraft-bin | ✅ | ❌ | ❌ | 0.13.0 | 0.13.0 |
+| android-tools | ✅ | ❌ | ✅ [android-tools](https://slackbuilds.org/repository/15.0/development/android-tools/) | 37.0.0p1 | 37.0.0p1 |
 
 > **Note on `quickshell`:** Slackware 15.0 ships Qt5 only, so this package is
 > **Slackware64-current only**. It also relies on private Qt APIs and must be
@@ -94,11 +93,6 @@ Each package lives in its own top-level subfolder:
 > upstream (1.1.2 vs 1.1.8), so this repo ships an updated build. It provides the
 > Qt5 style plugin only (`libkvantum.so`); the kvantummanager GUI and bundled
 > themes come from the `kvantum-qt6` package, which upstream now builds Qt6-only.
-
-> **Note on `opencode-bin` / `opencode2-bin`:** v1 and v2 both install the
-> `opencode` binary and use the same config and state directories
-> (`~/.config/opencode`, `~/.local/share/opencode`), so the two packages
-> conflict; install one or the other, not both.
 
 ---
 
