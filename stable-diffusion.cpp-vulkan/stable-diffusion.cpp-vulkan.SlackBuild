@@ -26,16 +26,16 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=stable-diffusion.cpp-vulkan
 SRCNAM=stable-diffusion.cpp
-VERSION=${VERSION:-959}
+VERSION=${VERSION:-995}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
 
 # Upstream tags are master-<build>-<shortcommit>; the submodules are pinned
 # by the commits recorded in the tagged tree. Bump all three together.
-COMMIT=${COMMIT:-d637cfb}
-GGMLCOMMIT=${GGMLCOMMIT:-d25b121ce1d6ae0c7e62ad080460d9fc1e46dd93}
-WEBUICOMMIT=${WEBUICOMMIT:-8e7c11505925c0dbf9aaea56a3a5058b8690d66b}
+COMMIT=${COMMIT:-fd21ecf}
+GGMLCOMMIT=${GGMLCOMMIT:-c1f80e507db1d0ce49f3bf7f81bc79246d7a2611}
+WEBUICOMMIT=${WEBUICOMMIT:-34e5ad6edcaf827b7fe1e9ffa55ee86cd2fc43d2}
 SRCVER=master-$VERSION-$COMMIT
 
 if [ -z "$ARCH" ]; then
