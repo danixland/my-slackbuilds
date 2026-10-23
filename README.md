@@ -81,6 +81,7 @@ Each package lives in its own top-level subfolder:
 | photocraft-bin | ✅ | ❌ | ❌ | 0.14.0 | 0.14.0 |
 | lightcraft-bin | ✅ | ❌ | ❌ | 0.13.0 | 0.13.0 |
 | android-tools | ✅ | ❌ | ✅ [android-tools](https://slackbuilds.org/repository/15.0/development/android-tools/) | 37.0.0p1 | 37.0.0p1 |
+| wscreensavers | ✅ | ❌ | ❌ | 1.0.25 | 1.0.25 |
 
 > **Note on `quickshell`:** Slackware 15.0 ships Qt5 only, so this package is
 > **Slackware64-current only**. It also relies on private Qt APIs and must be
