@@ -295,9 +295,12 @@ trusting them, since upstream tooling fixes can retire a false positive.
   package in this repo. This is not an override case; do NOT add a `drop:`
   rule. Check REQUIRES against the repo's own dirs before building.
 
-### opencode-bin: sbodl verifies a stale cached file
+### opencode-bin: sbodl verifies a stale cached file (RETIRED)
 
 - Found: 2026-08-20
+- Retired: 2026-10-23, opencode-bin was dropped for opencode2-bin, whose
+  npm tarball (`cli-linux-x64-<ver>.tgz`) carries the version in its name.
+  Kept for any future source with a versionless filename.
 - Symptom: after bumping the version, `sbodl` reports an md5 identical to
   the previous release, or a `matches OK` for a tarball that must have
   changed.
@@ -312,9 +315,9 @@ trusting them, since upstream tooling fixes can retire a false positive.
   for every `sbodl` call. If `-f` is not available, delete the entry under
   `~/sbodl-cache/` and re-run plain `sbodl`.
 
-### opencode-bin: do not strip the bun binary
+### opencode2-bin: do not strip the bun binary
 
-- Found: 2026-08-25
+- Found: 2026-08-25 (opencode-bin), confirmed 2026-10-23 on opencode2-bin
 - Symptom: `sbopkglint` 20-arch fails with "ELF object(s) not stripped" on
   `usr/bin/opencode`.
 - Cause: the binary is bun-generated; stripping breaks it at runtime. The
