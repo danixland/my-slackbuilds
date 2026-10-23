@@ -315,6 +315,17 @@ trusting them, since upstream tooling fixes can retire a false positive.
   for every `sbodl` call. If `-f` is not available, delete the entry under
   `~/sbodl-cache/` and re-run plain `sbodl`.
 
+### Go builds: gcc-go shadows the real go toolchain
+
+- Found: 2026-10-23 (kitty 0.49.2)
+- Symptom: build fails at a `go` call with `go.mod: invalid go version
+  '1.26.0': must match format 1.23` and `unknown directive: toolchain`.
+- Cause: on -current, `gcc-go` installs `/usr/bin/go` (gccgo, reports
+  go1.18). `google-go-lang` lives in `/usr/lib64/go<ver>/` and reaches
+  `PATH` only via `/etc/profile.d/go.sh`, which slackrepo does not source.
+- Action: any SlackBuild that runs `go` sources the profile script before
+  building: `[ -r /etc/profile.d/go.sh ] && . /etc/profile.d/go.sh`.
+
 ### opencode2-bin: do not strip the bun binary
 
 - Found: 2026-08-25 (opencode-bin), confirmed 2026-10-23 on opencode2-bin
