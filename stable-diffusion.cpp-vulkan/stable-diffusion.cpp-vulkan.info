@@ -1,11 +1,11 @@
 PRGNAM="stable-diffusion.cpp-vulkan"
-VERSION="995"
+VERSION="1039"
 HOMEPAGE="https://github.com/leejet/stable-diffusion.cpp"
 DOWNLOAD="UNSUPPORTED"
 MD5SUM=""
-DOWNLOAD_x86_64="https://github.com/leejet/stable-diffusion.cpp/archive/master-995-fd21ecf/stable-diffusion.cpp-master-995-fd21ecf.tar.gz \
-                 https://github.com/leejet/ggml/archive/c1f80e507db1d0ce49f3bf7f81bc79246d7a2611/ggml-c1f80e507db1d0ce49f3bf7f81bc79246d7a2611.tar.gz \
-                 https://github.com/leejet/sdcpp-webui/archive/34e5ad6edcaf827b7fe1e9ffa55ee86cd2fc43d2/sdcpp-webui-34e5ad6edcaf827b7fe1e9ffa55ee86cd2fc43d2.tar.gz \
+DOWNLOAD_x86_64="https://github.com/leejet/stable-diffusion.cpp/archive/master-1039-290148d/stable-diffusion.cpp-master-1039-290148d.tar.gz \
+                 https://github.com/leejet/ggml/archive/d49c49e1dd361ba3c0a77c90b5b1404b83969aa8/ggml-d49c49e1dd361ba3c0a77c90b5b1404b83969aa8.tar.gz \
+                 https://github.com/leejet/sdcpp-webui/archive/fa93429c47c924054e6a9c14f8d7b8e06f57a0ec/sdcpp-webui-fa93429c47c924054e6a9c14f8d7b8e06f57a0ec.tar.gz \
                  https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.27.1.tgz \
                  https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.28.5.tgz \
                  https://registry.npmjs.org/@babel/parser/-/parser-7.29.2.tgz \
@@ -47,9 +47,9 @@ DOWNLOAD_x86_64="https://github.com/leejet/stable-diffusion.cpp/archive/master-9
                  https://registry.npmjs.org/vite-plugin-singlefile/-/vite-plugin-singlefile-1.0.0.tgz \
                  https://registry.npmjs.org/vite/-/vite-3.2.11.tgz \
                  https://registry.npmjs.org/vue/-/vue-3.5.32.tgz"
-MD5SUM_x86_64="8998cc7fd380f093e8c4afbafc12e3c3 \
-                056c33504daf2e202f67a01d199561ac \
-                24a386b0a7df9f42580a1a2d13ed2562 \
+MD5SUM_x86_64="63d996035e142c1238500c1b18ed8947 \
+                a870a62d4c0b34197c1c8db2a7d4a83f \
+                34ecfc17f0c59bab49425261ffc6cbd5 \
                4d4a1fff618c8d6cc5aefb31f090d151 \
                d36689646694f29ef27792eb42b1f583 \
                6ad8a1e754e846b63de33440f5ad69fd \
