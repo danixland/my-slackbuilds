@@ -1,10 +1,10 @@
 PRGNAM="megasync-bin"
-VERSION="6.6.2.0"
+VERSION="6.7.0.3"
 HOMEPAGE="https://mega.io/desktop"
 DOWNLOAD="https://mega.nz/linux/repo/Debian_13/amd64/megasync-Debian_13_amd64.deb \
           https://mega.nz/linux/repo/Debian_13/amd64/dolphin-megasync-Debian_13_amd64.deb \
           https://mega.nz/linux/repo/Debian_13/amd64/thunar-megasync-Debian_13_amd64.deb"
-MD5SUM="3c3c8cf64419a345f7e21d4397096dc1 \
+MD5SUM="ac4e5a6a026792db04e7a49325413442 \
         0917cb242b0f388f1ab01f6d44b76891 \
         5270041c4b5b23990d522390fafa551e"
 DOWNLOAD_x86_64=""
