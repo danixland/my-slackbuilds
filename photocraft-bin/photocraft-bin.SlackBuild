@@ -26,7 +26,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=photocraft-bin
 SRCNAM=photocraft
-VERSION=${VERSION:-0.14.0}
+VERSION=${VERSION:-0.19.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -62,6 +62,16 @@ find -L . \
   -o -perm 511 \) -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+
+# Since 0.19.0 upstream ships man pages under share/man (the FHS location);
+# Slackware keeps them under /usr/man, gzipped.
+if [ -d share/man/man1 ]; then
+  mkdir -p $PKG/usr/man/man1
+  for m in share/man/man1/*; do
+    gzip -c9 "$m" > "$PKG/usr/man/man1/$(basename "$m").gz"
+  done
+  rm -rf share/man
+fi
 
 # Upstream ships an FHS tree (bin/, share/) with already-stripped binaries.
 mkdir -p $PKG/usr
