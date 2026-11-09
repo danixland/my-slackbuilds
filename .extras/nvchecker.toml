@@ -260,3 +260,9 @@ source = "github"
 github = "any1/aml"
 use_latest_release = true
 prefix = "v"
+
+[neatvnc]
+source = "github"
+github = "any1/neatvnc"
+use_latest_release = true
+prefix = "v"

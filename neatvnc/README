@@ -1,0 +1,23 @@
+neatvnc is a VNC server library implementing the RFB protocol. It
+supports raw, ZRLE, and Tight encodings, TLS and VeNCrypt auth,
+websocket transport, and optional H.264 encoding. It is used by wayvnc.
+
+This package installs the shared library, headers, and pkg-config file
+required to build wayvnc.
+
+Requirements (all part of the Slackware base system):
+  - meson
+  - ninja
+  - pixman
+  - zlib
+  - libdrm
+  - gnutls (TLS)
+  - nettle (crypto and websocket support)
+  - libjpeg-turbo (JPEG)
+  - gbm (dmabuf)
+
+Optional:
+  - ffmpeg enables H.264 encoding via libavcodec/libavfilter.
+
+SBo dependencies:
+  - aml
