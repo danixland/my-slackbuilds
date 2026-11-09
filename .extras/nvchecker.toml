@@ -254,3 +254,9 @@ source = "github"
 github = "chrisfair/wscreensavers"
 use_max_tag = true
 prefix = "v"
+
+[aml]
+source = "github"
+github = "any1/aml"
+use_latest_release = true
+prefix = "v"

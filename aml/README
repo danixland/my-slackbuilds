@@ -1,0 +1,13 @@
+aml is a small event loop and thread pool library for C. It provides a
+uniform event loop interface over epoll (Linux) and kqueue (BSD),
+timers, and a thread pool. It is a dependency of neatvnc and wayvnc.
+
+This package installs the shared library, headers, and pkg-config file
+(aml1.pc), required to build neatvnc and wayvnc.
+
+Requirements (all part of the Slackware base system):
+  - meson
+  - ninja
+
+SBo dependencies:
+  - none

@@ -82,6 +82,7 @@ Each package lives in its own top-level subfolder:
 | lightcraft-bin | ✅ | ❌ | ❌ | 0.13.0 | 0.13.0 |
 | android-tools | ✅ | ❌ | ✅ [android-tools](https://slackbuilds.org/repository/15.0/development/android-tools/) | 37.0.0p1 | 37.0.0p1 |
 | wscreensavers | ✅ | ❌ | ❌ | 1.0.25 | 1.0.25 |
+| aml | ✅ | ❌ | ✅ [aml](https://slackbuilds.org/repository/15.0/libraries/aml/) | 1.0.0 | 1.0.0 |
 
 > **Note on `quickshell`:** Slackware 15.0 ships Qt5 only, so this package is
 > **Slackware64-current only**. It also relies on private Qt APIs and must be
