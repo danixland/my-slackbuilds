@@ -1,0 +1,23 @@
+wayvnc is a VNC server for wlroots-based Wayland compositors. It
+attaches to a running Wayland session, creates virtual input devices,
+and exposes a display (or multiple outputs) over the RFB protocol.
+
+It supports screencopy, GPU-side dmabuf capture, TLS/VeNCrypt (via
+neatvnc), PAM authentication, and a control socket (wayvncctl) for
+runtime configuration.
+
+Requirements (all part of the Slackware base system):
+  - meson
+  - ninja
+  - pixman
+  - libdrm
+  - gbm
+  - libxkbcommon
+  - wayland
+  - jansson
+  - Linux-PAM
+  - scdoc (man pages)
+
+SBo dependencies:
+  - aml
+  - neatvnc

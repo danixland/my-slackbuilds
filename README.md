@@ -84,6 +84,7 @@ Each package lives in its own top-level subfolder:
 | wscreensavers | ✅ | ❌ | ❌ | 1.0.25 | 1.0.25 |
 | aml | ✅ | ❌ | ✅ [aml](https://slackbuilds.org/repository/15.0/libraries/aml/) | 1.0.0 | 1.0.0 |
 | neatvnc | ✅ | ❌ | ❌ | 1.0.4 | 1.0.4 |
+| wayvnc | ✅ | ❌ | ❌ | 0.10.2 | 0.10.2 |
 
 > **Note on `quickshell`:** Slackware 15.0 ships Qt5 only, so this package is
 > **Slackware64-current only**. It also relies on private Qt APIs and must be

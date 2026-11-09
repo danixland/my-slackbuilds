@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+      |-----handy-ruler------------------------------------------------------|
+wayvnc: wayvnc (VNC server for wlroots-based Wayland compositors)
+wayvnc:
+wayvnc: wayvnc is a VNC server for wlroots-based Wayland compositors. It
+wayvnc: attaches to a running Wayland session, creates virtual input devices,
+wayvnc: and exposes a display via the RFB (VNC) protocol.
+wayvnc:
+wayvnc: It supports screencopy, GPU-side dmabuf capture, multiple outputs,
+wayvnc: TLS/VeNCrypt via neatvnc, PAM authentication, and a control socket
+wayvnc: (wayvncctl) for runtime configuration.
+wayvnc: Homepage: https://github.com/any1/wayvnc
+wayvnc:
