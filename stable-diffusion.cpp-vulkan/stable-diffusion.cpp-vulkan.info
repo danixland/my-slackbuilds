@@ -1,11 +1,11 @@
 PRGNAM="stable-diffusion.cpp-vulkan"
-VERSION="1039"
+VERSION="1086"
 HOMEPAGE="https://github.com/leejet/stable-diffusion.cpp"
 DOWNLOAD="UNSUPPORTED"
 MD5SUM=""
-DOWNLOAD_x86_64="https://github.com/leejet/stable-diffusion.cpp/archive/master-1039-290148d/stable-diffusion.cpp-master-1039-290148d.tar.gz \
-                 https://github.com/leejet/ggml/archive/d49c49e1dd361ba3c0a77c90b5b1404b83969aa8/ggml-d49c49e1dd361ba3c0a77c90b5b1404b83969aa8.tar.gz \
-                 https://github.com/leejet/sdcpp-webui/archive/fa93429c47c924054e6a9c14f8d7b8e06f57a0ec/sdcpp-webui-fa93429c47c924054e6a9c14f8d7b8e06f57a0ec.tar.gz \
+DOWNLOAD_x86_64="https://github.com/leejet/stable-diffusion.cpp/archive/master-1086-465adf3/stable-diffusion.cpp-master-1086-465adf3.tar.gz \
+                 https://github.com/leejet/ggml/archive/d803c238f67915fb825a9aa4df27b99356d51597/ggml-d803c238f67915fb825a9aa4df27b99356d51597.tar.gz \
+                 https://github.com/leejet/sdcpp-webui/archive/b07665f893047e7b633bbdb69d97c3a9c594076e/sdcpp-webui-b07665f893047e7b633bbdb69d97c3a9c594076e.tar.gz \
                  https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.27.1.tgz \
                  https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.28.5.tgz \
                  https://registry.npmjs.org/@babel/parser/-/parser-7.29.2.tgz \
@@ -47,50 +47,50 @@ DOWNLOAD_x86_64="https://github.com/leejet/stable-diffusion.cpp/archive/master-1
                  https://registry.npmjs.org/vite-plugin-singlefile/-/vite-plugin-singlefile-1.0.0.tgz \
                  https://registry.npmjs.org/vite/-/vite-3.2.11.tgz \
                  https://registry.npmjs.org/vue/-/vue-3.5.32.tgz"
-MD5SUM_x86_64="63d996035e142c1238500c1b18ed8947 \
-                a870a62d4c0b34197c1c8db2a7d4a83f \
-                34ecfc17f0c59bab49425261ffc6cbd5 \
-               4d4a1fff618c8d6cc5aefb31f090d151 \
-               d36689646694f29ef27792eb42b1f583 \
-               6ad8a1e754e846b63de33440f5ad69fd \
-               d37732e99006d1d24b012bd8d1b7eea6 \
-               0e46547217a6807cc971532d09606c28 \
-               c9d39223251774a3556f2e7bb41f5bfe \
-               242db9c01c99843204cfee695c7c979d \
-               028f9fefef9632c3326c698b7548d7b5 \
-               b1df30ff84c17f058759e8d896a13145 \
-               b32f5a41bcdab16e7e0a4791857c03af \
-               2b8ed2bce23eca18edfe701518745671 \
-               dfbf6cc0e5c93f135e0cdeb9e40ff5da \
-               208c46bd6308f82a15aa301ff720fdf5 \
-               888cffc841b2a1d5f5521e7bea7c0b16 \
-               4d5d7f28aac126d1f26a7f43a3af7496 \
-               c7fea9f379e44493acba77efbb5970d1 \
-               219b0dee6abf5371b92d0da636cb1b40 \
-               2018cc16cef953975122254efd536843 \
-               42f1f975f58428d48c2f6fa4856a576a \
-               062d5fb976c4f96ffee14de68f64ecbc \
-               a4c67d1faaa51dae15afc83b35a58dde \
-               be9d65a11c59c7e03a8ea4d6e1da1a13 \
-               71457923fbca6a1141f3dd325cdb7d21 \
-               1795dc53760264efe2c2bec1ae704cb8 \
-               d1052fc21993eb9efa6073cd0058a756 \
-               6c6e00114e00c2815fc0aeae3da1af23 \
-               ef852ba8ac71afc46c1b8144bcc51b9e \
-               b6c17c9018638e132921ab316c8510f5 \
-               86d68eca1df8f58a16831e05e968eecc \
-               0eb085db2ac7a62ab20dca9405fef1b0 \
-               b79eaf982d121edc4d16e7f48e2ab920 \
-               53e3353722fc7057af3d31fe0c122e51 \
-               2324e4817c01a1842bd8d78bfea75741 \
-               3813e1d738392156dad04f06d546c0f3 \
-               80b299632b8eddeb88212edcf2d22d3d \
-               d6563249cc67440c65aafc997c015ef0 \
-               2ecf7c03c814ab155c5278d61f65583f \
-               5ef0a1bd28f353c14bf940103a879257 \
-               50f1e684ac0195a0af4060e3831837ba \
-               bf5116434adcbaf3c32f7ecfc5bd5f82 \
-               0d83cf9441e62718ab9e4e9a584f9ae5"
+MD5SUM_x86_64="24ebfd349057c170076578410273f0d4 \
+                b35e931424b139ee8d0a0d3c3fe4a9a2 \
+                b499597ac574426ee01d7eba3aa45634 \
+                4d4a1fff618c8d6cc5aefb31f090d151 \
+                d36689646694f29ef27792eb42b1f583 \
+                6ad8a1e754e846b63de33440f5ad69fd \
+                d37732e99006d1d24b012bd8d1b7eea6 \
+                0e46547217a6807cc971532d09606c28 \
+                c9d39223251774a3556f2e7bb41f5bfe \
+                242db9c01c99843204cfee695c7c979d \
+                028f9fefef9632c3326c698b7548d7b5 \
+                b1df30ff84c17f058759e8d896a13145 \
+                b32f5a41bcdab16e7e0a4791857c03af \
+                2b8ed2bce23eca18edfe701518745671 \
+                dfbf6cc0e5c93f135e0cdeb9e40ff5da \
+                208c46bd6308f82a15aa301ff720fdf5 \
+                888cffc841b2a1d5f5521e7bea7c0b16 \
+                4d5d7f28aac126d1f26a7f43a3af7496 \
+                c7fea9f379e44493acba77efbb5970d1 \
+                219b0dee6abf5371b92d0da636cb1b40 \
+                2018cc16cef953975122254efd536843 \
+                42f1f975f58428d48c2f6fa4856a576a \
+                062d5fb976c4f96ffee14de68f64ecbc \
+                a4c67d1faaa51dae15afc83b35a58dde \
+                be9d65a11c59c7e03a8ea4d6e1da1a13 \
+                71457923fbca6a1141f3dd325cdb7d21 \
+                1795dc53760264efe2c2bec1ae704cb8 \
+                d1052fc21993eb9efa6073cd0058a756 \
+                6c6e00114e00c2815fc0aeae3da1af23 \
+                ef852ba8ac71afc46c1b8144bcc51b9e \
+                b6c17c9018638e132921ab316c8510f5 \
+                86d68eca1df8f58a16831e05e968eecc \
+                0eb085db2ac7a62ab20dca9405fef1b0 \
+                b79eaf982d121edc4d16e7f48e2ab920 \
+                53e3353722fc7057af3d31fe0c122e51 \
+                2324e4817c01a1842bd8d78bfea75741 \
+                3813e1d738392156dad04f06d546c0f3 \
+                80b299632b8eddeb88212edcf2d22d3d \
+                d6563249cc67440c65aafc997c015ef0 \
+                2ecf7c03c814ab155c5278d61f65583f \
+                5ef0a1bd28f353c14bf940103a879257 \
+                50f1e684ac0195a0af4060e3831837ba \
+                bf5116434adcbaf3c32f7ecfc5bd5f82 \
+                0d83cf9441e62718ab9e4e9a584f9ae5"
 REQUIRES=""
 MAINTAINER="danix"
 EMAIL="danix@danix.xyz"

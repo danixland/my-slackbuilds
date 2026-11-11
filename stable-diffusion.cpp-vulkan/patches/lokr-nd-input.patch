@@ -22,6 +22,6 @@ index 7dacfd1..686b8d3 100644
          ggml_tensor* hc  = ggml_transpose(ctx, hc_t);
 -        ggml_tensor* out = ggml_reshape_2d(ctx, ggml_cont(ctx, hc), up * vp, batch);
 +        ggml_tensor* out = ggml_reshape_4d(ctx, ggml_cont(ctx, hc), up * vp, h_in->ne[1], h_in->ne[2], h_in->ne[3]);
-         return ggml_ext_scale(ctx, out, scale);
+         return ggml_ext_scale(runner_ctx, out, scale);
      } else {
          int batch = (int)h->ne[3];
