@@ -36,8 +36,8 @@ prefix = "v"
 
 [discord]
 source = "httpheader"
-url = "https://discord.com/api/download?platform=linux&format=tar.gz"
-regex = "discord-(.*)\\.tar.*"
+url = "https://discord.com/api/downloads/distributions/app/installers/latest?arch=x64&channel=stable&platform=linux&format=tar.gz"
+regex = "/x64/([0-9.]+)/"
 
 [solvespace]
 source = "github"
